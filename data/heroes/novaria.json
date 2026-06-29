@@ -3,7 +3,7 @@
   "id": "novaria",
   "name": "Novaria",
   "releaseYear": 2023,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -71,9 +71,15 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Novaria",
-          "outputs": []
+          "id": "passive_auto",
+          "trigger": "on_cast",
+          "outputs": [
+            {
+              "type": "slow",
+              "valuePercent": 20,
+              "durationSeconds": 2
+            }
+          ]
         }
       ]
     },
@@ -83,10 +89,41 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Novaria",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(260 + 25 * (skill_level - 1)) + 0.5 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 50,
+              "durationSeconds": 2
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        8,
+        7.6,
+        7.2,
+        6.8,
+        6.4,
+        6
+      ],
+      "manaCost": [
+        60,
+        68,
+        76,
+        84,
+        92,
+        100
       ]
     },
     {
@@ -95,10 +132,36 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Novaria",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(230 + 30 * (skill_level - 1)) + 0.9 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "manaCost": [
+        60,
+        70,
+        80,
+        90,
+        100,
+        110
       ]
     },
     {
@@ -107,16 +170,37 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Novaria",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "outputs": [
+            {
+              "type": "slow",
+              "valuePercent": 50,
+              "durationSeconds": 0.8
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        45,
+        40,
+        35
+      ],
+      "manaCost": [
+        100,
+        100,
+        100
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Novaria",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Novaria",
       "retrieved": "2026-06-29"
     }

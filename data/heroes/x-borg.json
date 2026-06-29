@@ -3,7 +3,7 @@
   "id": "x-borg",
   "name": "X.Borg",
   "releaseYear": 2019,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "energy",
   "damageType": "physical",
   "roles": [
@@ -68,8 +68,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/X.Borg",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -80,10 +80,29 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/X.Borg",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(25 + 15 * (skill_level - 1)) + 0.6 * physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 7
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
       ]
     },
     {
@@ -92,10 +111,32 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/X.Borg",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(50 + 10 * (skill_level - 1)) + 0.2 * physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 5
+            },
+            {
+              "type": "knockback"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        12,
+        11.4,
+        10.8,
+        10.2,
+        9.6,
+        9
       ]
     },
     {
@@ -104,16 +145,46 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/X.Borg",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "bonus_physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(200 + 25 * (skill_level - 1)) + 1.3 * bonus_physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 12
+            },
+            {
+              "type": "slow",
+              "valuePercent": 25
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        30,
+        27,
+        24
+      ],
+      "manaCost": [
+        100,
+        100,
+        100
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/X.Borg",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/X.Borg",
       "retrieved": "2026-06-29"
     }

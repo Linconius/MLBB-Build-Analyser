@@ -3,7 +3,7 @@
   "id": "obsidia",
   "name": "Obsidia",
   "releaseYear": 2025,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -71,8 +71,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Obsidia",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -83,10 +83,36 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Obsidia",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(325 + 35 * (skill_level - 1)) + 0.8 * physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        4.5,
+        4.2,
+        3.9,
+        3.6,
+        3.3,
+        3
+      ],
+      "manaCost": [
+        35,
+        38,
+        41,
+        44,
+        47,
+        50
       ]
     },
     {
@@ -95,10 +121,26 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Obsidia",
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        4.5,
+        4.2,
+        3.9,
+        3.6,
+        3.3,
+        3
+      ],
+      "manaCost": [
+        35,
+        40,
+        45,
+        50,
+        55,
+        60
       ]
     },
     {
@@ -107,16 +149,49 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Obsidia",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(125 + 50 * (skill_level - 1)) + 0.6 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 0.5
+            },
+            {
+              "type": "root",
+              "durationSeconds": 3
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        40,
+        35,
+        30
+      ],
+      "manaCost": [
+        100,
+        50,
+        0
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Obsidia",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Obsidia",
       "retrieved": "2026-06-29"
     }

@@ -3,7 +3,7 @@
   "id": "selena",
   "name": "Selena",
   "releaseYear": 2018,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -73,9 +73,18 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Selena",
-          "outputs": []
+          "id": "passive_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "225 + 0.4 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
@@ -85,10 +94,41 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Selena",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(350 + 40 * (skill_level - 1)) + 1.5 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 70,
+              "durationSeconds": 1
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        8,
+        7.6,
+        7.2,
+        6.8,
+        6.4,
+        6
+      ],
+      "manaCost": [
+        60,
+        70,
+        80,
+        90,
+        100,
+        110
       ]
     },
     {
@@ -97,10 +137,40 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Selena",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(250 + 110 * (skill_level - 1)) + 0.4 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 2.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "manaCost": [
+        70,
+        80,
+        90,
+        100,
+        110,
+        120
       ]
     },
     {
@@ -109,8 +179,8 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Selena",
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -119,6 +189,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Selena",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Selena",
       "retrieved": "2026-06-29"
     }

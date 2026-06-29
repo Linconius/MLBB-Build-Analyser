@@ -3,7 +3,7 @@
   "id": "yve",
   "name": "Yve",
   "releaseYear": 2021,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -71,8 +71,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Yve",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -83,10 +83,36 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Yve",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(350 + 50 * (skill_level - 1)) + 1.5 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        5,
+        4.5,
+        4,
+        3.5,
+        3,
+        2.5
+      ],
+      "manaCost": [
+        65,
+        70,
+        75,
+        80,
+        85,
+        90
       ]
     },
     {
@@ -95,10 +121,32 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Yve",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(220 + 40 * (skill_level - 1)) + 0.4 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 30
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        14,
+        13.6,
+        13.2,
+        12.8,
+        12.4,
+        12
       ]
     },
     {
@@ -107,16 +155,50 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Yve",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(340 + 100 * (skill_level - 1)) + 1.2 * magic_power",
+              "magnitudeUnit": "flat",
+              "hits": 15
+            },
+            {
+              "type": "root",
+              "durationSeconds": 0.8
+            },
+            {
+              "type": "slow",
+              "valuePercent": 50
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        60,
+        60,
+        60
+      ],
+      "manaCost": [
+        180,
+        220,
+        260
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Yve",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Yve",
       "retrieved": "2026-06-29"
     }

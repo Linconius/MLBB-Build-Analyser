@@ -3,7 +3,7 @@
   "id": "yi-sun-shin",
   "name": "Yi Sun-shin",
   "releaseYear": 2017,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -72,8 +72,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Yi_Sun-shin",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -84,10 +84,36 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Yi_Sun-shin",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(150 + 30 * (skill_level - 1)) + 0.4 * physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        12,
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "manaCost": [
+        50,
+        55,
+        60,
+        65,
+        70,
+        75
       ]
     },
     {
@@ -96,10 +122,36 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Yi_Sun-shin",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(240 + 20 * (skill_level - 1)) + 0.8 * physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        11,
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "manaCost": [
+        60,
+        65,
+        70,
+        75,
+        80,
+        85
       ]
     },
     {
@@ -108,16 +160,49 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Yi_Sun-shin",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(160 + 80 * (skill_level - 1)) + 0.65 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 0.8
+            },
+            {
+              "type": "slow",
+              "valuePercent": 30
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        60,
+        60,
+        60
+      ],
+      "manaCost": [
+        150,
+        180,
+        210
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Yi_Sun-shin",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Yi_Sun-shin",
       "retrieved": "2026-06-29"
     }

@@ -3,7 +3,7 @@
   "id": "thamuz",
   "name": "Thamuz",
   "releaseYear": 2018,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "none",
   "damageType": "physical",
   "roles": [
@@ -68,9 +68,18 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Thamuz",
-          "outputs": []
+          "id": "passive_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_true",
+              "formula": "55 + 0.6 * physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
@@ -80,10 +89,32 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Thamuz",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(120 + 30 * (skill_level - 1)) + 0.6 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 30
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
       ]
     },
     {
@@ -92,10 +123,33 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Thamuz",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "bonus_physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(230 + 25 * (skill_level - 1)) + 0.6 * bonus_physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 25,
+              "durationSeconds": 2
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        8,
+        7.6,
+        7.2,
+        6.8,
+        6.4,
+        6
       ]
     },
     {
@@ -104,16 +158,36 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Thamuz",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(300 + 90 * (skill_level - 1)) + 0.8 * physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        38,
+        34,
+        30
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Thamuz",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Thamuz",
       "retrieved": "2026-06-29"
     }

@@ -3,7 +3,7 @@
   "id": "lylia",
   "name": "Lylia",
   "releaseYear": 2019,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -71,8 +71,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lylia",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -83,10 +83,33 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lylia",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(250 + 50 * (skill_level - 1)) + 1 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 40,
+              "durationSeconds": 1.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
       ]
     },
     {
@@ -95,10 +118,33 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lylia",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(100 + 12 * (skill_level - 1)) + 0.5 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 80,
+              "durationSeconds": 0.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
       ]
     },
     {
@@ -107,16 +153,31 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lylia",
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        45,
+        40,
+        35
+      ],
+      "manaCost": [
+        120,
+        60,
+        0
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Lylia",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Lylia",
       "retrieved": "2026-06-29"
     }

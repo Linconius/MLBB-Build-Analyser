@@ -3,7 +3,7 @@
   "id": "melissa",
   "name": "Melissa",
   "releaseYear": 2022,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -71,8 +71,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Melissa",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -83,10 +83,26 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Melissa",
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        7.5,
+        7,
+        6.5,
+        6,
+        5.5,
+        5
+      ],
+      "manaCost": [
+        30,
+        35,
+        40,
+        45,
+        50,
+        55
       ]
     },
     {
@@ -95,10 +111,41 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Melissa",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(250 + 30 * (skill_level - 1)) + 0.8 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 60,
+              "durationSeconds": 1.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        9,
+        8.6,
+        8.2,
+        7.8,
+        7.4,
+        7
+      ],
+      "manaCost": [
+        60,
+        50,
+        40,
+        30,
+        20,
+        10
       ]
     },
     {
@@ -107,16 +154,50 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Melissa",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(500 + 200 * (skill_level - 1)) + 1 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "knockback",
+              "durationSeconds": 4
+            },
+            {
+              "type": "slow",
+              "valuePercent": 60,
+              "durationSeconds": 4
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        50,
+        45,
+        40
+      ],
+      "manaCost": [
+        120,
+        150,
+        180
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Melissa",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Melissa",
       "retrieved": "2026-06-29"
     }

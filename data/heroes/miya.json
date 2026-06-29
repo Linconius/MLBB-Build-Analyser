@@ -3,7 +3,7 @@
   "id": "miya",
   "name": "Miya",
   "releaseYear": 2016,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -71,8 +71,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Miya",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -83,10 +83,37 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Miya",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(10 + 5 * (skill_level - 1)) + 1 * physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 3
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        11,
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "manaCost": [
+        50,
+        55,
+        60,
+        65,
+        70,
+        75
       ]
     },
     {
@@ -95,10 +122,46 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Miya",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(270 + 30 * (skill_level - 1)) + 0.45 * physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 7
+            },
+            {
+              "type": "root",
+              "durationSeconds": 1.2
+            },
+            {
+              "type": "slow",
+              "valuePercent": 30,
+              "durationSeconds": 2
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "manaCost": [
+        80,
+        90,
+        100,
+        110,
+        120,
+        130
       ]
     },
     {
@@ -107,16 +170,31 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Miya",
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        30,
+        25,
+        20
+      ],
+      "manaCost": [
+        120,
+        145,
+        170
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Miya",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Miya",
       "retrieved": "2026-06-29"
     }

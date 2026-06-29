@@ -3,7 +3,7 @@
   "id": "khaleed",
   "name": "Khaleed",
   "releaseYear": 2020,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "none",
   "damageType": "physical",
   "roles": [
@@ -71,9 +71,23 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Khaleed",
-          "outputs": []
+          "id": "passive_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "50 + 1.4 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 40,
+              "durationSeconds": 1.5
+            }
+          ]
         }
       ]
     },
@@ -83,10 +97,31 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Khaleed",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(200 + 65 * (skill_level - 1)) + 1.4 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "knockback"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        6.5,
+        6,
+        5.5,
+        5,
+        4.5,
+        4
       ]
     },
     {
@@ -95,10 +130,24 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Khaleed",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "outputs": [
+            {
+              "type": "slow",
+              "valuePercent": 60,
+              "durationSeconds": 1
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        22,
+        21,
+        20,
+        19,
+        18,
+        17
       ]
     },
     {
@@ -107,16 +156,43 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Khaleed",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(450 + 150 * (skill_level - 1)) + 1.6 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 1
+            },
+            {
+              "type": "knockback"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        46,
+        42,
+        38
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Khaleed",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Khaleed",
       "retrieved": "2026-06-29"
     }

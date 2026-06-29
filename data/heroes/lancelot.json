@@ -3,7 +3,7 @@
   "id": "lancelot",
   "name": "Lancelot",
   "releaseYear": 2017,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -71,8 +71,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lancelot",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -83,10 +83,36 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lancelot",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(100 + 30 * (skill_level - 1)) + 0.5 * physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        14,
+        13.6,
+        13.2,
+        12.8,
+        12.4,
+        12
+      ],
+      "manaCost": [
+        50,
+        48,
+        46,
+        44,
+        42,
+        40
       ]
     },
     {
@@ -95,10 +121,41 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lancelot",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "bonus_physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(225 + 35 * (skill_level - 1)) + 1 * bonus_physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 20,
+              "durationSeconds": 0.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        10,
+        9.4,
+        8.8,
+        8.2,
+        7.6,
+        7
+      ],
+      "manaCost": [
+        120,
+        112,
+        104,
+        96,
+        88,
+        80
       ]
     },
     {
@@ -107,16 +164,41 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lancelot",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "350 + 1.7 * physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        27,
+        24,
+        21
+      ],
+      "manaCost": [
+        100,
+        125,
+        150
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Lancelot",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Lancelot",
       "retrieved": "2026-06-29"
     }

@@ -3,7 +3,7 @@
   "id": "uranus",
   "name": "Uranus",
   "releaseYear": 2018,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -67,8 +67,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Uranus",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -79,10 +79,42 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Uranus",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(155 + 20 * (skill_level - 1)) + 0.3 * magic_power",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            },
+            {
+              "type": "slow",
+              "valuePercent": 30,
+              "durationSeconds": 2
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "manaCost": [
+        60,
+        65,
+        70,
+        75,
+        80,
+        85
       ]
     },
     {
@@ -91,10 +123,40 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Uranus",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(160 + 48 * (skill_level - 1)) + 0.8 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 25
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "manaCost": [
+        80,
+        90,
+        100,
+        110,
+        120,
+        130
       ]
     },
     {
@@ -103,16 +165,31 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Uranus",
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        42,
+        39,
+        36
+      ],
+      "manaCost": [
+        100,
+        125,
+        150
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Uranus",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Uranus",
       "retrieved": "2026-06-29"
     }

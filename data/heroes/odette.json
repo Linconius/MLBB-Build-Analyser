@@ -3,7 +3,7 @@
   "id": "odette",
   "name": "Odette",
   "releaseYear": 2017,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -71,9 +71,18 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Odette",
-          "outputs": []
+          "id": "passive_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "140 + 0.5 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
@@ -83,10 +92,41 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Odette",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(300 + 50 * (skill_level - 1)) + 1.5 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 30,
+              "durationSeconds": 2
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        6,
+        5.8,
+        5.6,
+        5.4,
+        5.2,
+        5
+      ],
+      "manaCost": [
+        90,
+        100,
+        110,
+        120,
+        130,
+        140
       ]
     },
     {
@@ -95,10 +135,41 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Odette",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(250 + 30 * (skill_level - 1)) + 0.5 * magic_power",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            },
+            {
+              "type": "root",
+              "durationSeconds": 1.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        12,
+        11.6,
+        11.2,
+        10.8,
+        10.4,
+        10
+      ],
+      "manaCost": [
+        90,
+        95,
+        100,
+        105,
+        110,
+        115
       ]
     },
     {
@@ -107,16 +178,42 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Odette",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(2000 + 500 * (skill_level - 1)) + 7.5 * magic_power",
+              "magnitudeUnit": "flat",
+              "hits": 10
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        50,
+        45,
+        40
+      ],
+      "manaCost": [
+        200,
+        240,
+        280
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Odette",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Odette",
       "retrieved": "2026-06-29"
     }

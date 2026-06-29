@@ -3,7 +3,7 @@
   "id": "silvanna",
   "name": "Silvanna",
   "releaseYear": 2019,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -68,9 +68,18 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Silvanna",
-          "outputs": []
+          "id": "passive_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "25 + 0.75 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
@@ -80,10 +89,40 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Silvanna",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(250 + 30 * (skill_level - 1)) + 1 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 1
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        11,
+        10.6,
+        10.2,
+        9.8,
+        9.4,
+        9
+      ],
+      "manaCost": [
+        70,
+        78,
+        86,
+        94,
+        102,
+        110
       ]
     },
     {
@@ -92,10 +131,40 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Silvanna",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(165 + 18 * (skill_level - 1)) + 0.45 * magic_power",
+              "magnitudeUnit": "flat",
+              "hits": 6
+            },
+            {
+              "type": "knockback"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        5.5,
+        5.3,
+        5.1,
+        4.9,
+        4.7,
+        4.5
+      ],
+      "manaCost": [
+        35,
+        40,
+        45,
+        50,
+        55,
+        60
       ]
     },
     {
@@ -104,16 +173,50 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Silvanna",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(350 + 150 * (skill_level - 1)) + 1.1 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 40,
+              "durationSeconds": 1.5
+            },
+            {
+              "type": "root",
+              "durationSeconds": 3.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        52,
+        48,
+        44
+      ],
+      "manaCost": [
+        130,
+        140,
+        150
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Silvanna",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Silvanna",
       "retrieved": "2026-06-29"
     }

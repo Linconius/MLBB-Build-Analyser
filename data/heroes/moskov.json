@@ -3,7 +3,7 @@
   "id": "moskov",
   "name": "Moskov",
   "releaseYear": 2017,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -71,8 +71,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Moskov",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -83,10 +83,26 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Moskov",
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        10,
+        9.6,
+        9.2,
+        8.8,
+        8.4,
+        8
+      ],
+      "manaCost": [
+        45,
+        50,
+        55,
+        60,
+        65,
+        70
       ]
     },
     {
@@ -95,10 +111,44 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Moskov",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(300 + 30 * (skill_level - 1)) + 0.6 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "knockback",
+              "durationSeconds": 0
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 1.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        12,
+        11.5,
+        11,
+        10.5,
+        10,
+        9.5
+      ],
+      "manaCost": [
+        80,
+        90,
+        100,
+        110,
+        120,
+        130
       ]
     },
     {
@@ -107,16 +157,46 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Moskov",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "bonus_physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(340 + 80 * (skill_level - 1)) + 1 * bonus_physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 50,
+              "durationSeconds": 3
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        55,
+        50,
+        45
+      ],
+      "manaCost": [
+        130,
+        150,
+        170
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Moskov",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Moskov",
       "retrieved": "2026-06-29"
     }

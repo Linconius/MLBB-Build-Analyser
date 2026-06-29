@@ -3,7 +3,7 @@
   "id": "valir",
   "name": "Valir",
   "releaseYear": 2018,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -71,9 +71,14 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Valir",
-          "outputs": []
+          "id": "passive_auto",
+          "trigger": "on_cast",
+          "outputs": [
+            {
+              "type": "stun",
+              "durationSeconds": 1
+            }
+          ]
         }
       ]
     },
@@ -83,10 +88,42 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Valir",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(235 + 35 * (skill_level - 1)) + 0.8 * magic_power",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            },
+            {
+              "type": "slow",
+              "valuePercent": 30,
+              "durationSeconds": 1
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "manaCost": [
+        50,
+        58,
+        66,
+        74,
+        82,
+        90
       ]
     },
     {
@@ -95,10 +132,44 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Valir",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(200 + 20 * (skill_level - 1)) + 0.6 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "knockback"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 25,
+              "durationSeconds": 1
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        13,
+        12.4,
+        11.8,
+        11.2,
+        10.6,
+        10
+      ],
+      "manaCost": [
+        80,
+        86,
+        92,
+        98,
+        104,
+        110
       ]
     },
     {
@@ -107,16 +178,31 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Valir",
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        36,
+        33,
+        30
+      ],
+      "manaCost": [
+        100,
+        125,
+        150
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Valir",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Valir",
       "retrieved": "2026-06-29"
     }
