@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 720,
-    "combine": 250
+    "combine": 250,
+    "components": [
+      "boots",
+      "magic-resist-cloak"
+    ]
   },
   "stats": {
     "movementSpeed": 40,

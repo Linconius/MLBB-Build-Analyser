@@ -6,7 +6,11 @@
   "tier": 2,
   "cost": {
     "total": 950,
-    "combine": 380
+    "combine": 200,
+    "components": [
+      "book-of-sages",
+      "mystery-codex"
+    ]
   },
   "stats": {
     "magicPower": 30,

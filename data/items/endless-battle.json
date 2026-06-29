@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 2330,
-    "combine": 630
+    "combine": 680,
+    "components": [
+      "azure-blade",
+      "vampire-mallet",
+      "ogre-tomahawk"
+    ]
   },
   "stats": {
     "physicalAttack": 60,

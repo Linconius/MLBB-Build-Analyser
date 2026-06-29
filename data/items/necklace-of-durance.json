@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 2010,
-    "combine": 560
+    "combine": 560,
+    "components": [
+      "mystery-codex",
+      "book-of-sages",
+      "elegant-gem"
+    ]
   },
   "stats": {
     "magicPower": 60,

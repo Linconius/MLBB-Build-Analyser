@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 2030,
-    "combine": 580
+    "combine": 580,
+    "components": [
+      "swift-crossbow",
+      "book-of-sages"
+    ]
   },
   "stats": {
     "magicPower": 60,

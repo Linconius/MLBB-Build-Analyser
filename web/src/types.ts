@@ -102,7 +102,15 @@ export type ItemStatKey =
   | "physicalPenetrationFlat" | "physicalPenetrationPct"
   | "magicPenetrationFlat" | "magicPenetrationPct"
   | "lifestealPct" | "physicalLifestealPct" | "spellVampPct" | "hybridLifestealPct"
+  | "hybridPenetrationFlat" | "hybridPenetrationPct"
   | "adaptiveAttack" | "adaptivePenetration";
+
+/**
+ * A stat grant on an item. Either a plain number (stacks across items) or a value flagged
+ * with a unique-attribute name: same-named flagged grants do NOT stack across the build —
+ * only the highest counts. See docs/STAT-CONVENTIONS.md.
+ */
+export type ItemStatValue = number | { value: number; unique: string };
 
 export interface Item {
   schemaVersion: string;
@@ -113,7 +121,7 @@ export interface Item {
   lastPatch?: string;
   iconAsset?: string;
   cost: { total: number; combine?: number; components?: string[] };
-  stats: Partial<Record<ItemStatKey, number>>;
+  stats: Partial<Record<ItemStatKey, ItemStatValue>>;
   passives?: ItemEffectBlock[];
   actives?: ItemEffectBlock[];
 }

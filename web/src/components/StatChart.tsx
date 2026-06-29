@@ -32,7 +32,7 @@ export function StatChart({ timeline }: { timeline: Timeline }) {
     timeline.unlocks
       .filter((u) => Number.isFinite(u.unlockMinute) && u.unlockMinute <= lastMinute)
       .map((u) => (
-        <ReferenceLine key={u.item.id} x={Math.round(u.unlockMinute * 10) / 10} {...(yAxisId ? { yAxisId } : {})}
+        <ReferenceLine key={u.key} x={Math.round(u.unlockMinute * 10) / 10} {...(yAxisId ? { yAxisId } : {})}
           stroke="#f5c451" strokeDasharray="3 3"
           label={{ value: u.item.name, position: "top", fill: "#f5c451", fontSize: 10 }} />
       ));

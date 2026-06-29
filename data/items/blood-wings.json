@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 2100,
-    "combine": 460
+    "combine": 460,
+    "components": [
+      "magic-wand",
+      "magic-wand"
+    ]
   },
   "stats": {
     "magicPower": 90

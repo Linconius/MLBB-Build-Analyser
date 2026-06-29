@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 2100,
-    "combine": 480
+    "combine": 880,
+    "components": [
+      "ares-belt",
+      "vitality-crystal",
+      "leather-jerkin"
+    ]
   },
   "stats": {
     "hp": 1200,

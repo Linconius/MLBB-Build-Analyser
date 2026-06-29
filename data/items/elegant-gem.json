@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 700,
-    "combine": 180
+    "combine": 180,
+    "components": [
+      "vitality-crystal",
+      "power-crystal"
+    ]
   },
   "stats": {
     "hp": 300,

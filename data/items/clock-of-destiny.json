@@ -5,7 +5,14 @@
   "category": "Magic",
   "tier": 3,
   "lastPatch": "1.8.80",
-  "cost": { "total": 2050 },
+  "cost": {
+    "total": 2050,
+    "combine": 530,
+    "components": [
+      "elegant-gem",
+      "magic-wand"
+    ]
+  },
   "stats": {
     "magicPower": 45,
     "hp": 400,

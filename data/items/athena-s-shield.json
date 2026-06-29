@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 2150,
-    "combine": 830
+    "combine": 830,
+    "components": [
+      "silence-robe",
+      "vitality-crystal"
+    ]
   },
   "stats": {
     "hp": 900,

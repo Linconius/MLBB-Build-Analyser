@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 2030,
-    "combine": 700
+    "combine": 580,
+    "components": [
+      "magic-blade",
+      "vampire-mallet"
+    ]
   },
   "stats": {
     "physicalAttack": 30,

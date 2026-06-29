@@ -6,12 +6,15 @@
   "tier": 1,
   "cost": {
     "total": 720,
-    "combine": 170
+    "combine": 470,
+    "components": [
+      "boots"
+    ]
   },
   "stats": {
     "movementSpeed": 40,
     "magicPower": 15,
-    "magicPenetrationFlat": 10
+    "magicPenetrationPct": 10
   },
   "sources": [
     {

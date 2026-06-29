@@ -135,12 +135,39 @@ for (const path of listJson(ITEMS_DIR)) {
   }
 }
 
-// Referential integrity: components resolve.
+// Referential integrity + recipe sanity.
+const itemByIdMap = new Map<string, any>(itemFiles.map(({ item }) => [item.id, item]));
 for (const { path, item } of itemFiles) {
   const file = `data/items/${basename(path)}`;
-  for (const comp of item.cost?.components ?? []) {
+  const comps: string[] = item.cost?.components ?? [];
+  for (const comp of comps) {
     if (!itemIds.has(comp)) fail(file, `cost.components references unknown item "${comp}"`);
   }
+  // Cost conservation: total === Σ(component.total) + combine. Only enforce when every
+  // component resolves, so half-authored recipes warn elsewhere rather than hard-fail here.
+  if (comps.length && comps.every((c) => itemIds.has(c))) {
+    const componentsTotal = comps.reduce((sum, c) => sum + (itemByIdMap.get(c).cost.total ?? 0), 0);
+    const combine = item.cost.combine ?? 0;
+    if (componentsTotal + combine !== item.cost.total) {
+      fail(file, `cost.total ${item.cost.total} != Σcomponents ${componentsTotal} + combine ${combine}`);
+    }
+  }
+}
+
+// Cycle detection over the component graph (a recipe must not contain itself).
+for (const { path, item } of itemFiles) {
+  const file = `data/items/${basename(path)}`;
+  const stack: string[] = [];
+  const visit = (id: string): boolean => {
+    if (stack.includes(id)) return true;
+    const node = itemByIdMap.get(id);
+    if (!node) return false;
+    stack.push(id);
+    const cyclic = (node.cost?.components ?? []).some((c: string) => visit(c));
+    stack.pop();
+    return cyclic;
+  };
+  if (visit(item.id)) fail(file, `cost.components forms a cycle through "${item.id}"`);
 }
 
 // --- Report ----------------------------------------------------------------

@@ -6,11 +6,16 @@
   "tier": 3,
   "cost": {
     "total": 2000,
-    "combine": 580
+    "combine": 580,
+    "components": [
+      "exotic-veil",
+      "magic-wand"
+    ]
   },
   "stats": {
     "magicPower": 75,
-    "movementSpeedPct": 5
+    "movementSpeedPct": 5,
+    "magicPenetrationFlat": 10
   },
   "passives": [
     {

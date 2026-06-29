@@ -100,6 +100,8 @@
         "physicalLifestealPct",
         "spellVampPct",
         "hybridLifestealPct",
+        "hybridPenetrationFlat",
+        "hybridPenetrationPct",
         "adaptiveAttack",
         "adaptivePenetration"
       ]

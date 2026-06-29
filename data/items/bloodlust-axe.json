@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 1970,
-    "combine": 820
+    "combine": 820,
+    "components": [
+      "iron-hunting-bow",
+      "iron-hunting-bow",
+      "dagger"
+    ]
   },
   "stats": {
     "physicalAttack": 70,

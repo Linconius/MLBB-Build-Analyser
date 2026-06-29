@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 2100,
-    "combine": 770
+    "combine": 770,
+    "components": [
+      "steel-legplates",
+      "ares-belt"
+    ]
   },
   "stats": {
     "hp": 900,

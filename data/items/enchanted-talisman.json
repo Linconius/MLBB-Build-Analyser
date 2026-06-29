@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 2070,
-    "combine": 180
+    "combine": 550,
+    "components": [
+      "book-of-sages",
+      "tome-of-evil",
+      "magic-necklace"
+    ]
   },
   "stats": {
     "magicPower": 70,

@@ -6,7 +6,11 @@
   "tier": 1,
   "cost": {
     "total": 600,
-    "combine": 70
+    "combine": 70,
+    "components": [
+      "knife",
+      "dagger"
+    ]
   },
   "stats": {
     "physicalAttack": 20,

@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 600,
-    "combine": 360
+    "combine": 360,
+    "components": [
+      "magic-necklace",
+      "magic-necklace"
+    ]
   },
   "stats": {
     "manaRegen": 5,

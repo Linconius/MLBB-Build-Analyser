@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 780,
-    "combine": 340
+    "combine": 340,
+    "components": [
+      "leather-jerkin",
+      "power-crystal"
+    ]
   },
   "stats": {
     "physicalDefense": 20,

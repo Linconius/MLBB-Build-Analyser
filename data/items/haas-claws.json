@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 2020,
-    "combine": 470
+    "combine": 470,
+    "components": [
+      "rogue-meteor",
+      "vampire-mallet",
+      "dagger"
+    ]
   },
   "stats": {
     "physicalAttack": 40,

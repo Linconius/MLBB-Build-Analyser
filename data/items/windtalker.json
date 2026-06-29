@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 1880,
-    "combine": 700
+    "combine": 700,
+    "components": [
+      "rogue-meteor",
+      "knife"
+    ]
   },
   "stats": {
     "attackSpeedPct": 35,

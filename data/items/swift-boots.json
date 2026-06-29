@@ -6,7 +6,11 @@
   "tier": 1,
   "cost": {
     "total": 720,
-    "combine": 190
+    "combine": 190,
+    "components": [
+      "boots",
+      "knife"
+    ]
   },
   "stats": {
     "movementSpeed": 40,

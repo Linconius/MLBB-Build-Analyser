@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 1880,
-    "combine": 500
+    "combine": 500,
+    "components": [
+      "silence-robe",
+      "magic-resist-cloak",
+      "healing-necklace"
+    ]
   },
   "stats": {
     "hp": 950,

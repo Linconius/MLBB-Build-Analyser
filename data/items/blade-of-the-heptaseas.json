@@ -6,11 +6,16 @@
   "tier": 3,
   "cost": {
     "total": 1950,
-    "combine": 470
+    "combine": 470,
+    "components": [
+      "ogre-tomahawk",
+      "fury-hammer"
+    ]
   },
   "stats": {
     "physicalAttack": 70,
-    "hp": 250
+    "hp": 250,
+    "physicalPenetrationFlat": 15
   },
   "passives": [
     {

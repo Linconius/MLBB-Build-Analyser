@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 2010,
-    "combine": 790
+    "combine": 600,
+    "components": [
+      "black-ice-shield",
+      "steel-legplates"
+    ]
   },
   "stats": {
     "physicalDefense": 40,

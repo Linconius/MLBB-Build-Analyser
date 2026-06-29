@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 720,
-    "combine": 230
+    "combine": 230,
+    "components": [
+      "boots",
+      "magic-necklace",
+      "magic-necklace"
+    ]
   },
   "stats": {
     "movementSpeed": 40,

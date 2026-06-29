@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 2070,
-    "combine": 700
+    "combine": 1100,
+    "components": [
+      "hero-s-ring",
+      "vitality-crystal",
+      "leather-jerkin"
+    ]
   },
   "stats": {
     "hp": 800,

@@ -54,6 +54,17 @@ When computing a target's `effectiveDefense`, apply in this order (each floored 
 3. `% penetration`
 4. `flat penetration`
 
+### Penetration units & display
+
+`physicalPenetrationPct` / `magicPenetrationPct` are summed in **percent points** during
+aggregation and divided by 100 in the final step to become a `0..1` fraction (the form
+damage math consumes). Flat penetration is a plain number throughout. Lifesteal / spell vamp
+are summed as percent points and are **not** divided by 100.
+
+In charts and per-hero final stat displays, penetration is shown as a single combined value
+per type, `flat × (1 + pct)`. This is **display-only** — the damage calculation still applies
+flat and % penetration separately, in the order above.
+
 ## Caps
 
 | Stat | Cap |
@@ -62,8 +73,34 @@ When computing a target's `effectiveDefense`, apply in this order (each floored 
 | Attack speed | 3.0 attacks/sec |
 | Movement speed | no hard cap; effective zone 230–420 (annotated, not re-curved in v1) |
 
-## Adaptive stats
+## Adaptive vs hybrid stats
 
-`adaptiveAttack` / `adaptivePenetration` resolve to physical or magic based on the hero's
-`damageType` (or the larger of physical attack / magic power for true-hybrid heroes). The
-resolved value populates the appropriate caster variable before formula evaluation.
+**Adaptive** stats resolve to **one** type based on the hero's `damageType` (or the larger of
+physical attack / magic power for true-hybrid heroes); the resolved value populates the
+appropriate caster variable before formula evaluation:
+
+- `adaptiveAttack` → physical attack or magic power.
+- `adaptivePenetration` → physical or magic **flat** penetration.
+
+**Hybrid** stats count as **both** the physical and magical version simultaneously, independent
+of the hero. They add to both sides during aggregation:
+
+- `hybridLifestealPct` → both lifesteal and spell vamp.
+- `hybridPenetrationFlat` → both physical and magic flat penetration.
+- `hybridPenetrationPct` → both physical and magic % penetration (folded as percent points,
+  before the final `/100`).
+
+## Unique attributes
+
+An item `stats` entry is normally a plain number that **stacks** across items. An entry may
+instead be flagged with a unique-attribute name:
+
+```json
+"movementSpeedPct": { "value": 5, "unique": "Swift Boots" }
+```
+
+Same-named flagged grants do **not** stack across a build — only the **highest** value counts
+(ties resolve to the first owned). Plain numeric grants are unaffected and still stack. This is
+how MLBB "Unique Passive" attributes (e.g. a `+5%` movement passive shared by several boots)
+behave. The two mechanisms coexist with the `passives` / `buff_stat` blocks, which are
+unchanged.

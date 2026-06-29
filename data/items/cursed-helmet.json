@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 1910,
-    "combine": 190
+    "combine": 190,
+    "components": [
+      "molten-essence",
+      "ares-belt",
+      "magic-resist-cloak"
+    ]
   },
   "stats": {
     "hp": 1200,

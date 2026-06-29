@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 2040,
-    "combine": 640
+    "combine": 720,
+    "components": [
+      "magic-wand",
+      "mystic-container"
+    ]
   },
   "stats": {
     "magicPower": 60,
