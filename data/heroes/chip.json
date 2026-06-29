@@ -3,7 +3,7 @@
   "id": "chip",
   "name": "Chip",
   "releaseYear": 2024,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -72,8 +72,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Chip",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -84,10 +84,40 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Chip",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(220 + 30 * (skill_level - 1)) + 0.6 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 0.6
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        5.5,
+        5.2,
+        4.9,
+        4.6,
+        4.3,
+        4
+      ],
+      "manaCost": [
+        40,
+        45,
+        50,
+        55,
+        60,
+        65
       ]
     },
     {
@@ -96,10 +126,40 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Chip",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(200 + 20 * (skill_level - 1)) + 0.3 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "knockback",
+              "durationSeconds": 0
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        15,
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "manaCost": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
       ]
     },
     {
@@ -108,16 +168,50 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Chip",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(200 + 50 * (skill_level - 1)) + 0.6 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 30,
+              "durationSeconds": 2.5
+            },
+            {
+              "type": "airborne",
+              "durationSeconds": 0.8
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        70,
+        60,
+        50
+      ],
+      "manaCost": [
+        110,
+        110,
+        110
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Chip",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Chip",
       "retrieved": "2026-06-29"
     }

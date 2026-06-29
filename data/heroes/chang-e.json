@@ -3,7 +3,7 @@
   "id": "chang-e",
   "name": "Chang'e",
   "releaseYear": 2018,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -71,9 +71,15 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Chang'e",
-          "outputs": []
+          "id": "passive_auto",
+          "trigger": "on_cast",
+          "outputs": [
+            {
+              "type": "slow",
+              "valuePercent": 20,
+              "durationSeconds": 2.1
+            }
+          ]
         }
       ]
     },
@@ -83,10 +89,41 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Chang'e",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(350 + 30 * (skill_level - 1)) + 1.3 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 20,
+              "durationSeconds": 1.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "manaCost": [
+        70,
+        75,
+        80,
+        85,
+        90,
+        95
       ]
     },
     {
@@ -95,10 +132,26 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Chang'e",
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        12,
+        11.5,
+        11,
+        10.5,
+        10,
+        9.5
+      ],
+      "manaCost": [
+        60,
+        70,
+        80,
+        90,
+        100,
+        110
       ]
     },
     {
@@ -107,16 +160,41 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Chang'e",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(60 + 15 * (skill_level - 1)) + 0.33 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        36,
+        33,
+        30
+      ],
+      "manaCost": [
+        150,
+        200,
+        250
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Chang'e",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Chang'e",
       "retrieved": "2026-06-29"
     }

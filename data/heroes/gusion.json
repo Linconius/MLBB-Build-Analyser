@@ -3,7 +3,7 @@
   "id": "gusion",
   "name": "Gusion",
   "releaseYear": 2018,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -72,8 +72,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Gusion",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -84,10 +84,37 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Gusion",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(200 + 20 * (skill_level - 1)) + 0.5 * magic_power",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        9,
+        8.4,
+        7.8,
+        7.2,
+        6.6,
+        6
+      ],
+      "manaCost": [
+        70,
+        70,
+        70,
+        70,
+        70,
+        70
       ]
     },
     {
@@ -96,10 +123,42 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Gusion",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(110 + 20 * (skill_level - 1)) + 0.5 * magic_power",
+              "magnitudeUnit": "flat",
+              "hits": 5
+            },
+            {
+              "type": "slow",
+              "valuePercent": 30,
+              "durationSeconds": 2
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        11,
+        10.6,
+        10.2,
+        9.8,
+        9.4,
+        9
+      ],
+      "manaCost": [
+        65,
+        75,
+        85,
+        95,
+        105,
+        115
       ]
     },
     {
@@ -108,8 +167,8 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Gusion",
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -118,6 +177,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Gusion",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Gusion",
       "retrieved": "2026-06-29"
     }

@@ -3,7 +3,7 @@
   "id": "franco",
   "name": "Franco",
   "releaseYear": 2016,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -71,8 +71,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Franco",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -83,10 +83,40 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Franco",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(400 + 50 * (skill_level - 1)) + 1 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "suppression",
+              "durationSeconds": 0
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        15,
+        14.2,
+        13.4,
+        12.6,
+        11.8,
+        11
+      ],
+      "manaCost": [
+        135,
+        140,
+        145,
+        150,
+        155,
+        160
       ]
     },
     {
@@ -95,10 +125,40 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Franco",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(300 + 30 * (skill_level - 1))",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 70,
+              "durationSeconds": 1.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        7,
+        6.5,
+        6,
+        5.5,
+        5,
+        4.5
+      ],
+      "manaCost": [
+        40,
+        45,
+        50,
+        55,
+        60,
+        65
       ]
     },
     {
@@ -107,16 +167,46 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Franco",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(50 + 10 * (skill_level - 1)) + 0.7 * physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 6
+            },
+            {
+              "type": "suppression",
+              "durationSeconds": 1.8
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        62,
+        55,
+        45
+      ],
+      "manaCost": [
+        110,
+        125,
+        140
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Franco",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Franco",
       "retrieved": "2026-06-29"
     }

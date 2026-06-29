@@ -3,7 +3,7 @@
   "id": "chou",
   "name": "Chou",
   "releaseYear": 2016,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "none",
   "damageType": "physical",
   "roles": [
@@ -71,9 +71,15 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Chou",
-          "outputs": []
+          "id": "passive_auto",
+          "trigger": "on_cast",
+          "outputs": [
+            {
+              "type": "slow",
+              "valuePercent": 80,
+              "durationSeconds": 3
+            }
+          ]
         }
       ]
     },
@@ -83,10 +89,32 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Chou",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(180 + 20 * (skill_level - 1)) + 0.7 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "airborne",
+              "durationSeconds": 0
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        9.5,
+        9.2,
+        8.9,
+        8.6,
+        8.3,
+        8
       ]
     },
     {
@@ -95,10 +123,18 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Chou",
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
       ]
     },
     {
@@ -107,16 +143,40 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Chou",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "bonus_physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(400 + 50 * (skill_level - 1)) + 2 * bonus_physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "knockback",
+              "durationSeconds": 0
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        34,
+        34,
+        34
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Chou",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Chou",
       "retrieved": "2026-06-29"
     }

@@ -3,7 +3,7 @@
   "id": "benedetta",
   "name": "Benedetta",
   "releaseYear": 2020,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -69,8 +69,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Benedetta",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -81,10 +81,42 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Benedetta",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(275 + 65 * (skill_level - 1)) + 0.75 * physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            },
+            {
+              "type": "slow",
+              "valuePercent": 60,
+              "durationSeconds": 0.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        10,
+        9.3,
+        8.6,
+        7.9,
+        7.2,
+        6.5
+      ],
+      "manaCost": [
+        55,
+        61,
+        67,
+        73,
+        79,
+        85
       ]
     },
     {
@@ -93,10 +125,40 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Benedetta",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(300 + 30 * (skill_level - 1)) + 0.8 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 1.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        15,
+        14.4,
+        13.8,
+        13.2,
+        12.6,
+        12
+      ],
+      "manaCost": [
+        100,
+        105,
+        110,
+        115,
+        120,
+        125
       ]
     },
     {
@@ -105,16 +167,47 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Benedetta",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "bonus_physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(1560 + 260 * (skill_level - 1)) + 11.05 * bonus_physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 13
+            },
+            {
+              "type": "slow",
+              "valuePercent": 50,
+              "durationSeconds": 2.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        45,
+        40,
+        35
+      ],
+      "manaCost": [
+        110,
+        135,
+        160
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Benedetta",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Benedetta",
       "retrieved": "2026-06-29"
     }

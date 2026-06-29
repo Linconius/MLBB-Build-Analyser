@@ -3,7 +3,7 @@
   "id": "gord",
   "name": "Gord",
   "releaseYear": 2016,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -71,9 +71,23 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Gord",
-          "outputs": []
+          "id": "passive_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_true",
+              "formula": "140 + 0.6 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 20,
+              "durationSeconds": 1
+            }
+          ]
         }
       ]
     },
@@ -83,10 +97,40 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Gord",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(270 + 45 * (skill_level - 1)) + 0.8 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 1
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8,
+        7.5
+      ],
+      "manaCost": [
+        90,
+        100,
+        110,
+        120,
+        130,
+        140
       ]
     },
     {
@@ -95,10 +139,37 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Gord",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(55 + 10 * (skill_level - 1)) + 0.16 * magic_power",
+              "magnitudeUnit": "flat",
+              "hits": 13
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        8,
+        7.6,
+        7.2,
+        6.8,
+        6.4,
+        6
+      ],
+      "manaCost": [
+        55,
+        65,
+        75,
+        85,
+        95,
+        105
       ]
     },
     {
@@ -107,16 +178,42 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Gord",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(110 + 50 * (skill_level - 1)) + 0.32 * magic_power",
+              "magnitudeUnit": "flat",
+              "hits": 16
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        44,
+        40,
+        36
+      ],
+      "manaCost": [
+        150,
+        170,
+        190
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Gord",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Gord",
       "retrieved": "2026-06-29"
     }

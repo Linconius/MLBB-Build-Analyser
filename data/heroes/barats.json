@@ -3,7 +3,7 @@
   "id": "barats",
   "name": "Barats",
   "releaseYear": 2020,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -72,8 +72,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Barats",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -84,10 +84,37 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Barats",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(180 + 60 * (skill_level - 1)) + 2 * physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        7,
+        6.6,
+        6.2,
+        5.8,
+        5.4,
+        5
+      ],
+      "manaCost": [
+        25,
+        30,
+        35,
+        40,
+        45,
+        50
       ]
     },
     {
@@ -96,10 +123,42 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Barats",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(200 + 30 * (skill_level - 1)) + 0.75 * physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            },
+            {
+              "type": "slow",
+              "valuePercent": 40,
+              "durationSeconds": 1
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        11,
+        10.4,
+        9.8,
+        9.2,
+        8.6,
+        8
+      ],
+      "manaCost": [
+        70,
+        76,
+        82,
+        88,
+        94,
+        100
       ]
     },
     {
@@ -108,16 +167,50 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Barats",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(300 + 100 * (skill_level - 1)) + 1.05 * physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            },
+            {
+              "type": "suppression",
+              "durationSeconds": 1.2
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 1
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        60,
+        55,
+        50
+      ],
+      "manaCost": [
+        100,
+        120,
+        140
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Barats",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Barats",
       "retrieved": "2026-06-29"
     }

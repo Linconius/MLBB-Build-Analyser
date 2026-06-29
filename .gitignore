@@ -9,6 +9,9 @@ dist/
 # Seed cache (raw upstream inputs — never committed)
 .seed-cache/
 
+# Agent skill-extraction drafts (intermediate)
+.drafts/
+
 # Logs / OS / editor
 *.log
 npm-debug.log*
