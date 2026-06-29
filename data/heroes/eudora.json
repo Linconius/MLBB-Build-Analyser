@@ -3,7 +3,7 @@
   "id": "eudora",
   "name": "Eudora",
   "releaseYear": 2016,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -68,11 +68,13 @@
     {
       "slot": "passive",
       "name": "Superconductor",
+      "description": "Hitting a non-minion enemy inflicts a Superconductor mark for 3s, enabling bonus effects from Eudora's other skills.",
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Eudora",
+          "id": "passive_mark",
+          "trigger": "on_hit",
+          "note": "Applies a 3s debuff; no direct damage. Enables ult Thunderburst and other bonuses.",
           "outputs": []
         }
       ]
@@ -80,45 +82,62 @@
     {
       "slot": "skill_1",
       "name": "Forked Lightning",
+      "description": "Releases forked lightning dealing magic damage to the first enemy hit.",
       "maxLevel": 6,
+      "cooldownSeconds": [7.0, 6.6, 6.2, 5.8, 5.4, 5.0],
+      "manaCost": [50, 54, 58, 62, 66, 70],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Eudora",
-          "outputs": []
+          "id": "forked_damage",
+          "trigger": "on_cast",
+          "inputs": ["skill_level", "magic_power"],
+          "outputs": [
+            { "type": "damage_magic", "formula": "(275 + 45 * (skill_level - 1)) + 1.0 * magic_power", "magnitudeUnit": "flat" }
+          ]
         }
       ]
     },
     {
       "slot": "skill_2",
       "name": "Ball Lightning",
+      "description": "Summons a ball of lightning that deals magic damage and stuns the target for 1 second.",
       "maxLevel": 6,
+      "cooldownSeconds": [11.0, 10.5, 10.0, 9.5, 9.0, 8.5],
+      "manaCost": [70, 75, 80, 85, 90, 95],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Eudora",
-          "outputs": []
+          "id": "ball_damage",
+          "trigger": "on_cast",
+          "inputs": ["skill_level", "magic_power"],
+          "outputs": [
+            { "type": "damage_magic", "formula": "(300 + 20 * (skill_level - 1)) + 0.5 * magic_power", "magnitudeUnit": "flat" },
+            { "type": "stun", "durationSeconds": 1.0 }
+          ]
         }
       ]
     },
     {
       "slot": "ultimate",
       "name": "Thunder's Wrath",
+      "description": "Calls down a thunderbolt dealing heavy magic damage at the center, with reduced damage to surrounding enemies.",
       "maxLevel": 3,
+      "cooldownSeconds": [32.0, 29.0, 26.0],
+      "manaCost": [130, 160, 190],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Eudora",
-          "outputs": []
+          "id": "ult_center",
+          "trigger": "on_cast",
+          "note": "Center (single-target) hit. Outer-zone damage is lower and not modelled here.",
+          "inputs": ["skill_level", "magic_power"],
+          "outputs": [
+            { "type": "damage_magic", "formula": "(600 + 200 * (skill_level - 1)) + 1.6 * magic_power", "magnitudeUnit": "flat" }
+          ]
         }
       ]
     }
   ],
   "sources": [
-    {
-      "field": "baseStats",
-      "url": "https://mobile-legends.fandom.com/wiki/Eudora",
-      "retrieved": "2026-06-29"
-    }
+    { "field": "baseStats", "url": "https://mobile-legends.fandom.com/wiki/Eudora", "retrieved": "2026-06-29" },
+    { "field": "skills", "url": "https://mobile-legends.fandom.com/wiki/Eudora", "retrieved": "2026-06-29" }
   ]
 }

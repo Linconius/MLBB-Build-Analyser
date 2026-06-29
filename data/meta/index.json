@@ -418,7 +418,7 @@
       ],
       "resourceType": "mana",
       "damageType": "magic",
-      "skillsVerified": false
+      "skillsVerified": true
     },
     {
       "id": "fanny",
