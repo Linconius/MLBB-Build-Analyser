@@ -1,8 +1,15 @@
 # MLBB Build Analyser
 
+**▶ Live app: https://linconius.github.io/MLBB-Build-Analyser/**
+
 A **versioned, public data-source** for Mobile Legends: Bang Bang hero and item stats — plus
 an **interactive build analyser** that graphs a hero's stats and skill damage over the course
 of a match as gold buys items and levels accrue.
+
+**Coverage:** 135 heroes and 98 items, seeded from the Fandom wiki with verified base stats,
+growth, costs and effect text. Skill *damage formulas* are authored by hand (no source
+publishes them) — 5 heroes done so far (Layla, Eudora, Saber, Alucard, Lesley); the rest carry
+verified base stats with skills flagged "unverified" until authored.
 
 Two things live in one repo:
 
