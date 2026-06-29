@@ -1,11 +1,30 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { heroes } from "../data/loader";
 import { Icon } from "./Icon";
 import type { Hero } from "../types";
 
-export function HeroPicker({ hero, onSelect }: { hero: Hero; onSelect: (id: string) => void }) {
+export function HeroPicker({
+  hero, onSelect, favourites, onToggleFavourite,
+}: {
+  hero: Hero;
+  onSelect: (id: string) => void;
+  favourites: string[];
+  onToggleFavourite: (id: string) => void;
+}) {
   const [q, setQ] = useState("");
-  const filtered = heroes.filter((h) => h.name.toLowerCase().includes(q.toLowerCase()));
+  const favSet = useMemo(() => new Set(favourites), [favourites]);
+  const filtered = useMemo(
+    () =>
+      heroes
+        .filter((h) => h.name.toLowerCase().includes(q.toLowerCase()))
+        .sort((a, b) => {
+          const fa = favSet.has(a.id), fb = favSet.has(b.id);
+          if (fa !== fb) return fa ? -1 : 1;
+          return a.name.localeCompare(b.name);
+        }),
+    [q, favSet],
+  );
+  const isFav = favSet.has(hero.id);
 
   return (
     <div className="panel">
@@ -20,18 +39,23 @@ export function HeroPicker({ hero, onSelect }: { hero: Hero; onSelect: (id: stri
       <select value={hero.id} onChange={(e) => onSelect(e.target.value)} size={1}>
         {filtered.map((h) => (
           <option key={h.id} value={h.id}>
-            {h.name}
-            {h.title ? ` — ${h.title}` : ""}
+            {favSet.has(h.id) ? "★ " : ""}{h.name}{h.title ? ` — ${h.title}` : ""}
           </option>
         ))}
       </select>
 
       <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 12 }}>
         <Icon kind="heroes" id={hero.id} size={56} alt={hero.name} />
-        <div>
+        <div style={{ flex: 1 }}>
           <div style={{ fontSize: 16, fontWeight: 600 }}>{hero.name}</div>
           {hero.title && <div className="muted" style={{ fontSize: 12 }}>{hero.title}</div>}
         </div>
+        <button
+          className={"fav-star" + (isFav ? " on" : "")}
+          title={isFav ? "Unfavourite" : "Favourite"}
+          onClick={() => onToggleFavourite(hero.id)}>
+          {isFav ? "★" : "☆"}
+        </button>
       </div>
 
       <div className="hero-meta">

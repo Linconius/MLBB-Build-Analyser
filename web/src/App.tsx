@@ -1,42 +1,94 @@
 import { useMemo, useState } from "react";
-import { heroes, heroById, itemById } from "./data/loader";
+import { heroes, heroById, itemById, emblemById, talentById } from "./data/loader";
 import { simulate } from "./sim/timeline";
+import { resolveLoadout } from "./sim/loadout";
 import { DEFAULT_TARGET, type TargetProfile } from "./sim/skills";
 import { HeroPicker } from "./components/HeroPicker";
 import { BuildEditor } from "./components/BuildEditor";
-import { AssumptionsPanel, type SimAssumptions } from "./components/AssumptionsPanel";
+import { AssumptionsPanel } from "./components/AssumptionsPanel";
+import { LoadoutPicker, defaultLoadoutIds } from "./components/LoadoutPicker";
 import { StatChart } from "./components/StatChart";
 import { SkillDamagePanel } from "./components/SkillDamagePanel";
+import { CompareChart } from "./components/CompareChart";
+import { SavedBuildsPanel } from "./components/SavedBuildsPanel";
+import { useLocalStorage } from "./hooks/useLocalStorage";
+import { KEYS, STORAGE_VERSION, sanitizeConfig, type SavedBuild } from "./state/storage";
+import {
+  makeBuild, LANE_PRESETS, MAX_BUILDS, type BuildConfig, type MatchSettings,
+} from "./state/buildConfig";
+
+const newId = () =>
+  typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : `s${Date.now()}${Math.round(Math.random() * 1e6)}`;
+
+function makeInitialBuild(index: number): BuildConfig {
+  return makeBuild({ index, heroId: heroes[0]?.id ?? "", ...defaultLoadoutIds(), role: "Gold" });
+}
 
 export function App() {
-  const [heroId, setHeroId] = useState(heroes[0]?.id ?? "");
-  const [build, setBuild] = useState<string[]>([]);
-  const [assumptions, setAssumptions] = useState<SimAssumptions>({
-    gpm: 500,
-    lpm: 1.5,
-    matchMinutes: 15,
-    assumeConditionalsActive: false,
-  });
+  const [builds, setBuilds] = useState<BuildConfig[]>([makeInitialBuild(0)]);
+  const [focusIdx, setFocusIdx] = useState(0);
+  const [mode, setMode] = useState<"detail" | "compare">("detail");
+  const [settings, setSettings] = useState<MatchSettings>({ lane: "Gold", matchMinutes: 15, assumeConditionalsActive: false });
   const [target, setTarget] = useState<TargetProfile>(DEFAULT_TARGET);
+  const [favourites, setFavourites] = useLocalStorage<string[]>(KEYS.favourites, []);
+  const [saved, setSaved] = useLocalStorage<SavedBuild[]>(KEYS.savedBuilds, []);
 
-  const hero = heroById.get(heroId) ?? heroes[0];
+  const focus = builds[Math.min(focusIdx, builds.length - 1)];
 
-  const timeline = useMemo(() => {
-    if (!hero) return null;
-    const items = build.map((id) => itemById.get(id)!).filter(Boolean);
-    return simulate(hero, { items }, {
-      gpm: assumptions.gpm,
-      lpm: assumptions.lpm,
-      matchMinutes: assumptions.matchMinutes,
-      tickSeconds: 60,
-      assumeConditionalsActive: assumptions.assumeConditionalsActive,
-      target,
+  const timelines = useMemo(() => {
+    const { gpm, lpm } = LANE_PRESETS[settings.lane];
+    return builds.map((cfg) => {
+      const hero = heroById.get(cfg.heroId) ?? heroes[0];
+      const items = cfg.items.map((id) => itemById.get(id)!).filter(Boolean);
+      const loadout = resolveLoadout(emblemById.get(cfg.emblemId), cfg.talentIds.map((id) => talentById.get(id)));
+      return simulate(hero, { items }, {
+        gpm, lpm, matchMinutes: settings.matchMinutes, tickSeconds: 60,
+        assumeConditionalsActive: settings.assumeConditionalsActive, target, loadout,
+      });
     });
-  }, [hero, build, assumptions, target]);
+  }, [builds, settings, target]);
 
-  if (!hero) {
-    return <div className="app"><p>No hero data found. Run <code>npm run seed</code> or add files under <code>data/heroes</code>.</p></div>;
+  if (!focus || !heroById.get(focus.heroId)) {
+    return <div className="app"><p>No hero data found. Run <code>npm run seed</code>.</p></div>;
   }
+  const hero = heroById.get(focus.heroId)!;
+
+  const patch = (p: Partial<BuildConfig>) =>
+    setBuilds((bs) => bs.map((b, i) => (i === focusIdx ? { ...b, ...p } : b)));
+  const focusBuild = (i: number) => { setFocusIdx(i); setSettings((s) => ({ ...s, lane: builds[i].role })); };
+  const setRole = (p: Partial<BuildConfig>) => {
+    patch(p);
+    if (p.role) setSettings((s) => ({ ...s, lane: p.role! }));
+  };
+  const addBuild = () => {
+    if (builds.length >= MAX_BUILDS) return;
+    const i = builds.length;
+    const dup: BuildConfig = { ...focus, ...makeBuild({ index: i, heroId: focus.heroId, emblemId: focus.emblemId, talentIds: focus.talentIds, role: focus.role }), items: [...focus.items] };
+    setBuilds((bs) => [...bs, dup]);
+    setFocusIdx(i);
+    setMode("compare");
+  };
+  const removeBuild = (i: number) => {
+    if (builds.length <= 1) return;
+    setBuilds((bs) => bs.filter((_, j) => j !== i));
+    setFocusIdx((f) => Math.max(0, f >= i ? f - 1 : f));
+  };
+
+  const toggleFavourite = (id: string) =>
+    setFavourites((f) => (f.includes(id) ? f.filter((x) => x !== id) : [...f, id]));
+  const saveCurrent = () => {
+    const name = window.prompt("Name this build", focus.name)?.trim();
+    if (!name) return;
+    const entry: SavedBuild = { id: newId(), name, version: STORAGE_VERSION, config: { ...focus, name }, savedAt: new Date().toISOString() };
+    setSaved((s) => [entry, ...s]);
+  };
+  const loadBuild = (b: SavedBuild) => {
+    const cfg = sanitizeConfig(b.config);
+    if (!cfg) return;
+    setBuilds((bs) => bs.map((x, i) => (i === focusIdx ? { ...cfg, id: x.id, color: x.color } : x)));
+    setMode("detail");
+  };
+  const deleteBuild = (id: string) => setSaved((s) => s.filter((x) => x.id !== id));
 
   return (
     <div className="app">
@@ -46,20 +98,49 @@ export function App() {
       </header>
 
       <div className="banner">
-        ⚠️ Leveling uses an assumed <b>levels-per-minute</b>, not a real EXP curve (MLBB does not publish one).
-        Gold-per-minute drives item purchases in build order. Numbers reflect the data in this repo at patch{" "}
-        {hero.lastPatch ?? "—"}.
+        ⚠️ Leveling uses an assumed <b>levels-per-minute</b> per lane, not a real EXP curve. Emblems &amp; talents
+        are taken at <b>max level</b> (flat stats folded; conditional effects listed, not applied).
+      </div>
+
+      {/* Build tab strip + mode toggle */}
+      <div className="build-tabs">
+        {builds.map((b, i) => (
+          <span key={b.id}
+            className={"build-tab" + (i === focusIdx ? " on" : "")}
+            style={{ borderColor: b.color }}
+            onClick={() => focusBuild(i)}>
+            <span className="dot" style={{ background: b.color }} />
+            {b.name}
+            {builds.length > 1 && <button title="Remove" onClick={(e) => { e.stopPropagation(); removeBuild(i); }}>✕</button>}
+          </span>
+        ))}
+        {builds.length < MAX_BUILDS && <button className="build-add" onClick={addBuild}>+ Add build</button>}
+        {builds.length > 1 && (
+          <div className="mode-toggle">
+            <span className={"chip" + (mode === "detail" ? " on" : "")} onClick={() => setMode("detail")}>Detail</span>
+            <span className={"chip" + (mode === "compare" ? " on" : "")} onClick={() => setMode("compare")}>Compare</span>
+          </div>
+        )}
       </div>
 
       <div className="grid">
         <div>
-          <HeroPicker hero={hero} onSelect={setHeroId} />
-          <BuildEditor build={build} onChange={setBuild} />
-          <AssumptionsPanel a={assumptions} onChange={setAssumptions} />
+          <HeroPicker hero={hero} onSelect={(id) => patch({ heroId: id })}
+            favourites={favourites} onToggleFavourite={toggleFavourite} />
+          <BuildEditor build={focus.items} onChange={(items) => patch({ items })} />
+          <LoadoutPicker build={focus} onChange={setRole} />
+          <AssumptionsPanel settings={settings} onChange={setSettings} />
+          <SavedBuildsPanel saved={saved} onSave={saveCurrent} onLoad={loadBuild} onDelete={deleteBuild} />
         </div>
         <div>
-          {timeline && <StatChart timeline={timeline} />}
-          {timeline && <SkillDamagePanel timeline={timeline} target={target} onTarget={setTarget} />}
+          {mode === "compare" && builds.length > 1 ? (
+            <CompareChart builds={builds} timelines={timelines} />
+          ) : (
+            <>
+              <StatChart timeline={timelines[focusIdx]} />
+              <SkillDamagePanel timeline={timelines[focusIdx]} target={target} onTarget={setTarget} />
+            </>
+          )}
         </div>
       </div>
 
