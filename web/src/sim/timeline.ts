@@ -3,7 +3,10 @@
 import type { Hero, Item, Loadout } from "../types";
 import { aggregateStats, type EffectiveStats, type DerivedStats } from "./stats";
 import { computeUnlocks, ownedAtMinute, type ItemUnlock } from "./buildOrder";
-import { evaluateSkills, DEFAULT_TARGET, type TargetProfile, type SkillDamageBreakdown } from "./skills";
+import {
+  evaluateSkills, evaluateSkillOutputs, enumerateSkillOutputs, DEFAULT_TARGET,
+  type TargetProfile, type SkillDamageBreakdown, type SkillOutputDef,
+} from "./skills";
 import { itemById } from "../data/loader";
 
 export interface Build {
@@ -30,11 +33,13 @@ export interface StatSnapshot {
   derived: DerivedStats;
   perSkill: SkillDamageBreakdown[];
   skillBurst: number;
+  skillOutputs: Record<string, number>; // value per SkillOutputDef.key at this minute
 }
 
 export interface Timeline {
   snapshots: StatSnapshot[];
   unlocks: ItemUnlock[];
+  skillOutputDefs: SkillOutputDef[]; // the line list + labels for the skill-output chart
 }
 
 const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
@@ -72,7 +77,8 @@ export function simulate(hero: Hero, build: Build, a: Assumptions): Timeline {
       derived,
       perSkill,
       skillBurst: burst,
+      skillOutputs: evaluateSkillOutputs(hero, stats, level, target),
     });
   }
-  return { snapshots, unlocks };
+  return { snapshots, unlocks, skillOutputDefs: enumerateSkillOutputs(hero) };
 }

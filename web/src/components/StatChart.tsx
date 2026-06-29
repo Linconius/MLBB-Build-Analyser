@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {
-  Bar, CartesianGrid, ComposedChart, Line, LineChart, ReferenceLine,
+  CartesianGrid, Line, LineChart, ReferenceLine,
   ResponsiveContainer, Tooltip, XAxis, YAxis, Legend,
 } from "recharts";
 import type { Timeline } from "../sim/timeline";
@@ -49,7 +49,7 @@ export function StatChart({ timeline }: { timeline: Timeline }) {
     <div className="panel">
       <h2>Stat over the match — dual axis</h2>
       <div className="axis-row">
-        <span className="axis-label">Bars · left axis</span>
+        <span className="axis-label">Line · left axis</span>
         <div className="stat-toggles">
           {STAT_DEFS.map((d) => (
             <span key={d.key}
@@ -76,7 +76,7 @@ export function StatChart({ timeline }: { timeline: Timeline }) {
       </div>
       <div className="chart-wrap">
         <ResponsiveContainer width="100%" height="100%">
-          <ComposedChart data={data} margin={{ top: 18, right: 8, left: 0, bottom: 4 }}>
+          <LineChart data={data} margin={{ top: 18, right: 8, left: 0, bottom: 4 }}>
             <CartesianGrid stroke={GRID} vertical={false} />
             <XAxis dataKey="minute" stroke={AXIS} tick={{ fontSize: 11 }} tickFormatter={(v) => `${v}m`} />
             <YAxis yAxisId="left" stroke={def.color} tick={{ fontSize: 11 }} width={52} tickFormatter={axisFmt} />
@@ -88,12 +88,13 @@ export function StatChart({ timeline }: { timeline: Timeline }) {
               labelFormatter={(l) => `Minute ${l}`} />
             <Legend formatter={(k) => STAT_BY_KEY.get(String(k))?.label ?? k} wrapperStyle={{ fontSize: 11 }} />
             {unlockLines("left")}
-            <Bar yAxisId="left" dataKey={primary} fill={def.color} radius={[3, 3, 0, 0]} isAnimationActive={false} />
+            <Line yAxisId="left" type="monotone" dataKey={primary} stroke={def.color}
+              dot={false} strokeWidth={2.5} isAnimationActive={false} />
             {secondary && secDef && (
               <Line yAxisId="right" type="monotone" dataKey={secondary} stroke={secDef.color}
                 dot={false} strokeWidth={2.5} isAnimationActive={false} />
             )}
-          </ComposedChart>
+          </LineChart>
         </ResponsiveContainer>
       </div>
 
