@@ -1,0 +1,119 @@
+// Domain types mirroring schema/hero.schema.json and schema/item.schema.json.
+
+export type ResourceType = "mana" | "energy" | "none";
+export type DamageType = "physical" | "magic" | "true" | "hybrid";
+export type Role = "Tank" | "Fighter" | "Assassin" | "Mage" | "Marksman" | "Support";
+export type Lane = "Gold" | "Mid" | "Exp" | "Jungle" | "Roam";
+
+export interface StatLinear {
+  base: number;
+  growth: number;
+}
+
+export interface SkillOutput {
+  type: string;
+  formula?: string;
+  magnitudeUnit?: string;
+  stat?: string;
+  valuePercent?: number;
+  durationSeconds?: number | string;
+  hits?: number;
+}
+
+export interface Algorithm {
+  id: string;
+  trigger?: string;
+  note?: string;
+  todo?: string;
+  condition?: string;
+  inputs?: string[];
+  outputs: SkillOutput[];
+}
+
+export interface Skill {
+  slot: "passive" | "skill_1" | "skill_2" | "skill_3" | "ultimate";
+  name: string;
+  description?: string;
+  maxLevel: number;
+  cooldownSeconds?: number[];
+  manaCost?: number[];
+  iconAsset?: string;
+  algorithms: Algorithm[];
+}
+
+export interface Hero {
+  schemaVersion: string;
+  id: string;
+  name: string;
+  title?: string;
+  releaseYear?: number;
+  lastPatch?: string;
+  skillsVerified?: boolean;
+  resourceType: ResourceType;
+  damageType: DamageType;
+  roles: Role[];
+  specialties?: string[];
+  lanes?: Lane[];
+  maxLevel: 15;
+  baseStats: {
+    hp: StatLinear;
+    hpRegen: StatLinear;
+    mana: StatLinear;
+    manaRegen: StatLinear;
+    physicalAttack: StatLinear;
+    magicPower: StatLinear;
+    physicalDefense: StatLinear;
+    magicDefense: StatLinear;
+    attackSpeed: StatLinear;
+    attackSpeedRatio: number;
+    movementSpeed: StatLinear;
+    critChance: StatLinear;
+  };
+  skills: Skill[];
+}
+
+export interface ItemEffect {
+  type: string;
+  stat?: string;
+  magnitudeUnit?: string;
+  value?: number;
+  formula?: string;
+  maxStacks?: number;
+  secondsPerStack?: number;
+  requiresFullStacks?: boolean;
+  appliesWhen?: string;
+}
+
+export interface ItemEffectBlock {
+  name: string;
+  unique?: boolean;
+  alwaysOn?: boolean;
+  condition?: string;
+  description: string;
+  cooldownSeconds?: number;
+  effects?: ItemEffect[];
+}
+
+/** Closed set of flat stat keys an item may grant. */
+export type ItemStatKey =
+  | "physicalAttack" | "magicPower" | "hp" | "mana" | "physicalDefense" | "magicDefense"
+  | "hpRegen" | "manaRegen" | "attackSpeedPct" | "critChancePct" | "critDamagePct"
+  | "cooldownReductionPct" | "movementSpeed" | "movementSpeedPct"
+  | "physicalPenetrationFlat" | "physicalPenetrationPct"
+  | "magicPenetrationFlat" | "magicPenetrationPct"
+  | "lifestealPct" | "physicalLifestealPct" | "spellVampPct" | "hybridLifestealPct"
+  | "adaptiveAttack" | "adaptivePenetration";
+
+export interface Item {
+  schemaVersion: string;
+  id: string;
+  name: string;
+  category: "Attack" | "Magic" | "Defense" | "Movement" | "Jungle" | "Roaming";
+  tier: number;
+  lastPatch?: string;
+  iconAsset?: string;
+  cost: { total: number; combine?: number; components?: string[] };
+  stats: Partial<Record<ItemStatKey, number>>;
+  passives?: ItemEffectBlock[];
+  actives?: ItemEffectBlock[];
+}
