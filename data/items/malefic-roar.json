@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "malefic-roar",
+  "name": "Malefic Roar",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 2060,
+    "combine": 1150
+  },
+  "stats": {
+    "physicalAttack": 60
+  },
+  "passives": [
+    {
+      "name": "Armor Buster",
+      "unique": true,
+      "description": "Increase Physical Penetration by 30%. Unique Passive - Breaker: When attacking an enemy, gains 0.1% extra Physical Penetration for each point of the enemy's Physical Defense, capped at 30%.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Malefic_Roar",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

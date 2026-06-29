@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "regular-spear",
+  "name": "Regular Spear",
+  "category": "Attack",
+  "tier": 1,
+  "cost": {
+    "total": 600,
+    "combine": 70
+  },
+  "stats": {
+    "physicalAttack": 20,
+    "attackSpeedPct": 10
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Regular_Spear",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

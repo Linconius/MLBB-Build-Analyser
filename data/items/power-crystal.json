@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "power-crystal",
+  "name": "Power Crystal",
+  "category": "Magic",
+  "tier": 1,
+  "cost": {
+    "total": 220,
+    "combine": 132
+  },
+  "stats": {
+    "mana": 280
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Power_Crystal",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

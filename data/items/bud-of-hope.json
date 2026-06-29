@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "bud-of-hope",
+  "name": "Bud of Hope",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 0
+  },
+  "stats": {
+    "hp": 250
+  },
+  "passives": [
+    {
+      "name": "Bud of Hope",
+      "unique": true,
+      "description": "Granted by Floryn and Dew. The equipment will reveal its true power once Dew evolves.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Bud_of_Hope",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

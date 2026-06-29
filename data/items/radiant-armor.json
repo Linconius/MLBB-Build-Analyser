@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "radiant-armor",
+  "name": "Radiant Armor",
+  "category": "Defense",
+  "tier": 3,
+  "cost": {
+    "total": 1880,
+    "combine": 500
+  },
+  "stats": {
+    "hp": 950,
+    "magicDefense": 40,
+    "hpRegen": 12
+  },
+  "passives": [
+    {
+      "name": "Holy Blessing",
+      "unique": true,
+      "description": "Taking Magic Damage grants 5(+1*Hero Level) Magic Defense for 5 seconds, up to 6 stacks (can only gain 1 stack(s) every 0.4 seconds).",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Radiant_Armor",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

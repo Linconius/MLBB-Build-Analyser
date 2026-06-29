@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "leather-jerkin",
+  "name": "Leather Jerkin",
+  "category": "Defense",
+  "tier": 1,
+  "cost": {
+    "total": 220,
+    "combine": 132
+  },
+  "stats": {
+    "physicalDefense": 14
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Leather_Jerkin",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

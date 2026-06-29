@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "holy-crystal",
+  "name": "Holy Crystal",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 3000,
+    "combine": 540
+  },
+  "stats": {
+    "magicPower": 165
+  },
+  "passives": [
+    {
+      "name": "Mystery",
+      "unique": true,
+      "description": "Gains 21%-35% extra Magic Power (scales with level).",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Holy_Crystal",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "rogue-meteor",
+  "name": "Rogue Meteor",
+  "category": "Attack",
+  "tier": 2,
+  "cost": {
+    "total": 900,
+    "combine": 300
+  },
+  "stats": {
+    "attackSpeedPct": 15,
+    "critChancePct": 10
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Rogue_Meteor",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

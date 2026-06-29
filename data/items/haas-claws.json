@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "haas-claws",
+  "name": "Haas' Claws",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 2020,
+    "combine": 470
+  },
+  "stats": {
+    "physicalAttack": 40,
+    "attackSpeedPct": 15,
+    "critChancePct": 20
+  },
+  "passives": [
+    {
+      "name": "Unique Attribute",
+      "description": "Unique Attribute: +20% Lifesteal Unique Passive - Frenzy: Critical strikes grant 20% extra Attack Speed for 2 seconds.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Haas'_Claws",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

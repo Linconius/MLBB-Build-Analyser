@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tough-boots",
+  "name": "Tough Boots",
+  "category": "Movement",
+  "tier": 3,
+  "cost": {
+    "total": 720,
+    "combine": 250
+  },
+  "stats": {
+    "movementSpeed": 40,
+    "magicDefense": 18
+  },
+  "passives": [
+    {
+      "name": "Fortitude",
+      "unique": true,
+      "description": "CC and Slow Duration reduced by 25%.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Tough_Boots",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

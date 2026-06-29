@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "athena-s-shield",
+  "name": "Athena's Shield",
+  "category": "Defense",
+  "tier": 3,
+  "cost": {
+    "total": 2150,
+    "combine": 830
+  },
+  "stats": {
+    "hp": 900,
+    "magicDefense": 48,
+    "hpRegen": 2
+  },
+  "passives": [
+    {
+      "name": "Shield",
+      "unique": true,
+      "description": "Upon taking Magic Damage from enemy hero skills or Basic Attacks, reduces Magic Damage taken by 25% for 3 seconds (including the damage that triggers the effect)s. Regains this effect 5 seconds after leaving combat.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Athena's_Shield",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

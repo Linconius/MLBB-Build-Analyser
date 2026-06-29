@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "vitality-crystal",
+  "name": "Vitality Crystal",
+  "category": "Defense",
+  "tier": 1,
+  "cost": {
+    "total": 300,
+    "combine": 180
+  },
+  "stats": {
+    "hp": 230
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Vitality_Crystal",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "hero-s-ring",
+  "name": "Hero's Ring",
+  "category": "Defense",
+  "tier": 1,
+  "cost": {
+    "total": 450,
+    "combine": 270
+  },
+  "stats": {
+    "hp": 150,
+    "cooldownReductionPct": 5
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Hero's_Ring",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

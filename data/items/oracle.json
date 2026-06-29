@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "oracle",
+  "name": "Oracle",
+  "category": "Defense",
+  "tier": 3,
+  "cost": {
+    "total": 1860,
+    "combine": 660
+  },
+  "stats": {
+    "hp": 850,
+    "physicalDefense": 20,
+    "magicDefense": 20,
+    "cooldownReductionPct": 10
+  },
+  "passives": [
+    {
+      "name": "Bless",
+      "unique": true,
+      "description": "Received Shield and HP Regen effects are increased by 25%.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Oracle",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

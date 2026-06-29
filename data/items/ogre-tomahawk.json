@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "ogre-tomahawk",
+  "name": "Ogre Tomahawk",
+  "category": "Attack",
+  "tier": 1,
+  "cost": {
+    "total": 650,
+    "combine": 100
+  },
+  "stats": {
+    "physicalAttack": 25,
+    "hp": 230
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Ogre_Tomahawk",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "mystery-codex",
+  "name": "Mystery Codex",
+  "category": "Magic",
+  "tier": 1,
+  "cost": {
+    "total": 300,
+    "combine": 180
+  },
+  "stats": {
+    "magicPower": 15
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Mystery_Codex",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

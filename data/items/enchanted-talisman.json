@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "enchanted-talisman",
+  "name": "Enchanted Talisman",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 2070,
+    "combine": 180
+  },
+  "stats": {
+    "magicPower": 70,
+    "hp": 300,
+    "cooldownReductionPct": 15
+  },
+  "passives": [
+    {
+      "name": "Mana Spring",
+      "unique": true,
+      "description": "Regenerates 15% of Max Mana every 10 seconds. Unique Passive - Magic Mastery: Max Cooldown Reduction is increased by 5%.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Enchanted_Talisman",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

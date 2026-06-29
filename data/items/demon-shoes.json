@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "demon-shoes",
+  "name": "Demon Shoes",
+  "category": "Movement",
+  "tier": 3,
+  "cost": {
+    "total": 720,
+    "combine": 230
+  },
+  "stats": {
+    "movementSpeed": 40,
+    "manaRegen": 10
+  },
+  "passives": [
+    {
+      "name": "Mysticism",
+      "unique": true,
+      "description": "Getting a kill or assist on an enemy Minion will restore 4% Mana. (An assist occurs when a Minion dies within 2 seconds after taking damage from the hero.)",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Demon_Shoes",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

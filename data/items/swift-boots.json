@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "swift-boots",
+  "name": "Swift Boots",
+  "category": "Movement",
+  "tier": 1,
+  "cost": {
+    "total": 720,
+    "combine": 190
+  },
+  "stats": {
+    "movementSpeed": 40,
+    "attackSpeedPct": 15
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Swift_Boots",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

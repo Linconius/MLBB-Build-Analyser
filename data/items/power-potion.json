@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "power-potion",
+  "name": "Power Potion",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 1500
+  },
+  "stats": {},
+  "passives": [
+    {
+      "name": "Increase Power",
+      "unique": true,
+      "description": "Automatically used after purchasing, giving 30 Physical Attack and 15% of Lifesteal for 120s. Can only have one potion effect at a time.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Power_Potion",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

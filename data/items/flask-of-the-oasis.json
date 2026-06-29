@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "flask-of-the-oasis",
+  "name": "Flask of the Oasis",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 1850,
+    "combine": 280
+  },
+  "stats": {
+    "magicPower": 60,
+    "hp": 300,
+    "cooldownReductionPct": 10
+  },
+  "passives": [
+    {
+      "name": "Unique Attribute",
+      "description": "Unique Attribute: +12% Healing Effect Unique Passive - Blessing: When casting a healing or shield skill, if the target's HP is below 35%, or falls below 35% within 3 seconds, they will get a (100*Hero Level) shield that lasts 3 seconds. When this effect triggers, it also reduces the cooldown of the caster's skills by 2 seconds. (This effect can only trigger once every 60 seconds on the same target, and will not trigger on self-only healing and shield skills.)",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Flask_of_the_Oasis",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

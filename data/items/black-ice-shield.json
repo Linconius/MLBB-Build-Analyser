@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "black-ice-shield",
+  "name": "Black Ice Shield",
+  "category": "Defense",
+  "tier": 3,
+  "cost": {
+    "total": 780,
+    "combine": 340
+  },
+  "stats": {
+    "physicalDefense": 20,
+    "magicDefense": 20
+  },
+  "passives": [
+    {
+      "name": "Fortress Shield",
+      "unique": true,
+      "description": "For each enemy hero within 3.55 units, Hybrid Defense is increased by 4, up to 20.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Black_Ice_Shield",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -4,10 +4,12 @@
   "name": "Blade of Despair",
   "category": "Attack",
   "tier": 3,
-  "lastPatch": "1.8.80",
-  "cost": { "total": 3010 },
+  "cost": {
+    "total": 3010,
+    "combine": 1190
+  },
   "stats": {
-    "physicalAttack": 170,
+    "physicalAttack": 160,
     "movementSpeedPct": 5
   },
   "passives": [
@@ -16,14 +18,17 @@
       "unique": true,
       "alwaysOn": false,
       "condition": "target_current_hp / target_max_hp < 0.5",
-      "description": "Dealing damage to enemies whose HP is below 50% grants 25% extra Physical Attack for 2 seconds.",
+      "description": "Dealing damage to non-Minion enemies below 50% HP increases Physical Attack by 25% for 2 seconds (takes effect before the damage is dealt).",
       "effects": [
         { "type": "buff_stat", "stat": "physical_attack", "magnitudeUnit": "percent", "value": 25, "appliesWhen": "target below 50% HP" }
       ]
     }
   ],
-  "actives": [],
   "sources": [
-    { "field": "stats", "url": "https://mobile-legends.fandom.com/wiki/Blade_of_Despair", "retrieved": "2026-06-29" }
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Blade_of_Despair",
+      "retrieved": "2026-06-29"
+    }
   ]
 }

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "elegant-gem",
+  "name": "Elegant Gem",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 700,
+    "combine": 180
+  },
+  "stats": {
+    "hp": 300,
+    "mana": 380
+  },
+  "passives": [
+    {
+      "name": "Gift",
+      "unique": true,
+      "description": "When HP drops below 50%, recovers 15% of HP over the next 3 seconds. When Mana drops below 50%, restores 15% of Mana over the next 3 seconds. Cooldown: 60 seconds.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Elegant_Gem",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

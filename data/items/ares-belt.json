@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "ares-belt",
+  "name": "Ares Belt",
+  "category": "Defense",
+  "tier": 1,
+  "cost": {
+    "total": 700,
+    "combine": 400
+  },
+  "stats": {
+    "hp": 600
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Ares_Belt",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

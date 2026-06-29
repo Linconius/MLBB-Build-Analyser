@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "thunder-belt",
+  "name": "Thunder Belt",
+  "category": "Defense",
+  "tier": 3,
+  "cost": {
+    "total": 1820,
+    "combine": 680
+  },
+  "stats": {
+    "hp": 600,
+    "physicalDefense": 15,
+    "magicDefense": 15,
+    "movementSpeed": 20
+  },
+  "passives": [
+    {
+      "name": "Thunderbolt",
+      "unique": true,
+      "description": "Every 4 seconds, the next Basic Attack deals 50 (+100% Extra Physical Defense) (+100% Extra Magic Defense) extra True Damage to the target and enemies around them, and briefly slows them by 99%. Hybrid Defense permanently increases by 1 each time the attack hits an enemy hero. (This effect is reduced to 50% for Marksmen and Mages)",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Thunder_Belt",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

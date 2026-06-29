@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "magic-resist-cloak",
+  "name": "Magic Resist Cloak",
+  "category": "Defense",
+  "tier": 1,
+  "cost": {
+    "total": 220,
+    "combine": 132
+  },
+  "stats": {
+    "magicDefense": 14
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Magic_Resist_Cloak",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

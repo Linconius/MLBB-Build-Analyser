@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "iron-hunting-bow",
+  "name": "Iron Hunting Bow",
+  "category": "Attack",
+  "tier": 1,
+  "cost": {
+    "total": 450,
+    "combine": 270
+  },
+  "stats": {
+    "physicalAttack": 10,
+    "cooldownReductionPct": 5
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Iron_Hunting_Bow",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "exotic-veil",
+  "name": "Exotic Veil",
+  "category": "Magic",
+  "tier": 1,
+  "cost": {
+    "total": 600,
+    "combine": 300
+  },
+  "stats": {
+    "magicPower": 30,
+    "movementSpeedPct": 5
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Exotic_Veil",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

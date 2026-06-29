@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "magic-necklace",
+  "name": "Magic Necklace",
+  "category": "Magic",
+  "tier": 1,
+  "cost": {
+    "total": 120,
+    "combine": 72
+  },
+  "stats": {
+    "manaRegen": 2
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Magic_Necklace",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

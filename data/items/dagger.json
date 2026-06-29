@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "dagger",
+  "name": "Dagger",
+  "category": "Attack",
+  "tier": 1,
+  "cost": {
+    "total": 250,
+    "combine": 150
+  },
+  "stats": {
+    "physicalAttack": 15
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Dagger",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

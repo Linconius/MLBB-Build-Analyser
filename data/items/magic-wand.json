@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "magic-wand",
+  "name": "Magic Wand",
+  "category": "Magic",
+  "tier": 1,
+  "cost": {
+    "total": 820,
+    "combine": 520
+  },
+  "stats": {
+    "magicPower": 45
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Magic_Wand",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

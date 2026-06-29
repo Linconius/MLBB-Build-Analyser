@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "dominance-ice",
+  "name": "Dominance Ice",
+  "category": "Defense",
+  "tier": 3,
+  "cost": {
+    "total": 2010,
+    "combine": 790
+  },
+  "stats": {
+    "physicalDefense": 40,
+    "magicDefense": 40,
+    "movementSpeedPct": 5
+  },
+  "passives": [
+    {
+      "name": "Fortress Shield",
+      "unique": true,
+      "description": "For each enemy hero within 5 units, Hybrid Defense is increased by 8, up to 40. Unique Passive - Lifebane: Reduces Shield and HP Regen effects of nearby enemies within 5 units to 60% of normal for 1 second.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Dominance_Ice",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

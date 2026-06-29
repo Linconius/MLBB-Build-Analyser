@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "feather-of-heaven",
+  "name": "Feather of Heaven",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 2030,
+    "combine": 580
+  },
+  "stats": {
+    "magicPower": 60,
+    "attackSpeedPct": 20,
+    "lifestealPct": 10,
+    "cooldownReductionPct": 5
+  },
+  "passives": [
+    {
+      "name": "Affliction",
+      "unique": true,
+      "description": "Each Basic Attack deals extra 50 (+30% Total Magic Power) Magic Damage. Unique Passive - Impulse: Basic Attacks grant 6% extra Attack Speed for 3 seconds, capped at 5 stacks.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Feather_of_Heaven",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

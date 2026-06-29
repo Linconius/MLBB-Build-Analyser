@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "genius-wand",
+  "name": "Genius Wand",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 2000,
+    "combine": 580
+  },
+  "stats": {
+    "magicPower": 75,
+    "movementSpeedPct": 5
+  },
+  "passives": [
+    {
+      "name": "Unique Attribute",
+      "description": "Unique Attribute: +10 Magic Penetration Unique Passive - Magic: Dealing Magic Damage to enemy heroes will reduce their Magic Defense by 2.5+(0.5*Hero Level) for 2 seconds. Stacks up to 3 times.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Genius_Wand",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "golden-staff",
+  "name": "Golden Staff",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 2000,
+    "combine": 900
+  },
+  "stats": {
+    "physicalAttack": 55,
+    "attackSpeedPct": 15
+  },
+  "passives": [
+    {
+      "name": "Swift",
+      "unique": true,
+      "description": "Every 1% extra Crit Chance gained is converted into 1% extra Attack Speed. Unique Passive - Endless Strike: After every 2 non-Crit Basic Attacks, the Attack Speed of the next Basic Attack is increased by 80% (and Attack Speed cap is increased to 500%) and triggers Attack Effects an additional 2 time(s).",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Golden_Staff",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "bloodlust-axe",
+  "name": "Bloodlust Axe",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 1970,
+    "combine": 820
+  },
+  "stats": {
+    "physicalAttack": 70,
+    "cooldownReductionPct": 10
+  },
+  "passives": [
+    {
+      "name": "Unique Attribute",
+      "description": "Unique Attribute: +20% Spell Vamp",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Bloodlust_Axe",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

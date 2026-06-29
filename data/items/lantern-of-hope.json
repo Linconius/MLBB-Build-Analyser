@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lantern-of-hope",
+  "name": "Lantern of Hope",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 0
+  },
+  "stats": {
+    "magicPower": 20,
+    "movementSpeedPct": 4,
+    "cooldownReductionPct": 2
+  },
+  "passives": [
+    {
+      "name": "Lantern of Hope",
+      "unique": true,
+      "description": "The equipment's attributes scale with hero level.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Lantern_of_Hope",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "antique-cuirass",
+  "name": "Antique Cuirass",
+  "category": "Defense",
+  "tier": 3,
+  "cost": {
+    "total": 2170,
+    "combine": 740
+  },
+  "stats": {
+    "hp": 920,
+    "physicalDefense": 40,
+    "hpRegen": 4
+  },
+  "passives": [
+    {
+      "name": "Deter",
+      "unique": true,
+      "description": "When hit by a skill, reduces the attacker's Physical Damage by 6% for 2 seconds (this effect stacks up to 3 times).",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Antique_Cuirass",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

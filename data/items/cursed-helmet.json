@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "cursed-helmet",
+  "name": "Cursed Helmet",
+  "category": "Defense",
+  "tier": 3,
+  "cost": {
+    "total": 1910,
+    "combine": 190
+  },
+  "stats": {
+    "hp": 1200,
+    "magicDefense": 20
+  },
+  "passives": [
+    {
+      "name": "Burning Soul",
+      "unique": true,
+      "description": "Deals (1.2% Total HP) Magic Damage to nearby enemies per second. This damage is increased by 125(+15*Hero Level)% against creeps and minions. Unique Passive - Curse: Dealing damage with Burning Soul will reduce the target's Hybrid Defense by 3 for 3 seconds. Stacks up to 3 times.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Cursed_Helmet",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

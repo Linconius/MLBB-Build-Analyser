@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "sea-halberd",
+  "name": "Sea Halberd",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 2050,
+    "combine": 540
+  },
+  "stats": {
+    "physicalAttack": 80,
+    "attackSpeedPct": 20
+  },
+  "passives": [
+    {
+      "name": "Lifebane",
+      "unique": true,
+      "description": "Dealing damage to a target will reduce the Shield and HP Regen effects on them to 60% of normal for 3 seconds. Unique Passive - Punish: Increase damage by 8% against enemy heroes with higher extra HP.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Sea_Halberd",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

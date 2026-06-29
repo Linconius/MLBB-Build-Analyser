@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "glowing-wand",
+  "name": "Glowing Wand",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 2150,
+    "combine": 950
+  },
+  "stats": {
+    "magicPower": 60,
+    "hp": 300,
+    "movementSpeedPct": 5
+  },
+  "passives": [
+    {
+      "name": "Scorch",
+      "unique": true,
+      "description": "Dealing Magic Damage burns the targets for 3 seconds, also dealing extra Magic Damage equal to 1% of the target's Max HP per second. Unique Passive - Lifebane: Dealing damage to the target will reduce the Shield and HP Regen effects on them to 60% of normal for 3 seconds.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Glowing_Wand",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

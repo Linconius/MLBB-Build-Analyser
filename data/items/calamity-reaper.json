@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "calamity-reaper",
+  "name": "Calamity Reaper",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 1950,
+    "combine": 530
+  },
+  "stats": {
+    "magicPower": 70,
+    "mana": 100,
+    "manaRegen": 6,
+    "cooldownReductionPct": 10
+  },
+  "passives": [
+    {
+      "name": "Calamity",
+      "unique": true,
+      "description": "In 3 seconds after using the skill, the casters next Basic Attack deals additional True Damage as much as 120% of Magic Power with a cooldown of 1.5 seconds. Then briefly gains 10% Movement Speed.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Calamity_Reaper",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "molten-essence",
+  "name": "Molten Essence",
+  "category": "Defense",
+  "tier": 3,
+  "cost": {
+    "total": 800,
+    "combine": 500
+  },
+  "stats": {
+    "hp": 540
+  },
+  "passives": [
+    {
+      "name": "Burning Soul",
+      "unique": true,
+      "description": "Deals (0.6% Total HP) Magic Damage to nearby enemies per second. This damage is increased by 125(+15*Hero Level)% against creeps and minions.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Molten_Essence",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

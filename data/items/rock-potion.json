@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "rock-potion",
+  "name": "Rock Potion",
+  "category": "Defense",
+  "tier": 3,
+  "cost": {
+    "total": 1500
+  },
+  "stats": {},
+  "passives": [
+    {
+      "name": "Increase Power",
+      "unique": true,
+      "description": "Upon purchase, grants 500 Max HP and 5% Damage Reduction for 120 seconds. Can only have one potion effect at a time.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Rock_Potion",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

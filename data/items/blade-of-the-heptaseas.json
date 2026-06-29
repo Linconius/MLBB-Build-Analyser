@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "blade-of-the-heptaseas",
+  "name": "Blade of the Heptaseas",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 1950,
+    "combine": 470
+  },
+  "stats": {
+    "physicalAttack": 70,
+    "hp": 250
+  },
+  "passives": [
+    {
+      "name": "Unique Attribute",
+      "description": "Unique Attribute: +15 Physical Penetration Unique Passive - Ambush: If no damage is taken or dealt within 5 seconds (excluding from Minions or Creeps), the next Basic Attack will deal an additional 160 (+40% Total Physical Attack) Physical Damage and slow the target by 40% for 1.5 seconds.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Blade_of_the_Heptaseas",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

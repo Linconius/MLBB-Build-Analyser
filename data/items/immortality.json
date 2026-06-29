@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "immortality",
+  "name": "Immortality",
+  "category": "Defense",
+  "tier": 3,
+  "cost": {
+    "total": 2120,
+    "combine": 900
+  },
+  "stats": {
+    "hp": 850,
+    "physicalDefense": 15
+  },
+  "passives": [
+    {
+      "name": "Immortal",
+      "unique": true,
+      "description": "Resurrect 2.5 seconds upon death and gets 16% Max HP and a shield that can absorb 150(+70*Hero Level）damage. Shield lasts 3 seconds. This effect has a 210 seconds cooldown.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Immortality",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

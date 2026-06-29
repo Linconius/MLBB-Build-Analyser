@@ -1,7 +1,7 @@
 {
   "generated": true,
   "heroCount": 135,
-  "itemCount": 2,
+  "itemCount": 98,
   "heroes": [
     {
       "id": "aamon",
@@ -1529,6 +1529,62 @@
   ],
   "items": [
     {
+      "id": "antique-cuirass",
+      "name": "Antique Cuirass",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 2170
+    },
+    {
+      "id": "arcane-boots",
+      "name": "Arcane Boots",
+      "category": "Movement",
+      "tier": 1,
+      "cost": 720
+    },
+    {
+      "id": "ares-belt",
+      "name": "Ares Belt",
+      "category": "Defense",
+      "tier": 1,
+      "cost": 700
+    },
+    {
+      "id": "athena-s-shield",
+      "name": "Athena's Shield",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 2150
+    },
+    {
+      "id": "azure-blade",
+      "name": "Azure Blade",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 600
+    },
+    {
+      "id": "berserker-s-fury",
+      "name": "Berserker's Fury",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 2390
+    },
+    {
+      "id": "black-ice-shield",
+      "name": "Black Ice Shield",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 780
+    },
+    {
+      "id": "blade-armor",
+      "name": "Blade Armor",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 1910
+    },
+    {
       "id": "blade-of-despair",
       "name": "Blade of Despair",
       "category": "Attack",
@@ -1536,11 +1592,627 @@
       "cost": 3010
     },
     {
+      "id": "blade-of-the-heptaseas",
+      "name": "Blade of the Heptaseas",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 1950
+    },
+    {
+      "id": "blood-wings",
+      "name": "Blood Wings",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 2100
+    },
+    {
+      "id": "bloodlust-axe",
+      "name": "Bloodlust Axe",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 1970
+    },
+    {
+      "id": "book-of-sages",
+      "name": "Book of Sages",
+      "category": "Magic",
+      "tier": 1,
+      "cost": 450
+    },
+    {
+      "id": "boots",
+      "name": "Boots",
+      "category": "Movement",
+      "tier": 1,
+      "cost": 250
+    },
+    {
+      "id": "brute-force-breastplate",
+      "name": "Brute Force Breastplate",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 2070
+    },
+    {
+      "id": "bud-of-hope",
+      "name": "Bud of Hope",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 0
+    },
+    {
+      "id": "calamity-reaper",
+      "name": "Calamity Reaper",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 1950
+    },
+    {
+      "id": "chastise-pauldron",
+      "name": "Chastise Pauldron",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 2100
+    },
+    {
       "id": "clock-of-destiny",
       "name": "Clock of Destiny",
       "category": "Magic",
       "tier": 3,
       "cost": 2050
+    },
+    {
+      "id": "concentrated-energy",
+      "name": "Concentrated Energy",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 2020
+    },
+    {
+      "id": "corrosion-scythe",
+      "name": "Corrosion Scythe",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 2050
+    },
+    {
+      "id": "cursed-helmet",
+      "name": "Cursed Helmet",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 1910
+    },
+    {
+      "id": "dagger",
+      "name": "Dagger",
+      "category": "Attack",
+      "tier": 1,
+      "cost": 250
+    },
+    {
+      "id": "demon-hunter-sword",
+      "name": "Demon Hunter Sword",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 2180
+    },
+    {
+      "id": "demon-shoes",
+      "name": "Demon Shoes",
+      "category": "Movement",
+      "tier": 3,
+      "cost": 720
+    },
+    {
+      "id": "divine-glaive",
+      "name": "Divine Glaive",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 1970
+    },
+    {
+      "id": "dominance-ice",
+      "name": "Dominance Ice",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 2010
+    },
+    {
+      "id": "dreadnaught-armor",
+      "name": "Dreadnaught Armor",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 730
+    },
+    {
+      "id": "elegant-gem",
+      "name": "Elegant Gem",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 700
+    },
+    {
+      "id": "enchanted-talisman",
+      "name": "Enchanted Talisman",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 2070
+    },
+    {
+      "id": "endless-battle",
+      "name": "Endless Battle",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 2330
+    },
+    {
+      "id": "exotic-veil",
+      "name": "Exotic Veil",
+      "category": "Magic",
+      "tier": 1,
+      "cost": 600
+    },
+    {
+      "id": "feather-of-heaven",
+      "name": "Feather of Heaven",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 2030
+    },
+    {
+      "id": "flask-of-the-oasis",
+      "name": "Flask of the Oasis",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 1850
+    },
+    {
+      "id": "flower-of-hope",
+      "name": "Flower of Hope",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 0
+    },
+    {
+      "id": "fury-hammer",
+      "name": "Fury Hammer",
+      "category": "Attack",
+      "tier": 1,
+      "cost": 830
+    },
+    {
+      "id": "genius-wand",
+      "name": "Genius Wand",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 2000
+    },
+    {
+      "id": "glowing-wand",
+      "name": "Glowing Wand",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 2150
+    },
+    {
+      "id": "golden-staff",
+      "name": "Golden Staff",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 2000
+    },
+    {
+      "id": "great-dragon-spear",
+      "name": "Great Dragon Spear",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 2140
+    },
+    {
+      "id": "guardian-helmet",
+      "name": "Guardian Helmet",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 2500
+    },
+    {
+      "id": "haas-claws",
+      "name": "Haas' Claws",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 2020
+    },
+    {
+      "id": "healing-necklace",
+      "name": "Healing Necklace",
+      "category": "Defense",
+      "tier": 1,
+      "cost": 140
+    },
+    {
+      "id": "hero-s-ring",
+      "name": "Hero's Ring",
+      "category": "Defense",
+      "tier": 1,
+      "cost": 450
+    },
+    {
+      "id": "holy-crystal",
+      "name": "Holy Crystal",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 3000
+    },
+    {
+      "id": "hunter-strike",
+      "name": "Hunter Strike",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 2010
+    },
+    {
+      "id": "ice-queen-wand",
+      "name": "Ice Queen Wand",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 2040
+    },
+    {
+      "id": "immortality",
+      "name": "Immortality",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 2120
+    },
+    {
+      "id": "iron-hunting-bow",
+      "name": "Iron Hunting Bow",
+      "category": "Attack",
+      "tier": 1,
+      "cost": 450
+    },
+    {
+      "id": "javelin",
+      "name": "Javelin",
+      "category": "Attack",
+      "tier": 1,
+      "cost": 320
+    },
+    {
+      "id": "knife",
+      "name": "Knife",
+      "category": "Attack",
+      "tier": 1,
+      "cost": 280
+    },
+    {
+      "id": "lantern-of-hope",
+      "name": "Lantern of Hope",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 0
+    },
+    {
+      "id": "leather-jerkin",
+      "name": "Leather Jerkin",
+      "category": "Defense",
+      "tier": 1,
+      "cost": 220
+    },
+    {
+      "id": "legion-sword",
+      "name": "Legion Sword",
+      "category": "Attack",
+      "tier": 2,
+      "cost": 910
+    },
+    {
+      "id": "lightning-truncheon",
+      "name": "Lightning Truncheon",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 2250
+    },
+    {
+      "id": "magic-blade",
+      "name": "Magic Blade",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 1050
+    },
+    {
+      "id": "magic-necklace",
+      "name": "Magic Necklace",
+      "category": "Magic",
+      "tier": 1,
+      "cost": 120
+    },
+    {
+      "id": "magic-potion",
+      "name": "Magic Potion",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 1500
+    },
+    {
+      "id": "magic-resist-cloak",
+      "name": "Magic Resist Cloak",
+      "category": "Defense",
+      "tier": 1,
+      "cost": 220
+    },
+    {
+      "id": "magic-shoes",
+      "name": "Magic Shoes",
+      "category": "Movement",
+      "tier": 1,
+      "cost": 720
+    },
+    {
+      "id": "magic-wand",
+      "name": "Magic Wand",
+      "category": "Magic",
+      "tier": 1,
+      "cost": 820
+    },
+    {
+      "id": "malefic-gun",
+      "name": "Malefic Gun",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 2120
+    },
+    {
+      "id": "malefic-roar",
+      "name": "Malefic Roar",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 2060
+    },
+    {
+      "id": "molten-essence",
+      "name": "Molten Essence",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 800
+    },
+    {
+      "id": "mystery-codex",
+      "name": "Mystery Codex",
+      "category": "Magic",
+      "tier": 1,
+      "cost": 300
+    },
+    {
+      "id": "mystic-container",
+      "name": "Mystic Container",
+      "category": "Magic",
+      "tier": 1,
+      "cost": 500
+    },
+    {
+      "id": "necklace-of-durance",
+      "name": "Necklace of Durance",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 2010
+    },
+    {
+      "id": "ogre-tomahawk",
+      "name": "Ogre Tomahawk",
+      "category": "Attack",
+      "tier": 1,
+      "cost": 650
+    },
+    {
+      "id": "oracle",
+      "name": "Oracle",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 1860
+    },
+    {
+      "id": "power-crystal",
+      "name": "Power Crystal",
+      "category": "Magic",
+      "tier": 1,
+      "cost": 220
+    },
+    {
+      "id": "power-potion",
+      "name": "Power Potion",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 1500
+    },
+    {
+      "id": "queen-s-wings",
+      "name": "Queen's Wings",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 2250
+    },
+    {
+      "id": "radiant-armor",
+      "name": "Radiant Armor",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 1880
+    },
+    {
+      "id": "rapid-boots",
+      "name": "Rapid Boots",
+      "category": "Movement",
+      "tier": 1,
+      "cost": 720
+    },
+    {
+      "id": "regular-spear",
+      "name": "Regular Spear",
+      "category": "Attack",
+      "tier": 1,
+      "cost": 600
+    },
+    {
+      "id": "rock-potion",
+      "name": "Rock Potion",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 1500
+    },
+    {
+      "id": "rogue-meteor",
+      "name": "Rogue Meteor",
+      "category": "Attack",
+      "tier": 2,
+      "cost": 900
+    },
+    {
+      "id": "rose-gold-meteor",
+      "name": "Rose Gold Meteor",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 2030
+    },
+    {
+      "id": "scarlet-phantom",
+      "name": "Scarlet Phantom",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 2020
+    },
+    {
+      "id": "sea-halberd",
+      "name": "Sea Halberd",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 2050
+    },
+    {
+      "id": "shadow-twinblades",
+      "name": "Shadow Twinblades",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 1960
+    },
+    {
+      "id": "shimmering-lantern",
+      "name": "Shimmering Lantern",
+      "category": "Magic",
+      "tier": 1,
+      "cost": 0
+    },
+    {
+      "id": "silence-robe",
+      "name": "Silence Robe",
+      "category": "Defense",
+      "tier": 2,
+      "cost": 1020
+    },
+    {
+      "id": "starlium-scythe",
+      "name": "Starlium Scythe",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 2120
+    },
+    {
+      "id": "steel-legplates",
+      "name": "Steel Legplates",
+      "category": "Defense",
+      "tier": 1,
+      "cost": 630
+    },
+    {
+      "id": "swift-boots",
+      "name": "Swift Boots",
+      "category": "Movement",
+      "tier": 1,
+      "cost": 720
+    },
+    {
+      "id": "swift-crossbow",
+      "name": "Swift Crossbow",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 1000
+    },
+    {
+      "id": "thunder-belt",
+      "name": "Thunder Belt",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 1820
+    },
+    {
+      "id": "tome-of-evil",
+      "name": "Tome of Evil",
+      "category": "Magic",
+      "tier": 2,
+      "cost": 950
+    },
+    {
+      "id": "tough-boots",
+      "name": "Tough Boots",
+      "category": "Movement",
+      "tier": 3,
+      "cost": 720
+    },
+    {
+      "id": "twilight-armor",
+      "name": "Twilight Armor",
+      "category": "Defense",
+      "tier": 3,
+      "cost": 2100
+    },
+    {
+      "id": "vampire-mallet",
+      "name": "Vampire Mallet",
+      "category": "Attack",
+      "tier": 1,
+      "cost": 400
+    },
+    {
+      "id": "vitality-crystal",
+      "name": "Vitality Crystal",
+      "category": "Defense",
+      "tier": 1,
+      "cost": 300
+    },
+    {
+      "id": "war-axe",
+      "name": "War Axe",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 2100
+    },
+    {
+      "id": "warrior-boots",
+      "name": "Warrior Boots",
+      "category": "Movement",
+      "tier": 3,
+      "cost": 720
+    },
+    {
+      "id": "wind-of-nature",
+      "name": "Wind of Nature",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 1910
+    },
+    {
+      "id": "windtalker",
+      "name": "Windtalker",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 1880
+    },
+    {
+      "id": "wishing-lantern",
+      "name": "Wishing Lantern",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 2250
     }
   ]
 }

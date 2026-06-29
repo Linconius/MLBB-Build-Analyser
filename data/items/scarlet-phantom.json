@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "scarlet-phantom",
+  "name": "Scarlet Phantom",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 2020,
+    "combine": 800
+  },
+  "stats": {
+    "physicalAttack": 30,
+    "attackSpeedPct": 20,
+    "critChancePct": 25
+  },
+  "passives": [
+    {
+      "name": "Frenzy",
+      "unique": true,
+      "description": "Critical strikes grant 30% extra Attack Speed and 5% extra Crit Chance for 2 seconds.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Scarlet_Phantom",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

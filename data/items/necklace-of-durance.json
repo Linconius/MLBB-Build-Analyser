@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "necklace-of-durance",
+  "name": "Necklace of Durance",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 2010,
+    "combine": 560
+  },
+  "stats": {
+    "magicPower": 60,
+    "hp": 300,
+    "mana": 380,
+    "cooldownReductionPct": 5
+  },
+  "passives": [
+    {
+      "name": "Gift",
+      "unique": true,
+      "description": "Regens 20% HP and Mana within 2 seconds of leveling up. Unique Passive - Lifebane: Upon dealing damage to the target, reduces Shield and HP Regen of the target by 50% for 3 seconds.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Necklace_of_Durance",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

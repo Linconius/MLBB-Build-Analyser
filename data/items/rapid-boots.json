@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "rapid-boots",
+  "name": "Rapid Boots",
+  "category": "Movement",
+  "tier": 1,
+  "cost": {
+    "total": 720,
+    "combine": 190
+  },
+  "stats": {
+    "movementSpeed": 55,
+    "hpRegen": 12
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Rapid_Boots",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

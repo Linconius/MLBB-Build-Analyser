@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "twilight-armor",
+  "name": "Twilight Armor",
+  "category": "Defense",
+  "tier": 3,
+  "cost": {
+    "total": 2100,
+    "combine": 480
+  },
+  "stats": {
+    "hp": 1200,
+    "physicalDefense": 15
+  },
+  "passives": [
+    {
+      "name": "Twilight",
+      "unique": true,
+      "description": "Upon taking more than 500 damage in a single instance, the excess damage beyond that amount is reduced by 20 (+0.2% Total HP)%. Unique Passive - Redemption: When incoming damage reduces HP below 30%, recover 20% Max HP over the next 4 seconds. This effect has a 60 seconds cooldown.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Twilight_Armor",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

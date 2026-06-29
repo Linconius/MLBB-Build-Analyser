@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "azure-blade",
+  "name": "Azure Blade",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 600,
+    "combine": 360
+  },
+  "stats": {
+    "manaRegen": 5,
+    "cooldownReductionPct": 5
+  },
+  "passives": [
+    {
+      "name": "Judgement",
+      "unique": true,
+      "description": "After casting a skill, the next Basic Attack within 3 seconds deals 50 extra True Damage (1.5 seconds cooldown).",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Azure_Blade",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

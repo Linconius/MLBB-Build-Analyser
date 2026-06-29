@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "swift-crossbow",
+  "name": "Swift Crossbow",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 1000,
+    "combine": 440
+  },
+  "stats": {
+    "attackSpeedPct": 20
+  },
+  "passives": [
+    {
+      "name": "Crossbow",
+      "unique": true,
+      "description": "Each Basic Attack deals 40 extra Adaptive Damage. Unique Passive - Impulse: Basic Attacks grant 3% extra Attack Speed for 3 seconds, capped at 5 stacks.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Swift_Crossbow",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

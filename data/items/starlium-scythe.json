@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "starlium-scythe",
+  "name": "Starlium Scythe",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 2120,
+    "combine": 250
+  },
+  "stats": {
+    "magicPower": 75,
+    "cooldownReductionPct": 10,
+    "lifestealPct": 8,
+    "manaRegen": 6
+  },
+  "passives": [
+    {
+      "name": "Crisis",
+      "unique": true,
+      "description": "After casting a skill, the next Basic Attack within 3 seconds deals 90 (+60% Total Magic Power) extra True Damage and reduces the target's Movement Speed by 15% for 1.5 seconds (1.5 seconds cooldown).",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Starlium_Scythe",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "steel-legplates",
+  "name": "Steel Legplates",
+  "category": "Defense",
+  "tier": 1,
+  "cost": {
+    "total": 630,
+    "combine": 410
+  },
+  "stats": {
+    "physicalDefense": 35
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Steel_Legplates",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

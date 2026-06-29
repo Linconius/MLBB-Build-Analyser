@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "wind-of-nature",
+  "name": "Wind of Nature",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 1910,
+    "combine": 910
+  },
+  "stats": {
+    "physicalAttack": 30,
+    "attackSpeedPct": 20,
+    "lifestealPct": 10
+  },
+  "actives": [
+    {
+      "name": "Wind Chant",
+      "unique": true,
+      "description": "Become immune to all Physical Damage for 2 seconds (duration is halved if Main Role is not Marksman; 90 seconds cooldown).",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Wind_of_Nature",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

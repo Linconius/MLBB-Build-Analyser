@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lightning-truncheon",
+  "name": "Lightning Truncheon",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 2250,
+    "combine": 760
+  },
+  "stats": {
+    "magicPower": 75,
+    "mana": 400,
+    "cooldownReductionPct": 10
+  },
+  "passives": [
+    {
+      "name": "Resonate",
+      "unique": true,
+      "description": "Every 6 seconds, the next skill echoes, dealing 255 (+85% Magic Power) extra Magic Damage to all enemies in range.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Lightning_Truncheon",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "magic-shoes",
+  "name": "Magic Shoes",
+  "category": "Movement",
+  "tier": 1,
+  "cost": {
+    "total": 720,
+    "combine": 20
+  },
+  "stats": {
+    "movementSpeed": 40,
+    "cooldownReductionPct": 10,
+    "hp": 150
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Magic_Shoes",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "great-dragon-spear",
+  "name": "Great Dragon Spear",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 2140,
+    "combine": 460
+  },
+  "stats": {
+    "physicalAttack": 70,
+    "cooldownReductionPct": 10,
+    "critChancePct": 20
+  },
+  "passives": [
+    {
+      "name": "Supreme Warrior",
+      "unique": true,
+      "description": "After casting an Ultimate, increase Movement Speed by 30% for 7.5 seconds. This effect has a 15 seconds cooldown.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Great_Dragon_Spear",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

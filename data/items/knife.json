@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "knife",
+  "name": "Knife",
+  "category": "Attack",
+  "tier": 1,
+  "cost": {
+    "total": 280,
+    "combine": 168
+  },
+  "stats": {
+    "attackSpeedPct": 10
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Knife",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

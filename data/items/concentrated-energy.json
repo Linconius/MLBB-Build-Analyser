@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "concentrated-energy",
+  "name": "Concentrated Energy",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 2020,
+    "combine": 400
+  },
+  "stats": {
+    "magicPower": 75,
+    "hp": 400
+  },
+  "passives": [
+    {
+      "name": "Unique Attribute",
+      "description": "Unique Attribute: +20% Hybrid Lifesteal Unique Passive - Recharge: Increases Magic Power by 5 after dealing Magic Damage (this effect stacks up to 6 times and can only gain 1 stack every 0.4 seconds). When reaching full stacks, increases Magic Damage by 12% for 5 seconds.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Concentrated_Energy",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

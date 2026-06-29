@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "legion-sword",
+  "name": "Legion Sword",
+  "category": "Attack",
+  "tier": 2,
+  "cost": {
+    "total": 910,
+    "combine": 410
+  },
+  "stats": {
+    "physicalAttack": 60
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Legion_Sword",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "ice-queen-wand",
+  "name": "Ice Queen Wand",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 2040,
+    "combine": 640
+  },
+  "stats": {
+    "magicPower": 60,
+    "spellVampPct": 10,
+    "hp": 300,
+    "movementSpeedPct": 7
+  },
+  "passives": [
+    {
+      "name": "Ice Bound",
+      "unique": true,
+      "description": "When a skill deals damage to an enemy hero, it will also slow them by 10% for 2 seconds (stacks up to 3 times). This effect has a 0.4 seconds cooldown.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Ice_Queen_Wand",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

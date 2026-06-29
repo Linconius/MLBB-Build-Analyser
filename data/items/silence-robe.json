@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "silence-robe",
+  "name": "Silence Robe",
+  "category": "Defense",
+  "tier": 2,
+  "cost": {
+    "total": 1020,
+    "combine": 500
+  },
+  "stats": {
+    "hp": 540,
+    "magicDefense": 23
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Silence_Robe",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

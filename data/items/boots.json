@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "boots",
+  "name": "Boots",
+  "category": "Movement",
+  "tier": 1,
+  "cost": {
+    "total": 250,
+    "combine": 150
+  },
+  "stats": {
+    "movementSpeed": 20
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Boots",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

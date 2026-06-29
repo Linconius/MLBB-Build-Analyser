@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "blood-wings",
+  "name": "Blood Wings",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 2100,
+    "combine": 460
+  },
+  "stats": {
+    "magicPower": 90
+  },
+  "passives": [
+    {
+      "name": "Guard",
+      "unique": true,
+      "description": "Gains a 800 (+100% Magic Power) Shield that will regenerate 20 seconds after being damaged. The Shield also grants 30 Movement Speed while it lasts and 150 Movement Speed for 1 second after it breaks.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Blood_Wings",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

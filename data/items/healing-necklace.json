@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "healing-necklace",
+  "name": "Healing Necklace",
+  "category": "Defense",
+  "tier": 1,
+  "cost": {
+    "total": 140,
+    "combine": 84
+  },
+  "stats": {
+    "hpRegen": 4
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Healing_Necklace",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

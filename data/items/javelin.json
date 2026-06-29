@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "javelin",
+  "name": "Javelin",
+  "category": "Attack",
+  "tier": 1,
+  "cost": {
+    "total": 320,
+    "combine": 192
+  },
+  "stats": {
+    "critChancePct": 8
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Javelin",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

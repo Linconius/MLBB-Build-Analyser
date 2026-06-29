@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "windtalker",
+  "name": "Windtalker",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 1880,
+    "combine": 700
+  },
+  "stats": {
+    "attackSpeedPct": 35,
+    "critChancePct": 20,
+    "movementSpeed": 20
+  },
+  "passives": [
+    {
+      "name": "Typhoon",
+      "unique": true,
+      "description": "Every 5–2 seconds (reduced by 0.2 seconds for each Basic Attack), the next Basic Attack will hit up to 3 enemy units for 150–362 Magic Damage. (This attack can Crit and the damage increases to 200% against Minions.)",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Windtalker",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

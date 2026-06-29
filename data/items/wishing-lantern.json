@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "wishing-lantern",
+  "name": "Wishing Lantern",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 2250,
+    "combine": 760
+  },
+  "stats": {
+    "magicPower": 75,
+    "mana": 400,
+    "cooldownReductionPct": 10
+  },
+  "passives": [
+    {
+      "name": "Butterfly Goddess",
+      "unique": true,
+      "description": "For every 900 Magic Damage dealt to an enemy hero (calculated before Damage Reduction), a Butterfly Goddess is summoned to attack the enemy hero, dealing Magic Damage equal to 8% of their Current HP.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Wishing_Lantern",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "vampire-mallet",
+  "name": "Vampire Mallet",
+  "category": "Attack",
+  "tier": 1,
+  "cost": {
+    "total": 400,
+    "combine": 240
+  },
+  "stats": {
+    "physicalAttack": 8,
+    "lifestealPct": 8
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Vampire_Mallet",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

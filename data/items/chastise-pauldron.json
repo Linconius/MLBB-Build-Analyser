@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "chastise-pauldron",
+  "name": "Chastise Pauldron",
+  "category": "Defense",
+  "tier": 3,
+  "cost": {
+    "total": 2100,
+    "combine": 770
+  },
+  "stats": {
+    "hp": 900,
+    "physicalDefense": 40
+  },
+  "passives": [
+    {
+      "name": "Chastise",
+      "unique": true,
+      "description": "Taking damage will reduce the Attack Speed and Attack Speed cap of the attacker to 75% of normal for 2 seconds. Unique Passive - Redemption: When incoming damage reduces HP below 30%, recover 20% Max HP over the next 2 seconds. This effect has a 60 seconds cooldown.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Chastise_Pauldron",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

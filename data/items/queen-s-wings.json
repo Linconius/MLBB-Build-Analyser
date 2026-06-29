@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "queen-s-wings",
+  "name": "Queen's Wings",
+  "category": "Defense",
+  "tier": 3,
+  "cost": {
+    "total": 2250,
+    "combine": 600
+  },
+  "stats": {
+    "hp": 750,
+    "adaptiveAttack": 30,
+    "cooldownReductionPct": 10,
+    "spellVampPct": 10
+  },
+  "passives": [
+    {
+      "name": "Demonize",
+      "unique": true,
+      "description": "When HP drops below 40%, gains 30% Damage Reduction for 3 seconds and reduces skill cooldowns by 2 seconds. This effect has a 60 seconds cooldown. Unique Passive - Defiance: For every 1% HP lost, damage is increased by 0.25%, up to 15%.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Queen's_Wings",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

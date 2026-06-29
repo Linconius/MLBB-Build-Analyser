@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "flower-of-hope",
+  "name": "Flower of Hope",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 0
+  },
+  "stats": {
+    "adaptiveAttack": 5
+  },
+  "passives": [
+    {
+      "name": "Flower of Hope",
+      "unique": true,
+      "description": "Every 6 seconds, the next skill or Basic Attack deals an additional 60 (+30% Total Physical Attack) (+30% Total Magic Power) Magic Damage.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Flower_of_Hope",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

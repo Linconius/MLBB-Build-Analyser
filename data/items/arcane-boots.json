@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "arcane-boots",
+  "name": "Arcane Boots",
+  "category": "Movement",
+  "tier": 1,
+  "cost": {
+    "total": 720,
+    "combine": 170
+  },
+  "stats": {
+    "movementSpeed": 40,
+    "magicPower": 15,
+    "magicPenetrationFlat": 10
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Arcane_Boots",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

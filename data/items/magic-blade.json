@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "magic-blade",
+  "name": "Magic Blade",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 1050,
+    "combine": 400
+  },
+  "stats": {
+    "physicalAttack": 35,
+    "lifestealPct": 10
+  },
+  "passives": [
+    {
+      "name": "Lifeline",
+      "unique": true,
+      "description": "When taking damage that reduces HP below 30%, gains a (+60*Hero Level) shield (increases with level) and 50% Movement Speed that rapidly decays over 3 seconds. This effect has a 60 seconds cooldown.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Magic_Blade",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

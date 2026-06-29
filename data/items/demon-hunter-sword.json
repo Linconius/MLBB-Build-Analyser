@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "demon-hunter-sword",
+  "name": "Demon Hunter Sword",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 2180,
+    "combine": 900
+  },
+  "stats": {
+    "physicalAttack": 35,
+    "attackSpeedPct": 20
+  },
+  "passives": [
+    {
+      "name": "Engulf",
+      "unique": true,
+      "description": "Basic Attacks deal 8% of the target's current HP as extra Physical Damage (capped at 60 against minions). Unique Passive - Devour: Each Basic Attack recovers 10(+4*Hero Level) HP. This effect is halved against minions.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Demon_Hunter_Sword",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "guardian-helmet",
+  "name": "Guardian Helmet",
+  "category": "Defense",
+  "tier": 3,
+  "cost": {
+    "total": 2500,
+    "combine": 400
+  },
+  "stats": {
+    "hp": 1800,
+    "hpRegen": 20
+  },
+  "passives": [
+    {
+      "name": "Recovery",
+      "unique": true,
+      "description": "After 5 seconds out of combat, recover (2.5% Total HP) HP per second. Unique Passive - Defender: Upon taking more than 500 damage in a single instance, recover 30 (+0.3% Total HP)% HP from the excess damage beyond that amount.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Guardian_Helmet",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

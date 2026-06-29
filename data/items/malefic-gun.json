@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "malefic-gun",
+  "name": "Malefic Gun",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 2120,
+    "combine": 730
+  },
+  "stats": {
+    "physicalAttack": 40,
+    "attackSpeedPct": 20
+  },
+  "passives": [
+    {
+      "name": "Armor Buster",
+      "unique": true,
+      "description": "Increase Physical Penetration by 30%. Unique Passive - Malefic Energy: Increases Basic Attack range by 12%. When hitting a target, gains 10% Movement Speed for 0.5 seconds.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Malefic_Gun",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

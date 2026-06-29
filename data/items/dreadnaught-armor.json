@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "dreadnaught-armor",
+  "name": "Dreadnaught Armor",
+  "category": "Defense",
+  "tier": 3,
+  "cost": {
+    "total": 730,
+    "combine": 290
+  },
+  "stats": {
+    "physicalDefense": 30
+  },
+  "passives": [
+    {
+      "name": "Deter",
+      "unique": true,
+      "description": "When hit by a skill, reduces the attacker's Physical Damage by 4% for 2 seconds (this effect stacks up to 3 times).",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Dreadnaught_Armor",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

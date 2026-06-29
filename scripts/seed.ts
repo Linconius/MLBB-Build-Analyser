@@ -27,8 +27,10 @@ const getArg = (name: string) => {
   return i >= 0 ? argv[i + 1] : undefined;
 };
 const FORCE = argv.includes("--force");
+const ITEMS = argv.includes("--items");
 const LIMIT = getArg("--limit") ? Number(getArg("--limit")) : Infinity;
 const ONLY = getArg("--only")?.split(",").map((s) => s.trim());
+const ITEMS_DIR = join(ROOT, "data", "items");
 
 const ROLES = ["Tank", "Fighter", "Assassin", "Mage", "Marksman", "Support"];
 const LANE_CAT: Record<string, string> = {
@@ -152,6 +154,134 @@ function buildSkillStubs(wikitext: string, url: string) {
   return skills;
 }
 
+// --- Item seeding ----------------------------------------------------------
+const ITEM_CATEGORIES = ["Attack", "Magic", "Defense", "Movement", "Jungle", "Roaming"];
+
+// Ordered so longer/more-specific names match before generic ones (hp regen before hp).
+const ITEM_STAT_RULES: { re: RegExp; key: string; pct?: boolean; flat?: boolean }[] = [
+  { re: /physical lifesteal/, key: "physicalLifestealPct", pct: true },
+  { re: /spell vamp/, key: "spellVampPct", pct: true },
+  { re: /lifesteal/, key: "lifestealPct", pct: true },
+  { re: /hp regen/, key: "hpRegen" },
+  { re: /mana regen/, key: "manaRegen" },
+  { re: /attack speed/, key: "attackSpeedPct", pct: true },
+  { re: /critical chance|crit chance/, key: "critChancePct", pct: true },
+  { re: /critical damage|crit damage/, key: "critDamagePct", pct: true },
+  { re: /cooldown reduction/, key: "cooldownReductionPct", pct: true },
+  { re: /movement speed/, key: "movementSpeed" }, // pct variant handled below
+  { re: /physical penetration/, key: "physicalPenetration" }, // flat/pct below
+  { re: /magic penetration/, key: "magicPenetration" },
+  { re: /adaptive attack/, key: "adaptiveAttack" },
+  { re: /physical attack/, key: "physicalAttack" },
+  { re: /magic power/, key: "magicPower" },
+  { re: /physical defense/, key: "physicalDefense" },
+  { re: /magic defense/, key: "magicDefense" },
+  { re: /mana/, key: "mana" },
+  { re: /hp/, key: "hp" },
+];
+
+function parseStatLine(line: string): { key: string; value: number } | null {
+  const m = line.trim().match(/^\+?\s*([\d.]+)\s*(%?)\s*(.+?)\s*$/);
+  if (!m) return null;
+  const value = Number(m[1]);
+  const isPct = m[2] === "%";
+  const name = m[3].toLowerCase();
+  for (const rule of ITEM_STAT_RULES) {
+    if (!rule.re.test(name)) continue;
+    let key = rule.key;
+    if (key === "movementSpeed" && isPct) key = "movementSpeedPct";
+    if (key === "physicalPenetration") key = isPct ? "physicalPenetrationPct" : "physicalPenetrationFlat";
+    if (key === "magicPenetration") key = isPct ? "magicPenetrationPct" : "magicPenetrationFlat";
+    return { key, value };
+  }
+  return null;
+}
+
+function parseEffectBlock(text: string): { block: any; kind: "passive" | "active" } {
+  const m = text.match(/^\s*(Unique\s+)?(Passive|Active)\s*-\s*([^:]+):\s*([\s\S]+)$/i);
+  if (m) {
+    return {
+      kind: m[2].toLowerCase() as "passive" | "active",
+      block: { name: m[3].trim(), unique: !!m[1], description: m[4].replace(/\s+/g, " ").trim(), effects: [] },
+    };
+  }
+  return { kind: "passive", block: { name: text.split(":")[0].slice(0, 40).trim() || "Passive", description: text.replace(/\s+/g, " ").trim(), effects: [] } };
+}
+
+function inferTier(total: number, hasUnique: boolean): number {
+  if (total >= 1800 || hasUnique) return 3;
+  if (total >= 900) return 2;
+  return 1;
+}
+
+async function seedItem(title: string): Promise<"written" | "skipped" | "notitem"> {
+  const slug = slugify(title);
+  const file = join(ITEMS_DIR, `${slug}.json`);
+  if (!FORCE && existsSync(file)) return "skipped";
+
+  const url = `https://mobile-legends.fandom.com/wiki/${title.replace(/ /g, "_")}`;
+  const r = await api({ action: "parse", page: title, prop: "text|categories", redirects: "1" });
+  if (!r.parse) return "notitem";
+  const categories = (r.parse.categories as { "*": string }[]).map((c) => c["*"].replace(/_/g, " "));
+  const category = ITEM_CATEGORIES.find((c) => categories.includes(`${c} equipment`));
+  if (!category) return "notitem";
+  const root = parse(r.parse.text["*"] as string);
+  const box = root.querySelector(".portable-infobox");
+  if (!box) return "notitem";
+
+  // Stats from the "bonus" data block (lines separated by <br>).
+  const stats: Record<string, number> = {};
+  const bonus = box.querySelector('[data-source="bonus"] .pi-data-value');
+  if (bonus) {
+    for (const line of bonus.innerHTML.split(/<br\s*\/?>/i)) {
+      const parsed = parseStatLine(parse(line).text);
+      if (parsed) stats[parsed.key] = (stats[parsed.key] ?? 0) + parsed.value;
+    }
+  }
+
+  // Passive/active effect blocks (text only — numeric effects are hand-authored).
+  const passives: any[] = [];
+  const actives: any[] = [];
+  for (const node of box.querySelectorAll(".pi-data")) {
+    const src = node.getAttribute("data-source") ?? "";
+    if (!/^unique|^passive|^active/.test(src)) continue;
+    const text = node.querySelector(".pi-data-value")?.text?.trim();
+    if (!text) continue;
+    const { block, kind } = parseEffectBlock(text);
+    (kind === "active" ? actives : passives).push(block);
+  }
+
+  // Price: first cell = total, second = upgrade/combine fee.
+  const priceTable = box.querySelector('[data-source="total_price"]')?.closest("table");
+  const priceCells = priceTable?.querySelectorAll("td").map((t) => num(t.text)) ?? [];
+  const total = priceCells[0] ?? 0;
+
+  const item = {
+    schemaVersion: "1.0.0",
+    id: slug,
+    name: title,
+    category,
+    tier: inferTier(total, passives.some((p) => p.unique)),
+    cost: { total, ...(priceCells[1] ? { combine: priceCells[1] } : {}) },
+    stats,
+    ...(passives.length ? { passives } : {}),
+    ...(actives.length ? { actives } : {}),
+    sources: [{ field: "stats", url, retrieved: TODAY }],
+  };
+  writeFileSync(file, JSON.stringify(item, null, 2) + "\n");
+  return "written";
+}
+
+async function listItems(): Promise<string[]> {
+  const titles = new Set<string>();
+  for (const c of ITEM_CATEGORIES) {
+    const r = await api({ action: "query", list: "categorymembers", cmtitle: `Category:${c} equipment`, cmlimit: "500", cmtype: "page" });
+    for (const m of (r.query?.categorymembers ?? []) as { title: string }[]) titles.add(m.title);
+    await sleep(120);
+  }
+  return [...titles];
+}
+
 async function listHeroes(): Promise<string[]> {
   const r = await api({ action: "query", list: "categorymembers", cmtitle: "Category:Heroes", cmlimit: "500", cmtype: "page" });
   return (r.query.categorymembers as { title: string }[]).map((m) => m.title);
@@ -199,24 +329,26 @@ async function seedHero(title: string): Promise<"written" | "skipped" | "nostats
 }
 
 (async () => {
-  if (!existsSync(HEROES_DIR)) mkdirSync(HEROES_DIR, { recursive: true });
-  let titles = await listHeroes();
+  const dir = ITEMS ? ITEMS_DIR : HEROES_DIR;
+  if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
+  let titles = ITEMS ? await listItems() : await listHeroes();
   if (ONLY) titles = titles.filter((t) => ONLY.includes(t));
   titles = titles.slice(0, LIMIT);
-  console.log(`Seeding ${titles.length} candidate page(s)…`);
+  console.log(`Seeding ${titles.length} candidate ${ITEMS ? "item" : "hero"} page(s)…`);
 
-  const tally: Record<string, number> = { written: 0, skipped: 0, nostats: 0, nothero: 0, error: 0 };
+  const tally: Record<string, number> = {};
+  const bump = (k: string) => (tally[k] = (tally[k] ?? 0) + 1);
   for (const title of titles) {
     try {
-      const result = await seedHero(title);
-      tally[result]++;
+      const result = ITEMS ? await seedItem(title) : await seedHero(title);
+      bump(result);
       if (result === "written") console.log(`  ✓ ${title}`);
-      else if (result === "nostats") console.log(`  ⚠ ${title}: no stat table`);
+      else if (result === "nostats") console.log(`  ! ${title}: no stat table`);
     } catch (e) {
-      tally.error++;
-      console.log(`  ✗ ${title}: ${(e as Error).message}`);
+      bump("error");
+      console.log(`  x ${title}: ${(e as Error).message}`);
     }
     await sleep(120);
   }
-  console.log(`\nDone: ${tally.written} written, ${tally.skipped} skipped, ${tally.nostats} no-stats, ${tally.nothero} non-hero, ${tally.error} errors.`);
+  console.log(`\nDone: ${Object.entries(tally).map(([k, v]) => `${v} ${k}`).join(", ")}.`);
 })();

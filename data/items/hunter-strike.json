@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "hunter-strike",
+  "name": "Hunter Strike",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 2010,
+    "combine": 480
+  },
+  "stats": {
+    "physicalAttack": 80,
+    "cooldownReductionPct": 10
+  },
+  "passives": [
+    {
+      "name": "Unique Attribute",
+      "description": "Unique Attribute: +15 Physical Penetration Unique Passive - Retribution: Dealing damage to the same enemy hero or creep 5 times in a row grants 50% extra Movement Speed that decays over 3 seconds (8 seconds cooldown).",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Hunter_Strike",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

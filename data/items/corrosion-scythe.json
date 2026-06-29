@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "corrosion-scythe",
+  "name": "Corrosion Scythe",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 2050,
+    "combine": 450
+  },
+  "stats": {
+    "physicalAttack": 30,
+    "attackSpeedPct": 30,
+    "movementSpeedPct": 5
+  },
+  "passives": [
+    {
+      "name": "Corrosive",
+      "unique": true,
+      "description": "Basic Attacks gain 80 extra Physical Damage and slow the target by 8% (halved for ranged Basic Attacks) for 1.5 seconds. Stacks up to 5 times. Unique Passive - Impulse: Basic Attacks grant 6% extra Attack Speed for 3 seconds, capped at 5 stacks.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Corrosion_Scythe",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

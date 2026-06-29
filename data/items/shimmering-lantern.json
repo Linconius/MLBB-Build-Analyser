@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "shimmering-lantern",
+  "name": "Shimmering Lantern",
+  "category": "Magic",
+  "tier": 1,
+  "cost": {
+    "total": 0
+  },
+  "stats": {
+    "magicPower": 20,
+    "movementSpeedPct": 5
+  },
+  "passives": [
+    {
+      "name": "Unique Passive - Floryn can share the po",
+      "description": "Unique Passive - Floryn can share the power of Dew's Lantern with an allied hero. The Lantern is not strong enough yet and can evolve once it absorbs enough energy in battle.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Shimmering_Lantern",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

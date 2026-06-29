@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "shadow-twinblades",
+  "name": "Shadow Twinblades",
+  "category": "Magic",
+  "tier": 3,
+  "cost": {
+    "total": 1960,
+    "combine": 860
+  },
+  "stats": {
+    "magicPower": 75,
+    "lifestealPct": 15,
+    "movementSpeedPct": 5
+  },
+  "passives": [
+    {
+      "name": "Assassination",
+      "unique": true,
+      "description": "If no damage is taken or dealt within 5 sseconds, the next Basic Attack will deal extra Magic Damage equal to 200 plus 50% Magic Power, and inflict 60% slow effects upon the target for 1.5 seconds.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Shadow_Twinblades",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

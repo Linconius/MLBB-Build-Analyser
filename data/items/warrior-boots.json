@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "warrior-boots",
+  "name": "Warrior Boots",
+  "category": "Movement",
+  "tier": 3,
+  "cost": {
+    "total": 720,
+    "combine": 250
+  },
+  "stats": {
+    "movementSpeed": 40,
+    "physicalDefense": 18
+  },
+  "passives": [
+    {
+      "name": "Valor",
+      "unique": true,
+      "description": "Gains 4 extra Physical Defense for 3 seconds when taking Physical Damage, up to 20.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Warrior_Boots",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "berserker-s-fury",
+  "name": "Berserker's Fury",
+  "category": "Attack",
+  "tier": 3,
+  "cost": {
+    "total": 2390,
+    "combine": 840
+  },
+  "stats": {
+    "physicalAttack": 60,
+    "critChancePct": 25
+  },
+  "passives": [
+    {
+      "name": "Unique Attribute",
+      "description": "Unique Attribute: +30% Crit Damage Unique Passive - Doom: When Basic Attacks Crit, they deal extra True Damage equal to 12% of the damage before reduction.",
+      "effects": []
+    }
+  ],
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Berserker's_Fury",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

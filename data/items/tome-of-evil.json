@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tome-of-evil",
+  "name": "Tome of Evil",
+  "category": "Magic",
+  "tier": 2,
+  "cost": {
+    "total": 950,
+    "combine": 380
+  },
+  "stats": {
+    "magicPower": 30,
+    "manaRegen": 2,
+    "cooldownReductionPct": 10
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Tome_of_Evil",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}
