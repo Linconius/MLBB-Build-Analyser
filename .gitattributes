@@ -1,0 +1,6 @@
+# Normalize line endings to LF for all text so data diffs stay clean cross-platform.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary
