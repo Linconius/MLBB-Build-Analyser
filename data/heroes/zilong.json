@@ -3,7 +3,7 @@
   "id": "zilong",
   "name": "Zilong",
   "releaseYear": 2016,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -66,47 +66,128 @@
     {
       "slot": "passive",
       "name": "Dragon Flurry",
+      "description": "Periodically empowers a basic into a 3-hit flurry, each hit dealing physical damage and healing Zilong.",
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Zilong",
-          "outputs": []
+          "id": "flurry",
+          "trigger": "on_enhanced_basic",
+          "inputs": [
+            "physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "80 + 0.3 * physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 3
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_1",
       "name": "Spear Flip",
+      "description": "Flips the target over his back, dealing physical damage and making them airborne.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        12,
+        11.5,
+        11,
+        10.5,
+        10,
+        9.5
+      ],
+      "manaCost": [
+        80,
+        85,
+        90,
+        95,
+        100,
+        105
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Zilong",
-          "outputs": []
+          "id": "flip",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(250 + 20 * (skill_level - 1)) + 0.8 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "airborne",
+              "durationSeconds": 0.5
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_2",
       "name": "Spear Strike",
+      "description": "Dashes to a target dealing physical damage and reducing their Physical Defense.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        12,
+        11.4,
+        10.8,
+        10.2,
+        9.6,
+        9
+      ],
+      "manaCost": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Zilong",
-          "outputs": []
+          "id": "strike",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(250 + 40 * (skill_level - 1)) + 0.6 * physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "ultimate",
       "name": "Supreme Warrior",
+      "description": "Buffs movement speed, attack speed and grants slow immunity. No direct damage.",
       "maxLevel": 3,
+      "cooldownSeconds": [
+        35,
+        31,
+        27
+      ],
+      "manaCost": [
+        120,
+        140,
+        160
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Zilong",
+          "id": "supreme",
+          "trigger": "on_cast",
+          "note": "Self-buff; deals no damage.",
           "outputs": []
         }
       ]
@@ -115,6 +196,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Zilong",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Zilong",
       "retrieved": "2026-06-29"
     }

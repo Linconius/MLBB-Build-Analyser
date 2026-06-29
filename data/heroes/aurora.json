@@ -3,7 +3,7 @@
   "id": "aurora",
   "name": "Aurora",
   "releaseYear": 2017,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -68,48 +68,148 @@
     {
       "slot": "passive",
       "name": "Pride of Ice",
+      "description": "On taking fatal damage, freezes herself for 1.5s (invincible) and recovers 30% Max HP. Cooldown 150s.",
       "maxLevel": 1,
+      "cooldownSeconds": [
+        150
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Aurora",
-          "outputs": []
+          "id": "pride",
+          "trigger": "on_fatal_damage",
+          "outputs": [
+            {
+              "type": "heal",
+              "valuePercent": 30,
+              "magnitudeUnit": "percent_caster_max_hp"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_1",
       "name": "Hailstone Blast",
+      "description": "Hurls a meteorite dealing magic damage and slowing enemies.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        6,
+        5.6,
+        5.2,
+        4.8,
+        4.4,
+        4
+      ],
+      "manaCost": [
+        55,
+        65,
+        75,
+        85,
+        95,
+        105
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Aurora",
-          "outputs": []
+          "id": "blast",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(350 + 40 * (skill_level - 1)) + 0.9 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 40,
+              "durationSeconds": 1
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_2",
       "name": "Frosty Breeze",
+      "description": "Conjures an icy zone dealing magic damage and freezing enemies for 1s.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "manaCost": [
+        110,
+        110,
+        120,
+        130,
+        140,
+        150
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Aurora",
-          "outputs": []
+          "id": "breeze",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(225 + 30 * (skill_level - 1)) + 0.75 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 1,
+              "hits": 1
+            }
+          ]
         }
       ]
     },
     {
       "slot": "ultimate",
       "name": "Frigid Glacier",
+      "description": "Fires a glacier that shatters for heavy magic damage and freezes enemies.",
       "maxLevel": 3,
+      "cooldownSeconds": [
+        50,
+        45,
+        40
+      ],
+      "manaCost": [
+        150,
+        175,
+        200
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Aurora",
-          "outputs": []
+          "id": "glacier",
+          "trigger": "on_cast",
+          "note": "Final shatter (single-target). Initial-path damage not modelled.",
+          "inputs": [
+            "skill_level",
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(600 + 300 * (skill_level - 1)) + 1.5 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 1
+            }
+          ]
         }
       ]
     }
@@ -117,6 +217,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Aurora",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Aurora",
       "retrieved": "2026-06-29"
     }
