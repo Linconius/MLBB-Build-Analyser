@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tank",
+  "name": "Tank",
+  "iconAsset": "assets/emblems/tank.png",
+  "stats": {
+    "hp": 500,
+    "physicalDefense": 10,
+    "magicDefense": 10,
+    "hpRegen": 4
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

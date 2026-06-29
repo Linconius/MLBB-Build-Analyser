@@ -71,12 +71,16 @@ async function download(url: string, dest: string): Promise<boolean> {
   return false;
 }
 
-async function seedKind(kind: "heroes" | "items"): Promise<void> {
+const defaultTitle = (e: { name: string }) => `File:${e.name}.png`;
+
+async function seedKind(
+  kind: "heroes" | "items" | "emblems",
+  fileTitle: (e: { id: string; name: string }) => string = defaultTitle,
+): Promise<void> {
   const dataDir = join(ROOT, "data", kind);
   const outDir = join(ROOT, "web", "public", "assets", kind);
   if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
 
-  // Build id -> File:<name>.png, skipping ones already downloaded.
   const entries = listJson(dataDir)
     .map((f) => readJson(join(dataDir, f)))
     .filter((e) => FORCE || !existsSync(join(outDir, `${e.id}.png`)));
@@ -85,7 +89,7 @@ async function seedKind(kind: "heroes" | "items"): Promise<void> {
     return;
   }
 
-  const titleToId = new Map(entries.map((e) => [`File:${e.name}.png`, e.id]));
+  const titleToId = new Map(entries.map((e) => [fileTitle(e), e.id]));
   console.log(`${kind}: resolving ${entries.length} image URL(s)…`);
   const urls = await imageUrls([...titleToId.keys()]);
 
@@ -105,5 +109,7 @@ async function seedKind(kind: "heroes" | "items"): Promise<void> {
 (async () => {
   await seedKind("heroes");
   await seedKind("items");
+  // Emblem images are "<Name> Emblem.png" (Common is "Basic Common Emblem.png").
+  await seedKind("emblems", (e) => `File:${e.name === "Common" ? "Basic Common" : e.name} Emblem.png`);
   console.log("Done.");
 })();

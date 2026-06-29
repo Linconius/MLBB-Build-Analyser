@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "inspire",
+  "name": "Inspire",
+  "tier": 1,
+  "stats": {
+    "cooldownReductionPct": 5,
+    "manaRegen": 2
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

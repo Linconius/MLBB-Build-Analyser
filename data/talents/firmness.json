@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "firmness",
+  "name": "Firmness",
+  "tier": 1,
+  "stats": {
+    "physicalDefense": 8,
+    "magicDefense": 8
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

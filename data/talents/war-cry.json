@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "war-cry",
+  "name": "War Cry",
+  "tier": 3,
+  "effect": "Every 3rd basic/skill hit grants +8% damage for 6s (6s CD).",
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

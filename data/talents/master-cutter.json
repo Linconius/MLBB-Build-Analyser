@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "master-cutter",
+  "name": "Master Cutter",
+  "tier": 2,
+  "effect": "Deal +7% damage to an enemy hero when no allied hero is nearby (isolation).",
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

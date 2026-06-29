@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "weapon-master",
+  "name": "Weapon Master",
+  "tier": 2,
+  "effect": "Each basic attack grants +2% extra damage, stacking up to +8%.",
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

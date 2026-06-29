@@ -8,6 +8,7 @@
   "scripts": {
     "validate": "tsx scripts/validate.ts",
     "seed": "tsx scripts/seed.ts",
+    "seed-emblems": "tsx scripts/seed-emblems.ts",
     "icons": "tsx scripts/icons.ts",
     "build-index": "tsx scripts/build-index.ts",
     "dev": "npm run dev --workspace web",

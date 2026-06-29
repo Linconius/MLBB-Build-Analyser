@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "weakness-finder",
+  "name": "Weakness Finder",
+  "tier": 3,
+  "effect": "Basic attacks slow enemies ~30% and reduce their attack speed.",
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

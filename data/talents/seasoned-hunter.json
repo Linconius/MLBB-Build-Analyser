@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "seasoned-hunter",
+  "name": "Seasoned Hunter",
+  "tier": 2,
+  "effect": "Deal 15% more damage to Lord and Turtle.",
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "quantum-charge",
+  "name": "Quantum Charge",
+  "tier": 3,
+  "effect": "Basic-attack damage grants +30% movement speed for 1.5s and restores 75–180 HP (8s CD).",
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

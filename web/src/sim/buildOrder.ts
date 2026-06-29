@@ -81,7 +81,56 @@ export function computeUnlocks(orderedItems: Item[], gpm: number, opts: ComputeU
     const goldNeeded = cumulative - startingGold;
     step.unlockMinute = gpm > 0 ? Math.max(0, goldNeeded / gpm) : Infinity;
   }
+
+  enforceSlotLimit(steps);
   return steps;
+}
+
+/** Equipment slots a hero can hold (components in progress + finished items). */
+export const SLOT_LIMIT = 6;
+export const slotsFree = (held: number): number => Math.max(0, SLOT_LIMIT - held);
+export const canHoldMore = (held: number): boolean => held < SLOT_LIMIT;
+
+/**
+ * Enforces the 6-slot limit + lump-completion rule on the (cost-ordered) purchase steps.
+ * Each held item (loose component or finished item) occupies a slot. A purchase step would
+ * raise the held count to `held - (held children it merges) + 1`; if that exceeds 6 it cannot
+ * be placed now, so it is deferred to complete together with the combine that consumes it (and
+ * deferral cascades up multi-level recipes to the first ancestor that fits). Deferred steps
+ * inherit that ancestor's unlock minute — i.e. their remaining components + combine fees are
+ * paid together once affordable; they never appear alone. Total cost is unchanged (the ancestor
+ * combine's cumulative cost already covers them), so only appearance time moves. Builds that
+ * never exceed 6 held items are left byte-identical.
+ */
+function enforceSlotLimit(steps: PurchaseStep[]): void {
+  const stepByKey = new Map(steps.map((s) => [s.key, s]));
+  const parentOf = new Map<string, string>(); // child step key -> the combine key that consumes it
+  for (const s of steps) for (const child of s.consumes) parentOf.set(child, s.key);
+
+  let held = 0;
+  const deferred = new Set<string>();
+  for (const s of steps) {
+    let mergedHeld = 0;
+    for (const child of s.consumes) if (!deferred.has(child)) mergedHeld += 1;
+    const heldAfter = held - mergedHeld + 1;
+    if (heldAfter > SLOT_LIMIT && parentOf.has(s.key)) {
+      deferred.add(s.key); // merges into its parent later; its held children stay held until then
+    } else {
+      held = heldAfter; // place now (a top-level final with no parent is placed even if >6 — UI caps at 6)
+    }
+  }
+
+  // Resolve each deferred step to the unlock minute of its first non-deferred ancestor combine.
+  const minuteOf = (key: string): number => {
+    let cur = key;
+    const guard = new Set<string>();
+    while (deferred.has(cur) && parentOf.has(cur) && !guard.has(cur)) {
+      guard.add(cur);
+      cur = parentOf.get(cur)!;
+    }
+    return stepByKey.get(cur)!.unlockMinute;
+  };
+  for (const s of steps) if (deferred.has(s.key)) s.unlockMinute = minuteOf(s.key);
 }
 
 /**

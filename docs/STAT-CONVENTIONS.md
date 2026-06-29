@@ -75,9 +75,10 @@ flat and % penetration separately, in the order above.
 
 ## Adaptive vs hybrid stats
 
-**Adaptive** stats resolve to **one** type based on the hero's `damageType` (or the larger of
-physical attack / magic power for true-hybrid heroes); the resolved value populates the
-appropriate caster variable before formula evaluation:
+**Adaptive** stats resolve to **one** type by comparing the **build's** total physical attack vs
+magic power at aggregation time (higher wins; tie → physical), evaluated before the adaptive
+amount itself is added. This is stat-driven, **not** the hero's static `damageType`, so off-type
+item builds and hybrid heroes resolve to whichever is actually higher:
 
 - `adaptiveAttack` → physical attack or magic power.
 - `adaptivePenetration` → physical or magic **flat** penetration.

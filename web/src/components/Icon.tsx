@@ -2,7 +2,7 @@ import { useState } from "react";
 import { assetUrl } from "../data/loader";
 
 /** Square icon for a hero/item; renders nothing if the image is missing (404). */
-export function Icon({ kind, id, size = 28, alt }: { kind: "heroes" | "items"; id: string; size?: number; alt?: string }) {
+export function Icon({ kind, id, size = 28, alt }: { kind: "heroes" | "items" | "emblems"; id: string; size?: number; alt?: string }) {
   const [broken, setBroken] = useState(false);
   if (broken) return null;
   return (

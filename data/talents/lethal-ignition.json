@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lethal-ignition",
+  "name": "Lethal Ignition",
+  "tier": 3,
+  "effect": "Hitting a hero 3 times in 5s scorches them for 162–750 adaptive burn damage.",
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

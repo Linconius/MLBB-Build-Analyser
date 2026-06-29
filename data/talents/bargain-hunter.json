@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "bargain-hunter",
+  "name": "Bargain Hunter",
+  "tier": 2,
+  "effect": "Equipment costs 5% less gold.",
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

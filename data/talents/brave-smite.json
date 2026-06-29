@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "brave-smite",
+  "name": "Brave Smite",
+  "tier": 3,
+  "effect": "Dealing skill damage to a hero heals you for 5% Max HP (6s CD).",
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}
