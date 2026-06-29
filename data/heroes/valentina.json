@@ -3,7 +3,7 @@
   "id": "valentina",
   "name": "Valentina",
   "releaseYear": 2021,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -71,8 +71,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Valentina",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -83,10 +83,41 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Valentina",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(340 + 65 * (skill_level - 1)) + 1.85 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 40,
+              "durationSeconds": 1
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        7,
+        6.6,
+        6.2,
+        5.8,
+        5.4,
+        5
+      ],
+      "manaCost": [
+        70,
+        75,
+        80,
+        85,
+        90,
+        95
       ]
     },
     {
@@ -95,10 +126,37 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Valentina",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(125 + 20 * (skill_level - 1)) + 0.3 * magic_power",
+              "magnitudeUnit": "flat",
+              "hits": 3
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "manaCost": [
+        45,
+        50,
+        55,
+        60,
+        65,
+        70
       ]
     },
     {
@@ -107,9 +165,15 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Valentina",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "outputs": [
+            {
+              "type": "slow",
+              "valuePercent": 70,
+              "durationSeconds": 0.5
+            }
+          ]
         }
       ]
     }
@@ -117,6 +181,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Valentina",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Valentina",
       "retrieved": "2026-06-29"
     }

@@ -3,7 +3,7 @@
   "id": "julian",
   "name": "Julian",
   "releaseYear": 2022,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -74,7 +74,19 @@
         {
           "id": "passive_auto",
           "trigger": "on_cast",
-          "outputs": []
+          "inputs": [
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "100 + 1 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "knockback"
+            }
+          ]
         }
       ]
     },
@@ -133,9 +145,23 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Julian",
-          "outputs": []
+          "id": "skill_3_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(300 + 28 * (skill_level - 1)) + 1 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "root",
+              "durationSeconds": 1.2
+            }
+          ]
         }
       ]
     }

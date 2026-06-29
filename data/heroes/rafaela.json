@@ -3,7 +3,7 @@
   "id": "rafaela",
   "name": "Rafaela",
   "releaseYear": 2016,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -71,8 +71,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Rafaela",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -83,10 +83,41 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Rafaela",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(225 + 55 * (skill_level - 1)) + 1.2 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 40,
+              "durationSeconds": 1.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "manaCost": [
+        70,
+        85,
+        100,
+        115,
+        130,
+        145
       ]
     },
     {
@@ -95,10 +126,26 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Rafaela",
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        10.5,
+        10.1,
+        9.7,
+        9.3,
+        8.9,
+        8.5
+      ],
+      "manaCost": [
+        100,
+        110,
+        120,
+        130,
+        140,
+        150
       ]
     },
     {
@@ -107,16 +154,45 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Rafaela",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(460 + 100 * (skill_level - 1)) + 1.2 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 1.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        42,
+        38,
+        34
+      ],
+      "manaCost": [
+        150,
+        175,
+        200
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Rafaela",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Rafaela",
       "retrieved": "2026-06-29"
     }

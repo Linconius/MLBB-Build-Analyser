@@ -3,7 +3,7 @@
   "id": "xavier",
   "name": "Xavier",
   "releaseYear": 2022,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -71,8 +71,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Xavier",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -83,10 +83,39 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Xavier",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(480 + 34 * (skill_level - 1)) + 1 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        6.5,
+        6.4,
+        6.3,
+        6.2,
+        6.1,
+        6
+      ],
+      "manaCost": [
+        50,
+        55,
+        60,
+        65,
+        70,
+        75
       ]
     },
     {
@@ -95,10 +124,44 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Xavier",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(220 + 24 * (skill_level - 1)) + 0.65 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 50
+            },
+            {
+              "type": "root",
+              "durationSeconds": 1.2
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "manaCost": [
+        80,
+        88,
+        96,
+        104,
+        112,
+        120
       ]
     },
     {
@@ -107,16 +170,41 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Xavier",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(600 + 250 * (skill_level - 1)) + 1.8 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        56,
+        56,
+        56
+      ],
+      "manaCost": [
+        120,
+        160,
+        200
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Xavier",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Xavier",
       "retrieved": "2026-06-29"
     }

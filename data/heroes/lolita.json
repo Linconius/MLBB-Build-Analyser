@@ -3,7 +3,7 @@
   "id": "lolita",
   "name": "Lolita",
   "releaseYear": 2016,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -72,8 +72,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lolita",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -84,10 +84,40 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lolita",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(300 + 60 * (skill_level - 1)) + 1 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 0.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "manaCost": [
+        70,
+        80,
+        90,
+        100,
+        110,
+        120
       ]
     },
     {
@@ -96,10 +126,26 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lolita",
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        17.5,
+        17,
+        16.5,
+        16,
+        15.5,
+        15
+      ],
+      "manaCost": [
+        90,
+        95,
+        100,
+        105,
+        110,
+        115
       ]
     },
     {
@@ -108,16 +154,50 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lolita",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(500 + 200 * (skill_level - 1)) + 1 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 2
+            },
+            {
+              "type": "slow",
+              "valuePercent": 50,
+              "durationSeconds": 2
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        55,
+        50,
+        45
+      ],
+      "manaCost": [
+        120,
+        140,
+        160
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Lolita",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Lolita",
       "retrieved": "2026-06-29"
     }

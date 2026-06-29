@@ -3,7 +3,7 @@
   "id": "ling",
   "name": "Ling",
   "releaseYear": 2019,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "energy",
   "damageType": "physical",
   "roles": [
@@ -71,8 +71,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Ling",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -83,10 +83,32 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Ling",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "outputs": [
+            {
+              "type": "slow",
+              "valuePercent": 30,
+              "durationSeconds": 2
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "manaCost": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
       ]
     },
     {
@@ -95,10 +117,41 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Ling",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(300 + 20 * (skill_level - 1)) + 0.5 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 30,
+              "durationSeconds": 1.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "manaCost": [
+        35,
+        35,
+        35,
+        35,
+        35,
+        35
       ]
     },
     {
@@ -107,16 +160,45 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Ling",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(250 + 100 * (skill_level - 1)) + 1 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "airborne",
+              "durationSeconds": 1
+            },
+            {
+              "type": "slow",
+              "valuePercent": 40,
+              "durationSeconds": 1.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        52,
+        49,
+        46
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Ling",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Ling",
       "retrieved": "2026-06-29"
     }

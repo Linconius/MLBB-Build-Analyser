@@ -3,7 +3,7 @@
   "id": "roger",
   "name": "Roger",
   "releaseYear": 2017,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -72,8 +72,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Roger",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -84,10 +84,42 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Roger",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(250 + 50 * (skill_level - 1)) + 1.25 * physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            },
+            {
+              "type": "slow",
+              "valuePercent": 80,
+              "durationSeconds": 1.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "manaCost": [
+        70,
+        80,
+        90,
+        100,
+        110,
+        120
       ]
     },
     {
@@ -96,10 +128,26 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Roger",
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        10,
+        9.6,
+        9.2,
+        8.8,
+        8.4,
+        8
+      ],
+      "manaCost": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
       ]
     },
     {
@@ -108,9 +156,24 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Roger",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "bonus_physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(150 + 75 * (skill_level - 1)) + 1 * bonus_physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 90,
+              "durationSeconds": 0.8
+            }
+          ]
         }
       ]
     }
@@ -118,6 +181,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Roger",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Roger",
       "retrieved": "2026-06-29"
     }

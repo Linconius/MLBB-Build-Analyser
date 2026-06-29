@@ -3,7 +3,7 @@
   "id": "masha",
   "name": "Masha",
   "releaseYear": 2019,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "energy",
   "damageType": "physical",
   "roles": [
@@ -69,8 +69,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Masha",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -81,10 +81,18 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Masha",
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        6,
+        5.6,
+        5.2,
+        4.8,
+        4.4,
+        4
       ]
     },
     {
@@ -93,10 +101,28 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Masha",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(200 + 20 * (skill_level - 1)) + 1 * physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        15,
+        14,
+        13,
+        12,
+        11,
+        10
       ]
     },
     {
@@ -105,9 +131,27 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Masha",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(200 + 150 * (skill_level - 1)) + 2 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 25,
+              "durationSeconds": 2
+            },
+            {
+              "type": "knockback"
+            }
+          ]
         }
       ]
     }
@@ -115,6 +159,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Masha",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Masha",
       "retrieved": "2026-06-29"
     }

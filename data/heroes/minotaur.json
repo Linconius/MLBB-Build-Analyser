@@ -3,7 +3,7 @@
   "id": "minotaur",
   "name": "Minotaur",
   "releaseYear": 2016,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "none",
   "damageType": "physical",
   "roles": [
@@ -71,8 +71,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Minotaur",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -83,10 +83,37 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Minotaur",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(280 + 15 * (skill_level - 1)) + 0.6 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "airborne",
+              "durationSeconds": 0.5
+            },
+            {
+              "type": "slow",
+              "valuePercent": 40,
+              "durationSeconds": 1
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        12,
+        11.5,
+        11,
+        10.5,
+        10,
+        9.5
       ]
     },
     {
@@ -95,10 +122,18 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Minotaur",
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8,
+        7.5
       ]
     },
     {
@@ -107,16 +142,46 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Minotaur",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(180 + 60 * (skill_level - 1)) + 0.85 * physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 3
+            },
+            {
+              "type": "slow",
+              "valuePercent": 60,
+              "durationSeconds": 1
+            },
+            {
+              "type": "airborne",
+              "durationSeconds": 0.8
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        60,
+        55,
+        50
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Minotaur",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Minotaur",
       "retrieved": "2026-06-29"
     }

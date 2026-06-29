@@ -3,7 +3,7 @@
   "id": "kaja",
   "name": "Kaja",
   "releaseYear": 2018,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -72,10 +72,27 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Kaja",
-          "outputs": []
+          "id": "passive_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "100 + 1 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 90,
+              "durationSeconds": 0.4
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        6
       ]
     },
     {
@@ -84,10 +101,41 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Kaja",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(135 + 30 * (skill_level - 1)) + 0.7 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 90,
+              "durationSeconds": 0.4
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        6.5,
+        6.1,
+        5.7,
+        5.3,
+        4.9,
+        4.5
+      ],
+      "manaCost": [
+        50,
+        55,
+        60,
+        65,
+        70,
+        75
       ]
     },
     {
@@ -96,10 +144,41 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Kaja",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(200 + 30 * (skill_level - 1)) + 0.8 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 90,
+              "durationSeconds": 0.4
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        13,
+        12.4,
+        11.8,
+        11.2,
+        10.6,
+        10
+      ],
+      "manaCost": [
+        65,
+        70,
+        75,
+        80,
+        85,
+        90
       ]
     },
     {
@@ -108,16 +187,40 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Kaja",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(300 + 150 * (skill_level - 1)) + 1 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "suppression",
+              "durationSeconds": 1.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        60,
+        60,
+        60
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Kaja",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Kaja",
       "retrieved": "2026-06-29"
     }

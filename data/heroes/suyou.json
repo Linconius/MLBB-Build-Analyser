@@ -72,8 +72,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Suyou",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -84,10 +84,33 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Suyou",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "bonus_physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(250 + 16 * (skill_level - 1)) + 1 * bonus_physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 0.6
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        8.5,
+        8.5,
+        8.5,
+        8.5,
+        8.5,
+        8.5
       ]
     },
     {
@@ -96,10 +119,28 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Suyou",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "bonus_physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(300 + 38.4 * (skill_level - 1)) + 2 * bonus_physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        8.5,
+        8.5,
+        8.5,
+        8.5,
+        8.5,
+        8.5
       ]
     },
     {
@@ -118,6 +159,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Suyou",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Suyou",
       "retrieved": "2026-06-29"
     }

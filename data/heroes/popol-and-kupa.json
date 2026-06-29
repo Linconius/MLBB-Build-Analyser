@@ -3,7 +3,7 @@
   "id": "popol-and-kupa",
   "name": "Popol and Kupa",
   "releaseYear": 2020,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -72,8 +72,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Popol_and_Kupa",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -84,9 +84,24 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Popol_and_Kupa",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(180 + 36 * (skill_level - 1)) + 1 * physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 1
+            }
+          ]
         }
       ]
     },
@@ -96,9 +111,28 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Popol_and_Kupa",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(240 + 18 * (skill_level - 1)) + 0.5 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 35,
+              "durationSeconds": 0.5
+            },
+            {
+              "type": "airborne",
+              "durationSeconds": 0.2
+            }
+          ]
         }
       ]
     },
@@ -108,9 +142,28 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Popol_and_Kupa",
-          "outputs": []
+          "id": "skill_3_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(70 + 6 * (skill_level - 1)) + 0.2 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "root",
+              "durationSeconds": 1
+            },
+            {
+              "type": "slow",
+              "valuePercent": 20,
+              "durationSeconds": 4
+            }
+          ]
         }
       ]
     },
@@ -120,16 +173,31 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Popol_and_Kupa",
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        38,
+        35,
+        32
+      ],
+      "manaCost": [
+        100,
+        120,
+        140
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Popol_and_Kupa",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Popol_and_Kupa",
       "retrieved": "2026-06-29"
     }

@@ -3,7 +3,7 @@
   "id": "zetian",
   "name": "Zetian",
   "releaseYear": 2025,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -71,9 +71,24 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Zetian",
-          "outputs": []
+          "id": "passive_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "90 + 0.5 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "knockback"
+            },
+            {
+              "type": "stun"
+            }
+          ]
         }
       ]
     },
@@ -83,10 +98,37 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Zetian",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(185 + 15 * (skill_level - 1)) + 0.3 * magic_power",
+              "magnitudeUnit": "flat",
+              "hits": 3
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        7,
+        6.6,
+        6.2,
+        5.8,
+        5.4,
+        5
+      ],
+      "manaCost": [
+        70,
+        80,
+        90,
+        100,
+        110,
+        120
       ]
     },
     {
@@ -95,10 +137,40 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Zetian",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(150 + 15 * (skill_level - 1)) + 0.3 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 50
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "manaCost": [
+        80,
+        90,
+        100,
+        110,
+        120,
+        130
       ]
     },
     {
@@ -107,16 +179,45 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Zetian",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(400 + 150 * (skill_level - 1)) + 1 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 1
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        90,
+        80,
+        70
+      ],
+      "manaCost": [
+        150,
+        180,
+        210
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Zetian",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Zetian",
       "retrieved": "2026-06-29"
     }

@@ -3,7 +3,7 @@
   "id": "vale",
   "name": "Vale",
   "releaseYear": 2019,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -71,8 +71,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Vale",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -83,10 +83,37 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Vale",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(250 + 40 * (skill_level - 1)) + 0.8 * magic_power",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        6,
+        5.6,
+        5.2,
+        4.8,
+        4.4,
+        4
+      ],
+      "manaCost": [
+        60,
+        65,
+        70,
+        75,
+        80,
+        85
       ]
     },
     {
@@ -95,10 +122,40 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Vale",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(300 + 20 * (skill_level - 1)) + 0.8 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "airborne",
+              "durationSeconds": 1
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "manaCost": [
+        90,
+        95,
+        100,
+        105,
+        110,
+        115
       ]
     },
     {
@@ -107,16 +164,46 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Vale",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(900 + 250 * (skill_level - 1)) + 2.4 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 20,
+              "durationSeconds": 1.6
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        40,
+        36,
+        32
+      ],
+      "manaCost": [
+        150,
+        200,
+        250
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Vale",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Vale",
       "retrieved": "2026-06-29"
     }

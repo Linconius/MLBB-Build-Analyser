@@ -3,7 +3,7 @@
   "id": "natan",
   "name": "Natan",
   "releaseYear": 2021,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -71,8 +71,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Natan",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -83,10 +83,36 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Natan",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(225 + 35 * (skill_level - 1)) + 1.2 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        8,
+        7.4,
+        6.8,
+        6.2,
+        5.6,
+        5
+      ],
+      "manaCost": [
+        50,
+        55,
+        60,
+        65,
+        70,
+        75
       ]
     },
     {
@@ -95,10 +121,45 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Natan",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(150 + 30 * (skill_level - 1)) + 0.6 * magic_power",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            },
+            {
+              "type": "knockback",
+              "durationSeconds": 0
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 0.1
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        12,
+        11.6,
+        11.2,
+        10.8,
+        10.4,
+        10
+      ],
+      "manaCost": [
+        60,
+        65,
+        70,
+        75,
+        80,
+        85
       ]
     },
     {
@@ -107,16 +168,31 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Natan",
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        24,
+        20,
+        16
+      ],
+      "manaCost": [
+        100,
+        50,
+        0
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Natan",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Natan",
       "retrieved": "2026-06-29"
     }

@@ -3,7 +3,7 @@
   "id": "kagura",
   "name": "Kagura",
   "releaseYear": 2016,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -71,9 +71,19 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Kagura",
-          "outputs": []
+          "id": "passive_auto",
+          "trigger": "on_cast",
+          "outputs": [
+            {
+              "type": "stun",
+              "durationSeconds": 0.5
+            },
+            {
+              "type": "slow",
+              "valuePercent": 60,
+              "durationSeconds": 1
+            }
+          ]
         }
       ]
     },
@@ -83,10 +93,41 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Kagura",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(365 + 45 * (skill_level - 1)) + 1.05 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 60,
+              "durationSeconds": 0.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        5,
+        4.7,
+        4.4,
+        4.1,
+        3.8,
+        3.5
+      ],
+      "manaCost": [
+        50,
+        56,
+        62,
+        68,
+        74,
+        80
       ]
     },
     {
@@ -95,10 +136,36 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Kagura",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(300 + 20 * (skill_level - 1)) + 0.9 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        12,
+        11.5,
+        11,
+        10.5,
+        10,
+        9.5
+      ],
+      "manaCost": [
+        55,
+        60,
+        65,
+        70,
+        75,
+        80
       ]
     },
     {
@@ -107,16 +174,49 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Kagura",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(250 + 85 * (skill_level - 1)) + 0.95 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "knockback"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 60,
+              "durationSeconds": 0.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        43,
+        48,
+        33
+      ],
+      "manaCost": [
+        85,
+        100,
+        115
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Kagura",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Kagura",
       "retrieved": "2026-06-29"
     }

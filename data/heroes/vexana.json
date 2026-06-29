@@ -3,7 +3,7 @@
   "id": "vexana",
   "name": "Vexana",
   "releaseYear": 2017,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -71,9 +71,18 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Vexana",
-          "outputs": []
+          "id": "passive_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "108 + 0.6 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
@@ -83,10 +92,37 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Vexana",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(200 + 20 * (skill_level - 1)) + 0.6 * magic_power",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        14,
+        13.4,
+        12.88,
+        12.2,
+        11.6,
+        11
+      ],
+      "manaCost": [
+        80,
+        90,
+        100,
+        110,
+        120,
+        130
       ]
     },
     {
@@ -95,10 +131,36 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Vexana",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(580 + 54 * (skill_level - 1)) + 1.65 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        7,
+        6.7,
+        6.4,
+        6.1,
+        5.8,
+        5.5
+      ],
+      "manaCost": [
+        80,
+        90,
+        100,
+        110,
+        120,
+        130
       ]
     },
     {
@@ -107,16 +169,45 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Vexana",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "magic_power",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(480 + 120 * (skill_level - 1)) + 0.6 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "airborne",
+              "durationSeconds": 0.8
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        60,
+        53,
+        46
+      ],
+      "manaCost": [
+        120,
+        160,
+        200
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Vexana",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Vexana",
       "retrieved": "2026-06-29"
     }

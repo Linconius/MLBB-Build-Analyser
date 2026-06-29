@@ -3,7 +3,7 @@
   "id": "yin",
   "name": "Yin",
   "releaseYear": 2022,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "none",
   "damageType": "physical",
   "roles": [
@@ -72,8 +72,8 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Yin",
+          "id": "passive_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -84,10 +84,29 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Yin",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "bonus_physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(360 + 40 * (skill_level - 1)) + 2 * bonus_physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        10,
+        9.4,
+        8.8,
+        8.2,
+        7.6,
+        7
       ]
     },
     {
@@ -96,10 +115,36 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Yin",
-          "outputs": []
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "bonus_physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(75 + 15 * (skill_level - 1)) + 0.35 * bonus_physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 1
+            },
+            {
+              "type": "knockback"
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        14,
+        13.2,
+        12.4,
+        11.6,
+        10.8,
+        10
       ]
     },
     {
@@ -108,8 +153,8 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Yin",
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
       ]
@@ -118,6 +163,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Yin",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Yin",
       "retrieved": "2026-06-29"
     }

@@ -3,7 +3,7 @@
   "id": "marcel",
   "name": "Marcel",
   "releaseYear": 2026,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -71,9 +71,13 @@
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Marcel",
-          "outputs": []
+          "id": "passive_auto",
+          "trigger": "on_cast",
+          "outputs": [
+            {
+              "type": "stun"
+            }
+          ]
         }
       ]
     },
@@ -83,10 +87,41 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Marcel",
-          "outputs": []
+          "id": "skill_1_auto",
+          "trigger": "on_cast",
+          "inputs": [
+            "physical_attack",
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(370 + 30 * (skill_level - 1)) + 0.5 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 60,
+              "durationSeconds": 2.5
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        12.5,
+        12,
+        11.5,
+        11,
+        10.5,
+        10
+      ],
+      "manaCost": [
+        40,
+        45,
+        50,
+        55,
+        60,
+        65
       ]
     },
     {
@@ -95,10 +130,26 @@
       "maxLevel": 6,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Marcel",
+          "id": "skill_2_auto",
+          "trigger": "on_cast",
           "outputs": []
         }
+      ],
+      "cooldownSeconds": [
+        12.5,
+        12,
+        11.5,
+        11,
+        10.5,
+        10
+      ],
+      "manaCost": [
+        70,
+        75,
+        80,
+        85,
+        90,
+        95
       ]
     },
     {
@@ -107,16 +158,36 @@
       "maxLevel": 3,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Marcel",
-          "outputs": []
+          "id": "ultimate_auto",
+          "trigger": "on_cast",
+          "outputs": [
+            {
+              "type": "stun",
+              "durationSeconds": 2
+            }
+          ]
         }
+      ],
+      "cooldownSeconds": [
+        74,
+        68,
+        62
+      ],
+      "manaCost": [
+        150,
+        150,
+        150
       ]
     }
   ],
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Marcel",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Marcel",
       "retrieved": "2026-06-29"
     }
