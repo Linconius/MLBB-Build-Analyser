@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 2500,
-    "combine": 400
+    "combine": 960,
+    "components": [
+      "ares-belt",
+      "ares-belt",
+      "healing-necklace"
+    ]
   },
   "stats": {
     "hp": 1800,

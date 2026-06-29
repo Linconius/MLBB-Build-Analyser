@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 2050,
-    "combine": 540
+    "combine": 540,
+    "components": [
+      "regular-spear",
+      "legion-sword"
+    ]
   },
   "stats": {
     "physicalAttack": 80,

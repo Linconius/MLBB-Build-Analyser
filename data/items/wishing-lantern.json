@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 2250,
-    "combine": 760
+    "combine": 680,
+    "components": [
+      "magic-wand",
+      "book-of-sages",
+      "mystery-codex"
+    ]
   },
   "stats": {
     "magicPower": 75,

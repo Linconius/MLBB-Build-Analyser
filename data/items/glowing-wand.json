@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 2150,
-    "combine": 950
+    "combine": 950,
+    "components": [
+      "exotic-veil",
+      "mystery-codex",
+      "vitality-crystal"
+    ]
   },
   "stats": {
     "magicPower": 60,

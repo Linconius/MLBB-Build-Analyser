@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 2140,
-    "combine": 460
+    "combine": 460,
+    "components": [
+      "legion-sword",
+      "iron-hunting-bow",
+      "javelin"
+    ]
   },
   "stats": {
     "physicalAttack": 70,

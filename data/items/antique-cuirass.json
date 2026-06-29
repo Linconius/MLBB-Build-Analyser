@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 2170,
-    "combine": 740
+    "combine": 740,
+    "components": [
+      "dreadnaught-armor",
+      "ares-belt"
+    ]
   },
   "stats": {
     "hp": 920,

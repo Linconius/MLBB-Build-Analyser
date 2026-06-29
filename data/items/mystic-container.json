@@ -6,7 +6,10 @@
   "tier": 1,
   "cost": {
     "total": 500,
-    "combine": 200
+    "combine": 200,
+    "components": [
+      "mystery-codex"
+    ]
   },
   "stats": {
     "magicPower": 15,

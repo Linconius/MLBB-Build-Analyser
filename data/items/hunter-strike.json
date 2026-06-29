@@ -6,11 +6,17 @@
   "tier": 3,
   "cost": {
     "total": 2010,
-    "combine": 480
+    "combine": 480,
+    "components": [
+      "fury-hammer",
+      "iron-hunting-bow",
+      "dagger"
+    ]
   },
   "stats": {
     "physicalAttack": 80,
-    "cooldownReductionPct": 10
+    "cooldownReductionPct": 10,
+    "physicalPenetrationFlat": 15
   },
   "passives": [
     {

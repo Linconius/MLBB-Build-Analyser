@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 2020,
-    "combine": 400
+    "combine": 400,
+    "components": [
+      "mystic-container",
+      "magic-wand",
+      "vitality-crystal"
+    ]
   },
   "stats": {
     "magicPower": 75,

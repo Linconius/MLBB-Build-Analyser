@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 2390,
-    "combine": 840
+    "combine": 840,
+    "components": [
+      "legion-sword",
+      "javelin",
+      "javelin"
+    ]
   },
   "stats": {
     "physicalAttack": 60,

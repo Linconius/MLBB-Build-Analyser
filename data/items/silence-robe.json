@@ -6,7 +6,11 @@
   "tier": 2,
   "cost": {
     "total": 1020,
-    "combine": 500
+    "combine": 500,
+    "components": [
+      "vitality-crystal",
+      "magic-resist-cloak"
+    ]
   },
   "stats": {
     "hp": 540,

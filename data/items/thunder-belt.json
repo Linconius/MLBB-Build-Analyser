@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 1820,
-    "combine": 680
+    "combine": 680,
+    "components": [
+      "ares-belt",
+      "leather-jerkin",
+      "magic-resist-cloak"
+    ]
   },
   "stats": {
     "hp": 600,

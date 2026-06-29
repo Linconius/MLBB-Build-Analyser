@@ -1,6 +1,10 @@
 // Stat aggregation: hero base+growth(by level) + item flats + percents + item-passive
 // folds, then caps and derived combat values. See docs/STAT-CONVENTIONS.md.
-import type { Hero, Item } from "../types";
+import type { Hero, Item, ItemStatKey, ItemStatValue } from "../types";
+
+/** Numeric magnitude of a stat grant (a plain number, or a unique-flagged `{value}`). */
+export const statNum = (v: ItemStatValue | undefined): number =>
+  typeof v === "object" ? v.value : v ?? 0;
 
 export const AS_CAP = 3.0;
 export const CDR_CAP = 0.4;
@@ -86,37 +90,58 @@ export function aggregateStats(
 
   // Percent accumulators (in percent points).
   let asPct = 0, msPct = 0, cdrPct = 0, critChancePct = 0, critDamagePct = 0;
-  let adaptiveAttack = 0;
+  let adaptiveAttack = 0, adaptivePen = 0;
   let cdrCapRaised = false;
 
-  // 2. Item flat + percent stats.
+  // Routes one numeric stat grant into the right accumulator. Hybrid keys count as BOTH the
+  // physical and magical version; adaptive keys are collected here and resolved in step 4.
+  const addStat = (key: ItemStatKey, v: number): void => {
+    switch (key) {
+      case "physicalAttack": s.physicalAttack += v; break;
+      case "magicPower": s.magicPower += v; break;
+      case "hp": s.hp += v; break;
+      case "mana": s.mana += v; break;
+      case "physicalDefense": s.physicalDefense += v; break;
+      case "magicDefense": s.magicDefense += v; break;
+      case "hpRegen": s.hpRegen += v; break;
+      case "manaRegen": s.manaRegen += v; break;
+      case "movementSpeed": s.movementSpeed += v; break;
+      case "physicalPenetrationFlat": s.physicalPenetrationFlat += v; break;
+      case "magicPenetrationFlat": s.magicPenetrationFlat += v; break;
+      case "physicalPenetrationPct": s.physicalPenetrationPct += v; break;
+      case "magicPenetrationPct": s.magicPenetrationPct += v; break;
+      case "lifestealPct": s.lifestealPct += v; break;
+      case "physicalLifestealPct": s.lifestealPct += v; break;
+      case "spellVampPct": s.spellVampPct += v; break;
+      // Hybrid → both physical and magical version.
+      case "hybridLifestealPct": s.lifestealPct += v; s.spellVampPct += v; break;
+      case "hybridPenetrationFlat": s.physicalPenetrationFlat += v; s.magicPenetrationFlat += v; break;
+      case "hybridPenetrationPct": s.physicalPenetrationPct += v; s.magicPenetrationPct += v; break;
+      case "adaptiveAttack": adaptiveAttack += v; break;
+      case "adaptivePenetration": adaptivePen += v; break;
+      case "attackSpeedPct": asPct += v; break;
+      case "movementSpeedPct": msPct += v; break;
+      case "cooldownReductionPct": cdrPct += v; break;
+      case "critChancePct": critChancePct += v; break;
+      case "critDamagePct": critDamagePct += v; break;
+    }
+  };
+
+  // 2. Item flat + percent stats. Plain grants stack; unique-flagged grants are deferred to a
+  // per-name bucket (only the highest counts across the whole build), applied after the loop.
+  const uniques = new Map<string, { key: ItemStatKey; value: number }>();
   for (const { item } of owned) {
     if (CDR_CAP_ITEMS.has(item.id)) cdrCapRaised = true;
-    const st = item.stats;
-    s.physicalAttack += st.physicalAttack ?? 0;
-    s.magicPower += st.magicPower ?? 0;
-    s.hp += st.hp ?? 0;
-    s.mana += st.mana ?? 0;
-    s.physicalDefense += st.physicalDefense ?? 0;
-    s.magicDefense += st.magicDefense ?? 0;
-    s.hpRegen += st.hpRegen ?? 0;
-    s.manaRegen += st.manaRegen ?? 0;
-    s.movementSpeed += st.movementSpeed ?? 0;
-    s.physicalPenetrationFlat += st.physicalPenetrationFlat ?? 0;
-    s.magicPenetrationFlat += st.magicPenetrationFlat ?? 0;
-    s.physicalPenetrationPct += st.physicalPenetrationPct ?? 0;
-    s.magicPenetrationPct += st.magicPenetrationPct ?? 0;
-    s.lifestealPct += st.lifestealPct ?? 0;
-    s.lifestealPct += st.physicalLifestealPct ?? 0;
-    s.spellVampPct += st.spellVampPct ?? 0;
-    adaptiveAttack += st.adaptiveAttack ?? 0;
-
-    asPct += st.attackSpeedPct ?? 0;
-    msPct += st.movementSpeedPct ?? 0;
-    cdrPct += st.cooldownReductionPct ?? 0;
-    critChancePct += st.critChancePct ?? 0;
-    critDamagePct += st.critDamagePct ?? 0;
+    for (const [k, raw] of Object.entries(item.stats) as [ItemStatKey, ItemStatValue][]) {
+      if (typeof raw === "object") {
+        const prev = uniques.get(raw.unique);
+        if (!prev || raw.value > prev.value) uniques.set(raw.unique, { key: k, value: raw.value });
+      } else {
+        addStat(k, raw);
+      }
+    }
   }
+  for (const { key, value } of uniques.values()) addStat(key, value);
 
   // 3. Fold item passives (buff_stat effects). Always-on always; conditional when opted in.
   for (const { item, secondsOwned } of owned) {
@@ -134,10 +159,14 @@ export function aggregateStats(
     }
   }
 
-  // 4. Adaptive attack resolution.
+  // 4. Adaptive resolution — adaptive stats become physical OR magic by the hero's damageType.
   if (adaptiveAttack > 0) {
     if (hero.damageType === "magic") s.magicPower += adaptiveAttack;
     else s.physicalAttack += adaptiveAttack;
+  }
+  if (adaptivePen > 0) {
+    if (hero.damageType === "magic") s.magicPenetrationFlat += adaptivePen;
+    else s.physicalPenetrationFlat += adaptivePen;
   }
 
   // 5. Apply percents and caps.

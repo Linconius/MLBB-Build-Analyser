@@ -6,7 +6,11 @@
   "tier": 2,
   "cost": {
     "total": 900,
-    "combine": 300
+    "combine": 300,
+    "components": [
+      "javelin",
+      "knife"
+    ]
   },
   "stats": {
     "attackSpeedPct": 15,

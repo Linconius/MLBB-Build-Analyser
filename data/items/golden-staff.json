@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 2000,
-    "combine": 900
+    "combine": 900,
+    "components": [
+      "regular-spear",
+      "dagger",
+      "dagger"
+    ]
   },
   "stats": {
     "physicalAttack": 55,

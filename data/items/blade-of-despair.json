@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 3010,
-    "combine": 1190
+    "combine": 1190,
+    "components": [
+      "legion-sword",
+      "legion-sword"
+    ]
   },
   "stats": {
     "physicalAttack": 160,

@@ -4,6 +4,7 @@ import type { Hero, Item } from "../types";
 import { aggregateStats, type EffectiveStats, type DerivedStats } from "./stats";
 import { computeUnlocks, ownedAtMinute, type ItemUnlock } from "./buildOrder";
 import { evaluateSkills, DEFAULT_TARGET, type TargetProfile, type SkillDamageBreakdown } from "./skills";
+import { itemById } from "../data/loader";
 
 export interface Build {
   items: Item[]; // ordered = build order
@@ -44,7 +45,10 @@ export function levelAtMinute(lpm: number, minute: number): number {
 export function simulate(hero: Hero, build: Build, a: Assumptions): Timeline {
   const startingGold = a.startingGold ?? 0;
   const target = a.target ?? DEFAULT_TARGET;
-  const unlocks = computeUnlocks(build.items, a.gpm, startingGold);
+  const unlocks = computeUnlocks(build.items, a.gpm, {
+    startingGold,
+    resolveItem: (id) => itemById.get(id),
+  });
   const snapshots: StatSnapshot[] = [];
 
   const step = a.tickSeconds / 60; // minutes per tick

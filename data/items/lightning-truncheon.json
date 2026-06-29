@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 2250,
-    "combine": 760
+    "combine": 760,
+    "components": [
+      "magic-wand",
+      "book-of-sages",
+      "power-crystal"
+    ]
   },
   "stats": {
     "magicPower": 75,

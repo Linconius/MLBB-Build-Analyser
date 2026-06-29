@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 730,
-    "combine": 290
+    "combine": 290,
+    "components": [
+      "leather-jerkin",
+      "leather-jerkin"
+    ]
   },
   "stats": {
     "physicalDefense": 30

@@ -6,10 +6,14 @@
   "tier": 3,
   "cost": {
     "total": 2060,
-    "combine": 1150
+    "combine": 1150,
+    "components": [
+      "legion-sword"
+    ]
   },
   "stats": {
-    "physicalAttack": 60
+    "physicalAttack": 60,
+    "physicalPenetrationPct": { "value": 30, "unique": "Armor Buster" }
   },
   "passives": [
     {

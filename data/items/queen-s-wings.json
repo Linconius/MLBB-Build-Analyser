@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 2250,
-    "combine": 600
+    "combine": 1500,
+    "components": [
+      "vitality-crystal",
+      "hero-s-ring"
+    ]
   },
   "stats": {
     "hp": 750,

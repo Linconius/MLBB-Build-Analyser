@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 2100,
-    "combine": 550
+    "combine": 550,
+    "components": [
+      "ogre-tomahawk",
+      "iron-hunting-bow",
+      "hero-s-ring"
+    ]
   },
   "stats": {
     "physicalAttack": 35,

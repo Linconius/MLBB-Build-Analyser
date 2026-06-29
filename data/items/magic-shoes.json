@@ -6,7 +6,10 @@
   "tier": 1,
   "cost": {
     "total": 720,
-    "combine": 20
+    "combine": 470,
+    "components": [
+      "boots"
+    ]
   },
   "stats": {
     "movementSpeed": 40,

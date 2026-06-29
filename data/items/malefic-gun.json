@@ -6,11 +6,17 @@
   "tier": 3,
   "cost": {
     "total": 2120,
-    "combine": 730
+    "combine": 730,
+    "components": [
+      "fury-hammer",
+      "knife",
+      "knife"
+    ]
   },
   "stats": {
     "physicalAttack": 40,
-    "attackSpeedPct": 20
+    "attackSpeedPct": 20,
+    "physicalPenetrationPct": { "value": 30, "unique": "Armor Buster" }
   },
   "passives": [
     {

@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 1050,
-    "combine": 400
+    "combine": 580,
+    "components": [
+      "dagger",
+      "magic-resist-cloak"
+    ]
   },
   "stats": {
     "physicalAttack": 35,

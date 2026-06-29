@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 2020,
-    "combine": 800
+    "combine": 870,
+    "components": [
+      "rogue-meteor",
+      "dagger"
+    ]
   },
   "stats": {
     "physicalAttack": 30,

@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 1000,
-    "combine": 440
+    "combine": 440,
+    "components": [
+      "knife",
+      "knife"
+    ]
   },
   "stats": {
     "attackSpeedPct": 20

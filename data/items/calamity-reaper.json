@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 1950,
-    "combine": 530
+    "combine": 530,
+    "components": [
+      "azure-blade",
+      "magic-wand"
+    ]
   },
   "stats": {
     "magicPower": 70,

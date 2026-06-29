@@ -6,7 +6,12 @@
   "tier": 3,
   "cost": {
     "total": 2180,
-    "combine": 900
+    "combine": 900,
+    "components": [
+      "regular-spear",
+      "vampire-mallet",
+      "knife"
+    ]
   },
   "stats": {
     "physicalAttack": 35,

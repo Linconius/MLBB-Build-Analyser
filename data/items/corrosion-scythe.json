@@ -6,7 +6,11 @@
   "tier": 3,
   "cost": {
     "total": 2050,
-    "combine": 450
+    "combine": 450,
+    "components": [
+      "swift-crossbow",
+      "regular-spear"
+    ]
   },
   "stats": {
     "physicalAttack": 30,

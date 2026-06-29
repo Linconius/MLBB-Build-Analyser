@@ -6,7 +6,11 @@
   "tier": 1,
   "cost": {
     "total": 650,
-    "combine": 100
+    "combine": 100,
+    "components": [
+      "vitality-crystal",
+      "dagger"
+    ]
   },
   "stats": {
     "physicalAttack": 25,
