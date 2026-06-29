@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { items as allItems, itemById } from "../data/loader";
+import { Icon } from "./Icon";
 
 export function BuildEditor({
   build,
@@ -34,6 +35,7 @@ export function BuildEditor({
             <span className="order">{i + 1}</span>
             <button title="Move up" onClick={() => move(i, -1)}>▲</button>
             <button title="Move down" onClick={() => move(i, 1)}>▼</button>
+            <Icon kind="items" id={it.id} size={24} alt={it.name} />
             <span>{it.name}</span>
             <span className="cost">{it.cost.total.toLocaleString()}g</span>
             <button title="Remove" onClick={() => remove(it.id)}>✕</button>

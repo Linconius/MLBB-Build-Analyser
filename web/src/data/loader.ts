@@ -15,3 +15,7 @@ export const items: Item[] = collect<Item>(itemModules).sort((a, b) => a.name.lo
 
 export const heroById = new Map(heroes.map((h) => [h.id, h]));
 export const itemById = new Map(items.map((i) => [i.id, i]));
+
+/** URL for a bundled icon (respects the Pages base path). Missing files 404 and are hidden. */
+export const assetUrl = (kind: "heroes" | "items", id: string) =>
+  `${import.meta.env.BASE_URL}assets/${kind}/${id}.png`;

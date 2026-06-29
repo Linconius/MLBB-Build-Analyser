@@ -1,6 +1,6 @@
 {
   "generated": true,
-  "heroCount": 135,
+  "heroCount": 133,
   "itemCount": 98,
   "heroes": [
     {
@@ -1332,30 +1332,6 @@
       ],
       "resourceType": "mana",
       "damageType": "magic",
-      "skillsVerified": false
-    },
-    {
-      "id": "user-blog-dubuhasbeensnatched-hero-page",
-      "name": "User blog:DubuHasBeenSnatched/Hero page",
-      "title": null,
-      "roles": [
-        "Tank",
-        "Mage"
-      ],
-      "resourceType": "none",
-      "damageType": "magic",
-      "skillsVerified": false
-    },
-    {
-      "id": "user-blog-dubuhasbeensnatched-lesley",
-      "name": "User blog:DubuHasBeenSnatched/Lesley",
-      "title": null,
-      "roles": [
-        "Assassin",
-        "Marksman"
-      ],
-      "resourceType": "energy",
-      "damageType": "physical",
       "skillsVerified": false
     },
     {

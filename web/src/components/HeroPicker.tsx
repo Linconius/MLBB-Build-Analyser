@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { heroes } from "../data/loader";
+import { Icon } from "./Icon";
 import type { Hero } from "../types";
 
 export function HeroPicker({ hero, onSelect }: { hero: Hero; onSelect: (id: string) => void }) {
@@ -24,6 +25,14 @@ export function HeroPicker({ hero, onSelect }: { hero: Hero; onSelect: (id: stri
           </option>
         ))}
       </select>
+
+      <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 12 }}>
+        <Icon kind="heroes" id={hero.id} size={56} alt={hero.name} />
+        <div>
+          <div style={{ fontSize: 16, fontWeight: 600 }}>{hero.name}</div>
+          {hero.title && <div className="muted" style={{ fontSize: 12 }}>{hero.title}</div>}
+        </div>
+      </div>
 
       <div className="hero-meta">
         {hero.roles.map((r) => (
