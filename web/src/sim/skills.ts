@@ -42,8 +42,14 @@ export function skillLevelsAtHeroLevel(hero: Hero, heroLevel: number): Map<strin
   return result;
 }
 
+export interface InnateAttack {
+  physicalAttack: number; // hero's own base+growth physical attack at this level (no items)
+  magicPower: number;
+}
+
 function buildScope(
   stats: EffectiveStats,
+  innate: InnateAttack,
   heroLevel: number,
   skillLevel: number,
   target: TargetProfile,
@@ -51,6 +57,8 @@ function buildScope(
   return {
     physical_attack: stats.physicalAttack,
     magic_power: stats.magicPower,
+    bonus_physical_attack: Math.max(0, stats.physicalAttack - innate.physicalAttack),
+    bonus_magic_power: Math.max(0, stats.magicPower - innate.magicPower),
     physical_defense: stats.physicalDefense,
     magic_defense: stats.magicDefense,
     max_hp: stats.hp,
@@ -95,12 +103,13 @@ function magnitudeOf(out: { formula?: string; valuePercent?: number; magnitudeUn
 export function skillDamage(
   skill: Skill,
   stats: EffectiveStats,
+  innate: InnateAttack,
   heroLevel: number,
   skillLevel: number,
   target: TargetProfile,
 ): number {
   if (skillLevel <= 0) return 0;
-  const scope = buildScope(stats, heroLevel, skillLevel, target);
+  const scope = buildScope(stats, innate, heroLevel, skillLevel, target);
   let total = 0;
   for (const algo of skill.algorithms) {
     if (algo.todo) continue;
@@ -137,11 +146,16 @@ export function evaluateSkills(
   target: TargetProfile,
 ): { perSkill: SkillDamageBreakdown[]; burst: number } {
   const levels = skillLevelsAtHeroLevel(hero, heroLevel);
+  const lin = (s: { base: number; growth: number }) => s.base + s.growth * (heroLevel - 1);
+  const innate: InnateAttack = {
+    physicalAttack: lin(hero.baseStats.physicalAttack),
+    magicPower: lin(hero.baseStats.magicPower),
+  };
   const perSkill: SkillDamageBreakdown[] = [];
   let burst = 0;
   for (const skill of hero.skills) {
     const lvl = levels.get(skill.slot) ?? 0;
-    const dmg = skillDamage(skill, stats, heroLevel, lvl, target);
+    const dmg = skillDamage(skill, stats, innate, heroLevel, lvl, target);
     perSkill.push({ slot: skill.slot, name: skill.name, level: lvl, damage: Math.round(dmg) });
     if (skill.slot !== "passive") burst += dmg;
   }

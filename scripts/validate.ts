@@ -22,6 +22,7 @@ const ITEMS_DIR = join(ROOT, "data", "items");
 const VOCABULARY = new Set<string>([
   // caster
   "physical_attack", "magic_power", "physical_defense", "magic_defense",
+  "bonus_physical_attack", "bonus_magic_power",
   "max_hp", "current_hp", "missing_hp", "max_mana", "current_mana",
   "attack_speed", "movement_speed", "crit_chance", "crit_damage",
   "cooldown_reduction",

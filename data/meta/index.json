@@ -69,7 +69,7 @@
       ],
       "resourceType": "none",
       "damageType": "physical",
-      "skillsVerified": false
+      "skillsVerified": true
     },
     {
       "id": "angela",
@@ -893,7 +893,7 @@
       ],
       "resourceType": "energy",
       "damageType": "physical",
-      "skillsVerified": false
+      "skillsVerified": true
     },
     {
       "id": "ling",
@@ -1229,7 +1229,7 @@
       ],
       "resourceType": "mana",
       "damageType": "physical",
-      "skillsVerified": false
+      "skillsVerified": true
     },
     {
       "id": "selena",

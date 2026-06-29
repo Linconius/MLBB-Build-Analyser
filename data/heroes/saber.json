@@ -3,7 +3,7 @@
   "id": "saber",
   "name": "Saber",
   "releaseYear": 2016,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -69,11 +69,13 @@
     {
       "slot": "passive",
       "name": "Enemy's Bane",
+      "description": "Basic attacks reduce the target's Physical Defense by 3-8 for 5s, stacking up to 5 times.",
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Saber",
+          "id": "armor_shred",
+          "trigger": "on_basic_attack",
+          "note": "Physical-defense shred debuff; no direct damage.",
           "outputs": []
         }
       ]
@@ -81,36 +83,146 @@
     {
       "slot": "skill_1",
       "name": "Orbiting Swords",
+      "description": "Summons swords that deal initial damage then orbiting strikes.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "manaCost": [
+        75,
+        85,
+        95,
+        105,
+        115,
+        125
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Saber",
-          "outputs": []
+          "id": "swords",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "bonus_physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(80 + 5 * (skill_level - 1)) + 0.3 * bonus_physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "damage_physical",
+              "formula": "(210 + 10 * (skill_level - 1)) + 0.6 * bonus_physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_2",
       "name": "Charge",
+      "description": "Dashes forward dealing damage and slowing; empowers the next basic attack.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "manaCost": [
+        70,
+        65,
+        60,
+        55,
+        50,
+        45
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Saber",
-          "outputs": []
+          "id": "dash",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "bonus_physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(75 + 15 * (skill_level - 1)) + 0.5 * bonus_physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 60,
+              "durationSeconds": 1
+            }
+          ]
+        },
+        {
+          "id": "enhanced_basic",
+          "trigger": "on_enhanced_basic",
+          "inputs": [
+            "skill_level",
+            "physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(75 + 15 * (skill_level - 1)) + 1.2 * physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "ultimate",
       "name": "Triple Sweep",
+      "description": "Knocks the target airborne with two strikes then a heavy final blow.",
       "maxLevel": 3,
+      "cooldownSeconds": [
+        44,
+        40,
+        36
+      ],
+      "manaCost": [
+        100,
+        120,
+        140
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Saber",
-          "outputs": []
+          "id": "sweep",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "bonus_physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(120 + 30 * (skill_level - 1)) + 1.0 * bonus_physical_attack",
+              "magnitudeUnit": "flat",
+              "hits": 2
+            },
+            {
+              "type": "damage_physical",
+              "formula": "(240 + 60 * (skill_level - 1)) + 2.0 * bonus_physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "airborne",
+              "durationSeconds": 1.2
+            }
+          ]
         }
       ]
     }
@@ -118,6 +230,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Saber",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Saber",
       "retrieved": "2026-06-29"
     }

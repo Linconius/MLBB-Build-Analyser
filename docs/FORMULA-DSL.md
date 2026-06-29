@@ -23,8 +23,10 @@ level/build, plus the configured target's stats.
 ### Caster (the hero)
 | Variable | Meaning |
 |---|---|
-| `physical_attack` | Effective physical attack |
-| `magic_power` | Effective magic power |
+| `physical_attack` | Effective (total) physical attack |
+| `magic_power` | Effective (total) magic power |
+| `bonus_physical_attack` | Physical attack from items/emblems only (total − hero base) — for skills that scale with "Extra Physical Attack" |
+| `bonus_magic_power` | Magic power from items only (total − hero base) |
 | `physical_defense` | Effective physical defense |
 | `magic_defense` | Effective magic defense |
 | `max_hp` | Maximum HP |

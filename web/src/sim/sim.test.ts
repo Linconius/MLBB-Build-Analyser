@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import layla from "../../../data/heroes/layla.json";
+import saberData from "../../../data/heroes/saber.json";
 import blade from "../../../data/items/blade-of-despair.json";
 import type { Hero, Item } from "../types";
 import { aggregateStats, AS_CAP } from "./stats";
@@ -33,7 +34,7 @@ describe("aggregateStats base+growth", () => {
   });
   it("adds item flat attack", () => {
     const { stats } = aggregateStats(hero, 15, [{ item: bod, secondsOwned: 0 }]);
-    expect(stats.physicalAttack).toBe(422); // 252 + 170
+    expect(stats.physicalAttack).toBe(252 + (bod.stats.physicalAttack ?? 0)); // base L15 + item AD
   });
 });
 
@@ -47,17 +48,33 @@ describe("attack speed cap", () => {
 });
 
 describe("skill damage with mitigation", () => {
+  const innate = { physicalAttack: 252, magicPower: 0 }; // Layla base+growth at L15
   it("Layla ult at 15, no items, vs default target", () => {
     const { stats } = aggregateStats(hero, 15, []);
     // raw = (500 + 150*2) + 1.5*252 = 1178; mult = 120/(120+50) = 0.70588
-    const dmg = skillDamage(ult, stats, 15, 3, DEFAULT_TARGET);
+    const dmg = skillDamage(ult, stats, innate, 15, 3, DEFAULT_TARGET);
     expect(dmg).toBeCloseTo(1178 * (120 / 170), 2);
   });
   it("ult scales with Blade of Despair", () => {
     const { stats } = aggregateStats(hero, 15, [{ item: bod, secondsOwned: 0 }]);
-    // raw = 800 + 1.5*422 = 1433
-    const dmg = skillDamage(ult, stats, 15, 3, DEFAULT_TARGET);
-    expect(dmg).toBeCloseTo(1433 * (120 / 170), 2);
+    // raw = 800 + 1.5 * (252 base L15 + item AD); mult = 120/(120+50)
+    const raw = 800 + 1.5 * (252 + (bod.stats.physicalAttack ?? 0));
+    const dmg = skillDamage(ult, stats, innate, 15, 3, DEFAULT_TARGET);
+    expect(dmg).toBeCloseTo(raw * (120 / 170), 2);
+  });
+});
+
+describe("bonus_physical_attack scaling", () => {
+  const saber = saberData as unknown as Hero;
+  it("Saber ult scales with item AD, not base AD", () => {
+    const { stats } = aggregateStats(saber, 15, [{ item: bod, secondsOwned: 0 }]);
+    const ultS = saber.skills.find((s) => s.slot === "ultimate")!;
+    const innate = { physicalAttack: 118 + 9.71 * 14, magicPower: 0 };
+    const bonus = bod.stats.physicalAttack ?? 0;
+    // two strikes (180 + 1*bonus) + final (360 + 2*bonus), then 120/(120+50) mitigation
+    const raw = 2 * (180 + bonus) + (360 + 2 * bonus);
+    const dmg = skillDamage(ultS, stats, innate, 15, 3, DEFAULT_TARGET);
+    expect(dmg).toBeCloseTo(raw * (120 / 170), 1);
   });
 });
 

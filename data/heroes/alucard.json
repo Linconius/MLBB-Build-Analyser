@@ -3,7 +3,7 @@
   "id": "alucard",
   "name": "Alucard",
   "releaseYear": 2016,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "none",
   "damageType": "physical",
   "roles": [
@@ -69,48 +69,117 @@
     {
       "slot": "passive",
       "name": "Pursuit",
+      "description": "After casting a skill, the next basic attack lunges to the target for bonus physical damage and triggers lifesteal.",
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Alucard",
-          "outputs": []
+          "id": "pursuit",
+          "trigger": "on_enhanced_basic",
+          "inputs": [
+            "physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "1.4 * physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_1",
       "name": "Groundsplitter",
+      "description": "Strikes nearby enemies, dealing physical damage and slowing them.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        8.5,
+        8.1,
+        7.7,
+        7.3,
+        6.9,
+        6.5
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Alucard",
-          "outputs": []
+          "id": "split",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "bonus_physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(270 + 20 * (skill_level - 1)) + 1.1 * bonus_physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 40,
+              "durationSeconds": 2
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_2",
       "name": "Whirling Smash",
+      "description": "Leaps to a target area dealing physical damage to all enemies hit.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        6,
+        5.6,
+        5.2,
+        4.8,
+        4.4,
+        4
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Alucard",
-          "outputs": []
+          "id": "whirl",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "bonus_physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(345 + 45 * (skill_level - 1)) + 1.2 * bonus_physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "ultimate",
       "name": "Fission Wave",
+      "description": "Locks onto a target dealing heavy physical damage and boosting lifesteal.",
       "maxLevel": 3,
+      "cooldownSeconds": [
+        40,
+        35,
+        30
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Alucard",
-          "outputs": []
+          "id": "fission",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "bonus_physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(400 + 150 * (skill_level - 1)) + 2.0 * bonus_physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     }
@@ -118,6 +187,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Alucard",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Alucard",
       "retrieved": "2026-06-29"
     }
