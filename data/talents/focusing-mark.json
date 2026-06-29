@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "focusing-mark",
+  "name": "Focusing Mark",
+  "tier": 3,
+  "effect": "Damaging a hero lets allies deal 6% more damage to it for 3s.",
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

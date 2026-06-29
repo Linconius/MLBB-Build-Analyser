@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "festival-of-blood",
+  "name": "Festival of Blood",
+  "tier": 2,
+  "effect": "+6% spell vamp, plus 0.5% per kill/assist up to 8 stacks.",
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

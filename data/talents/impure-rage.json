@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "impure-rage",
+  "name": "Impure Rage",
+  "tier": 3,
+  "effect": "Skill hits deal 4% of target Max HP as adaptive damage and restore mana (5s CD).",
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

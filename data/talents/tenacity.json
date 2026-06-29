@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tenacity",
+  "name": "Tenacity",
+  "tier": 2,
+  "effect": "+5% damage reduction while HP is below 50%.",
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

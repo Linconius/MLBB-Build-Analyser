@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "concussive-blast",
+  "name": "Concussive Blast",
+  "tier": 3,
+  "effect": "Next basic after a skill deals 100 + 7% Max HP magic damage to nearby enemies.",
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

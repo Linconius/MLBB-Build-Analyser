@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mlbb-build-analyser/schema/talent.schema.json",
+  "title": "MLBB Talent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "name", "tier"],
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "name": { "type": "string" },
+    "tier": { "enum": [1, 2, 3] },
+    "lastPatch": { "type": "string" },
+    "stats": {
+      "type": "object",
+      "description": "Flat stat grants (mostly tier-1 talents). Closed itemStatKey set.",
+      "propertyNames": { "$ref": "common.defs.schema.json#/$defs/itemStatKey" },
+      "additionalProperties": {
+        "oneOf": [
+          { "type": "number" },
+          { "type": "object", "additionalProperties": false, "required": ["value", "unique"],
+            "properties": { "value": { "type": "number" }, "unique": { "type": "string", "minLength": 1 } } }
+        ]
+      }
+    },
+    "effect": { "type": "string", "description": "Conditional/active effect text (tier 2/3) — shown but not applied to stats in v1." },
+    "sources": { "type": "array", "items": { "$ref": "common.defs.schema.json#/$defs/source" } }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "killing-spree",
+  "name": "Killing Spree",
+  "tier": 3,
+  "effect": "After a kill, restore 15% Max HP and gain 20% movement speed for 3s.",
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

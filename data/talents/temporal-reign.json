@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "temporal-reign",
+  "name": "Temporal Reign",
+  "tier": 3,
+  "effect": "Casting your ultimate speeds up other skills' cooldowns 1.5x for 4s (20s CD).",
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

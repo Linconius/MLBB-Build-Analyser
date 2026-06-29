@@ -17,6 +17,8 @@ const ROOT = join(__dirname, "..");
 const SCHEMA_DIR = join(ROOT, "schema");
 const HEROES_DIR = join(ROOT, "data", "heroes");
 const ITEMS_DIR = join(ROOT, "data", "items");
+const EMBLEMS_DIR = join(ROOT, "data", "emblems");
+const TALENTS_DIR = join(ROOT, "data", "talents");
 
 /** Closed variable vocabulary a DSL formula may reference. Keep in sync with FORMULA-DSL.md. */
 const VOCABULARY = new Set<string>([
@@ -51,11 +53,13 @@ function listJson(dir: string): string[] {
 // --- Ajv setup -------------------------------------------------------------
 const ajv = new Ajv2020({ allErrors: true, strict: false });
 addFormats(ajv);
-for (const name of ["common.defs.schema.json", "hero.schema.json", "item.schema.json"]) {
+for (const name of ["common.defs.schema.json", "hero.schema.json", "item.schema.json", "emblem.schema.json", "talent.schema.json"]) {
   ajv.addSchema(readJson(join(SCHEMA_DIR, name)));
 }
 const validateHero = ajv.getSchema("https://mlbb-build-analyser/schema/hero.schema.json")!;
 const validateItem = ajv.getSchema("https://mlbb-build-analyser/schema/item.schema.json")!;
+const validateEmblem = ajv.getSchema("https://mlbb-build-analyser/schema/emblem.schema.json")!;
+const validateTalent = ajv.getSchema("https://mlbb-build-analyser/schema/talent.schema.json")!;
 
 // --- Formula lint helper ---------------------------------------------------
 function lintFormula(file: string, where: string, formula: unknown): void {
@@ -170,8 +174,39 @@ for (const { path, item } of itemFiles) {
   if (visit(item.id)) fail(file, `cost.components forms a cycle through "${item.id}"`);
 }
 
+// --- Emblems ---------------------------------------------------------------
+const emblemIds = new Set<string>();
+for (const path of listJson(EMBLEMS_DIR)) {
+  const file = `data/emblems/${basename(path)}`;
+  const emblem = readJson(path);
+  if (!validateEmblem(emblem)) {
+    for (const e of validateEmblem.errors ?? []) fail(file, `${e.instancePath || "/"} ${e.message}`);
+    continue;
+  }
+  emblemIds.add(emblem.id);
+  if (emblem.id !== basename(path, ".json")) fail(file, `id "${emblem.id}" must equal filename`);
+}
+
+// --- Talents ---------------------------------------------------------------
+const talentIds = new Set<string>();
+const tierCounts: Record<number, number> = { 1: 0, 2: 0, 3: 0 };
+for (const path of listJson(TALENTS_DIR)) {
+  const file = `data/talents/${basename(path)}`;
+  const talent = readJson(path);
+  if (!validateTalent(talent)) {
+    for (const e of validateTalent.errors ?? []) fail(file, `${e.instancePath || "/"} ${e.message}`);
+    continue;
+  }
+  talentIds.add(talent.id);
+  tierCounts[talent.tier] = (tierCounts[talent.tier] ?? 0) + 1;
+  if (talent.id !== basename(path, ".json")) fail(file, `id "${talent.id}" must equal filename`);
+}
+for (const tier of [1, 2, 3]) {
+  if (tierCounts[tier] === 0) fail("data/talents", `tier ${tier} has no talents (the UI needs ≥1 per tier)`);
+}
+
 // --- Report ----------------------------------------------------------------
-const counts = `${heroIds.size} hero(es), ${itemIds.size} item(s)`;
+const counts = `${heroIds.size} hero(es), ${itemIds.size} item(s), ${emblemIds.size} emblem(s), ${talentIds.size} talent(s)`;
 if (errors.length) {
   console.error(`✗ validation failed (${counts}): ${errors.length} error(s)\n`);
   for (const e of errors) console.error("  " + e);

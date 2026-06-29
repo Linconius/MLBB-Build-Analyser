@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "rupture",
+  "name": "Rupture",
+  "tier": 1,
+  "stats": {
+    "adaptivePenetration": 5
+  },
+  "sources": [
+    {
+      "field": "stats",
+      "url": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}
