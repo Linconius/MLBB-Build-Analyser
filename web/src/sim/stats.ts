@@ -1,6 +1,6 @@
 // Stat aggregation: hero base+growth(by level) + item flats + percents + item-passive
 // folds, then caps and derived combat values. See docs/STAT-CONVENTIONS.md.
-import type { Hero, Item, ItemStatKey, ItemStatValue } from "../types";
+import type { Hero, Item, ItemStatKey, ItemStatValue, Loadout } from "../types";
 
 /** Numeric magnitude of a stat grant (a plain number, or a unique-flagged `{value}`). */
 export const statNum = (v: ItemStatValue | undefined): number =>
@@ -50,6 +50,8 @@ export interface OwnedItem {
 export interface AggregateOptions {
   /** Fold conditional item passives (alwaysOn=false) as if their trigger were active. */
   assumeConditionalsActive?: boolean;
+  /** Emblem + talent loadout (max level), folded as flat stats present from minute 0. */
+  loadout?: Loadout;
 }
 
 const lin = (s: { base: number; growth: number }, level: number) => s.base + s.growth * (level - 1);
@@ -143,6 +145,13 @@ export function aggregateStats(
   }
   for (const { key, value } of uniques.values()) addStat(key, value);
 
+  // 2b. Emblem + talent loadout — plain stat grants present from minute 0 (not gold-gated).
+  if (opts.loadout) {
+    for (const [k, raw] of Object.entries(opts.loadout.stats) as [ItemStatKey, ItemStatValue][]) {
+      addStat(k, statNum(raw));
+    }
+  }
+
   // 3. Fold item passives (buff_stat effects). Always-on always; conditional when opted in.
   for (const { item, secondsOwned } of owned) {
     for (const block of item.passives ?? []) {
@@ -159,13 +168,16 @@ export function aggregateStats(
     }
   }
 
-  // 4. Adaptive resolution — adaptive stats become physical OR magic by the hero's damageType.
+  // 4. Adaptive resolution — adaptive stats become physical OR magic by comparing the BUILD's
+  // physical attack vs magic power (higher wins; tie → physical), evaluated before adding the
+  // adaptive amount itself. Not the hero's static damageType, so off-type builds resolve correctly.
+  const useMagic = s.magicPower > s.physicalAttack;
   if (adaptiveAttack > 0) {
-    if (hero.damageType === "magic") s.magicPower += adaptiveAttack;
+    if (useMagic) s.magicPower += adaptiveAttack;
     else s.physicalAttack += adaptiveAttack;
   }
   if (adaptivePen > 0) {
-    if (hero.damageType === "magic") s.magicPenetrationFlat += adaptivePen;
+    if (useMagic) s.magicPenetrationFlat += adaptivePen;
     else s.physicalPenetrationFlat += adaptivePen;
   }
 

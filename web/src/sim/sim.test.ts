@@ -132,15 +132,33 @@ describe("hybrid stats count as both physical and magical", () => {
     expect(stats.physicalPenetrationFlat).toBe(8);
     expect(stats.magicPenetrationFlat).toBe(8);
   });
-  it("adaptivePenetration resolves to physical for a physical hero, magic for a magic hero", () => {
-    const item = mk({ adaptivePenetration: 12 });
-    const phys = aggregateStats(hero, 15, [{ item, secondsOwned: 0 }]).stats;
+  it("adaptivePenetration resolves by build stats: physical when AD>MP, magic when MP>AD", () => {
+    // Layla L15: AD 252 > MP 0 → adaptive counts as physical.
+    const phys = aggregateStats(hero, 15, [{ item: mk({ adaptivePenetration: 12 }), secondsOwned: 0 }]).stats;
     expect(phys.physicalPenetrationFlat).toBe(12);
     expect(phys.magicPenetrationFlat).toBe(0);
-    const magicHero = { ...hero, damageType: "magic" } as Hero;
-    const mag = aggregateStats(magicHero, 15, [{ item, secondsOwned: 0 }]).stats;
+    // Give the build dominant magic power → adaptive flips to magic (regardless of hero label).
+    const mag = aggregateStats(hero, 15, [{ item: mk({ adaptivePenetration: 12, magicPower: 9999 }), secondsOwned: 0 }]).stats;
     expect(mag.magicPenetrationFlat).toBe(12);
     expect(mag.physicalPenetrationFlat).toBe(0);
+  });
+});
+
+describe("emblem + talent loadout fold", () => {
+  it("loadout stats fold from minute 0 (incl. hybrid + adaptive via the same router)", () => {
+    const loadout = { stats: { magicPower: 30, magicPenetrationFlat: 8, cooldownReductionPct: 5, hybridLifestealPct: 6 } };
+    const base = aggregateStats(hero, 1, []).stats;
+    const withL = aggregateStats(hero, 1, [], { loadout }).stats;
+    expect(withL.magicPower).toBe(base.magicPower + 30);
+    expect(withL.magicPenetrationFlat).toBe(8);
+    expect(withL.cooldownReduction).toBeCloseTo(0.05, 5);
+    expect(withL.lifestealPct).toBe(6);
+    expect(withL.spellVampPct).toBe(6); // hybrid → both
+  });
+  it("loadout adaptiveAttack resolves with the build (physical for AD-dominant Layla)", () => {
+    const withL = aggregateStats(hero, 15, [], { loadout: { stats: { adaptiveAttack: 20 } } }).stats;
+    expect(withL.physicalAttack).toBe(252 + 20);
+    expect(withL.magicPower).toBe(0);
   });
 });
 
@@ -175,6 +193,34 @@ describe("unique-attribute stat grants", () => {
     const mix = aggregateStats(hero, 1, [{ item: a, secondsOwned: 0 }, { item: c, secondsOwned: 0 }]).stats;
     const only9 = aggregateStats(hero, 1, [{ item: c, secondsOwned: 0 }]).stats;
     expect(mix.movementSpeed).toBeCloseTo(only9.movementSpeed, 5);
+  });
+});
+
+describe("slot limit (6) + lump completion", () => {
+  const cheap = (n: number) =>
+    ({ ...dagger, id: `cheap${n}`, name: `Cheap ${n}`, cost: { total: 100 }, stats: {} } as unknown as Item);
+  const fillers = [1, 2, 3, 4, 5].map(cheap);
+
+  it("never holds more than 6 items; the 6th item's later components lump onto completion", () => {
+    const steps = computeUnlocks([...fillers, bod], 100000, { resolveItem });
+    const checkpoints = [...new Set(steps.map((s) => s.unlockMinute))];
+    const maxHeld = Math.max(...checkpoints.map((m) => ownedAtMinute(steps, m).length));
+    expect(maxHeld).toBeLessThanOrEqual(6);
+
+    const finalMin = steps[steps.length - 1].unlockMinute;
+    const justBefore = ownedAtMinute(steps, finalMin - 1e-9).map((o) => o.item.id);
+    // With 5 finals already held, only ONE Legion Sword fits; the other lumps in at completion.
+    expect(justBefore.filter((id) => id === "legion-sword").length).toBe(1);
+    const atFinal = ownedAtMinute(steps, finalMin).map((o) => o.item.id).sort();
+    expect(atFinal).toEqual(["blade-of-despair", "cheap1", "cheap2", "cheap3", "cheap4", "cheap5"]);
+  });
+
+  it("an unconstrained build is unchanged by slot logic (both Legion Swords held before combine)", () => {
+    const steps = computeUnlocks([bod], 600, { resolveItem });
+    const finalMin = steps[steps.length - 1].unlockMinute;
+    expect(finalMin).toBeCloseTo(3010 / 600, 5);
+    const before = ownedAtMinute(steps, finalMin - 0.01).map((o) => o.item.id);
+    expect(before.filter((id) => id === "legion-sword").length).toBe(2); // no slot pressure
   });
 });
 

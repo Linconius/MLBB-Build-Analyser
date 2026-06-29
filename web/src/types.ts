@@ -125,3 +125,38 @@ export interface Item {
   passives?: ItemEffectBlock[];
   actives?: ItemEffectBlock[];
 }
+
+export interface Source {
+  field?: string;
+  url: string;
+  retrieved?: string;
+}
+
+/** An emblem set, taken at MAX level. Stats use the closed itemStatKey vocabulary; "hybrid"
+ *  defense/regen is expanded into the concrete keys at the data layer. */
+export interface Emblem {
+  schemaVersion: string;
+  id: string;
+  name: string;
+  lastPatch?: string;
+  iconAsset?: string;
+  stats: Partial<Record<ItemStatKey, ItemStatValue>>;
+  sources?: Source[];
+}
+
+/** A talent in one of the 3 tiers. Tier-1 talents carry `stats`; tier 2/3 are mostly
+ *  conditional/active effects captured as `effect` text (not applied to stats in v1). */
+export interface Talent {
+  schemaVersion: string;
+  id: string;
+  name: string;
+  tier: 1 | 2 | 3;
+  stats?: Partial<Record<ItemStatKey, ItemStatValue>>;
+  effect?: string;
+  sources?: Source[];
+}
+
+/** Resolved emblem + chosen talents → a single stat block folded into the sim from minute 0. */
+export interface Loadout {
+  stats: Partial<Record<ItemStatKey, ItemStatValue>>;
+}

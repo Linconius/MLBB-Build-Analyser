@@ -1,6 +1,6 @@
 // The match-time loop: combines leveling (LPM), gold/build unlocks (GPM), stat aggregation,
 // item-passive folds, caps, and skill evaluation into a timeline the chart consumes.
-import type { Hero, Item } from "../types";
+import type { Hero, Item, Loadout } from "../types";
 import { aggregateStats, type EffectiveStats, type DerivedStats } from "./stats";
 import { computeUnlocks, ownedAtMinute, type ItemUnlock } from "./buildOrder";
 import { evaluateSkills, DEFAULT_TARGET, type TargetProfile, type SkillDamageBreakdown } from "./skills";
@@ -18,6 +18,7 @@ export interface Assumptions {
   startingGold?: number;
   assumeConditionalsActive?: boolean;
   target?: TargetProfile;
+  loadout?: Loadout;
 }
 
 export interface StatSnapshot {
@@ -59,6 +60,7 @@ export function simulate(hero: Hero, build: Build, a: Assumptions): Timeline {
     const owned = ownedAtMinute(unlocks, m);
     const { stats, derived } = aggregateStats(hero, level, owned, {
       assumeConditionalsActive: a.assumeConditionalsActive,
+      loadout: a.loadout,
     });
     const { perSkill, burst } = evaluateSkills(hero, stats, level, target);
     snapshots.push({
