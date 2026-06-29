@@ -115,6 +115,10 @@ select, input[type="search"] {
 .build-list li button:hover { color: var(--bad); }
 .build-list .order { color: var(--muted); width: 16px; text-align: center; }
 
+.axis-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; }
+.axis-row .stat-toggles { margin-bottom: 0; }
+.axis-label { font-size: 11px; color: var(--muted); white-space: nowrap; padding-top: 5px; min-width: 86px; }
+
 .stat-toggles { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .chip {
   background: var(--panel-2);
