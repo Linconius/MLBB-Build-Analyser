@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "suyou",
+  "name": "Suyou",
+  "releaseYear": 2024,
+  "skillsVerified": false,
+  "resourceType": "none",
+  "damageType": "physical",
+  "roles": [
+    "Fighter",
+    "Assassin"
+  ],
+  "specialties": [
+    "Chase",
+    "Burst"
+  ],
+  "lanes": [
+    "Jungle"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 2549,
+      "growth": 147
+    },
+    "hpRegen": {
+      "base": 7,
+      "growth": 0.4429
+    },
+    "mana": {
+      "base": 0,
+      "growth": 0
+    },
+    "manaRegen": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalAttack": {
+      "base": 124,
+      "growth": 11.79
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 16,
+      "growth": 4
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 2.9286
+    },
+    "attackSpeed": {
+      "base": 1.08,
+      "growth": 0.02
+    },
+    "attackSpeedRatio": 1,
+    "movementSpeed": {
+      "base": 225,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Transient Immortal",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Suyou",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Blade Surge",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Suyou",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Soul Sever",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Suyou",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_3",
+      "name": "Evil Queller",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Suyou",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Suyou",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

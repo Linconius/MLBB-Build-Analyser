@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "wanwan",
+  "name": "Wanwan",
+  "releaseYear": 2019,
+  "skillsVerified": false,
+  "resourceType": "mana",
+  "damageType": "physical",
+  "roles": [
+    "Marksman"
+  ],
+  "specialties": [
+    "Finisher",
+    "Burst"
+  ],
+  "lanes": [
+    "Gold"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 2540,
+      "growth": 133.5
+    },
+    "hpRegen": {
+      "base": 5.4,
+      "growth": 0.2
+    },
+    "mana": {
+      "base": 500,
+      "growth": 100
+    },
+    "manaRegen": {
+      "base": 4,
+      "growth": 0.2
+    },
+    "physicalAttack": {
+      "base": 95,
+      "growth": 10.5
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 15,
+      "growth": 3.1429
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 1.6429
+    },
+    "attackSpeed": {
+      "base": 0.98,
+      "growth": 0.0121
+    },
+    "attackSpeedRatio": 1,
+    "movementSpeed": {
+      "base": 245,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Tiger Pace",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Wanwan",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Swallow's Path",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Wanwan",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Needles in Flowers",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Wanwan",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Crossbow of Tang",
+      "maxLevel": 3,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Wanwan",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Wanwan",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

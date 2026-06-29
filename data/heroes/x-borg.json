@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "x-borg",
+  "name": "X.Borg",
+  "releaseYear": 2019,
+  "skillsVerified": false,
+  "resourceType": "energy",
+  "damageType": "physical",
+  "roles": [
+    "Fighter"
+  ],
+  "specialties": [
+    "Regen",
+    "Burst"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 998,
+      "growth": 109
+    },
+    "hpRegen": {
+      "base": 7.8,
+      "growth": 0.4143
+    },
+    "mana": {
+      "base": 0,
+      "growth": 0
+    },
+    "manaRegen": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalAttack": {
+      "base": 117,
+      "growth": 8.21
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 25,
+      "growth": 4.6429
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 2.5
+    },
+    "attackSpeed": {
+      "base": 1.08,
+      "growth": 0.01
+    },
+    "attackSpeedRatio": 1,
+    "movementSpeed": {
+      "base": 260,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Firaga Armor",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/X.Borg",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Fire Missiles",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/X.Borg",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Fire Stake",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/X.Borg",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Last Insanity",
+      "maxLevel": 3,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/X.Borg",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/X.Borg",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

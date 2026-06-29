@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "dyrroth",
+  "name": "Dyrroth",
+  "releaseYear": 2019,
+  "skillsVerified": false,
+  "resourceType": "none",
+  "damageType": "physical",
+  "roles": [
+    "Fighter"
+  ],
+  "specialties": [
+    "Charge",
+    "Burst"
+  ],
+  "lanes": [
+    "Jungle"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 2758,
+      "growth": 215
+    },
+    "hpRegen": {
+      "base": 8.2,
+      "growth": 0.4857
+    },
+    "mana": {
+      "base": 0,
+      "growth": 0
+    },
+    "manaRegen": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalAttack": {
+      "base": 117,
+      "growth": 10.64
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 22,
+      "growth": 3.7857
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 1.6429
+    },
+    "attackSpeed": {
+      "base": 1.14,
+      "growth": 0.03
+    },
+    "attackSpeedRatio": 1,
+    "movementSpeed": {
+      "base": 265,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Wrath of the Abyss",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Dyrroth",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Burst Strike",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Dyrroth",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Spectre Step",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Dyrroth",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Abysm Strike",
+      "maxLevel": 3,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Dyrroth",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Dyrroth",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

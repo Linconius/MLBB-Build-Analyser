@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "angela",
+  "name": "Angela",
+  "releaseYear": 2018,
+  "skillsVerified": false,
+  "resourceType": "mana",
+  "damageType": "magic",
+  "roles": [
+    "Support"
+  ],
+  "specialties": [
+    "Guard",
+    "Support"
+  ],
+  "lanes": [
+    "Roam"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 2300,
+      "growth": 136.14
+    },
+    "hpRegen": {
+      "base": 6.8,
+      "growth": 0.3
+    },
+    "mana": {
+      "base": 500,
+      "growth": 100
+    },
+    "manaRegen": {
+      "base": 4,
+      "growth": 0.2
+    },
+    "physicalAttack": {
+      "base": 115,
+      "growth": 7.21
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 15,
+      "growth": 3.8571
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 2.5
+    },
+    "attackSpeed": {
+      "base": 0.99,
+      "growth": 0.01
+    },
+    "attackSpeedRatio": 1,
+    "movementSpeed": {
+      "base": 240,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Smart Heart",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Angela",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Love Waves",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Angela",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Puppet-on-a-String",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Angela",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Heartguard",
+      "maxLevel": 3,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Angela",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Angela",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

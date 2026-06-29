@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "phoveus",
+  "name": "Phoveus",
+  "releaseYear": 2021,
+  "skillsVerified": false,
+  "resourceType": "none",
+  "damageType": "physical",
+  "roles": [
+    "Fighter"
+  ],
+  "specialties": [
+    "Regen",
+    "Damage"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 2828,
+      "growth": 205
+    },
+    "hpRegen": {
+      "base": 10.8,
+      "growth": 0.4857
+    },
+    "mana": {
+      "base": 0,
+      "growth": 0
+    },
+    "manaRegen": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalAttack": {
+      "base": 132,
+      "growth": 7.71
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 25,
+      "growth": 4.4286
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 2.5
+    },
+    "attackSpeed": {
+      "base": 1.02,
+      "growth": 0.0086
+    },
+    "attackSpeedRatio": 1,
+    "movementSpeed": {
+      "base": 252,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Demonic Force",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Phoveus",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Demonic Impact",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Phoveus",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Dark Wave",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Phoveus",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Infernal Pursuit",
+      "maxLevel": 3,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Phoveus",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Phoveus",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "hayabusa",
+  "name": "Hayabusa",
+  "releaseYear": 2016,
+  "skillsVerified": false,
+  "resourceType": "energy",
+  "damageType": "physical",
+  "roles": [
+    "Assassin"
+  ],
+  "specialties": [
+    "Chase",
+    "Burst"
+  ],
+  "lanes": [
+    "Jungle"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 2429,
+      "growth": 156.5
+    },
+    "hpRegen": {
+      "base": 7.4,
+      "growth": 0.4429
+    },
+    "mana": {
+      "base": 0,
+      "growth": 0
+    },
+    "manaRegen": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalAttack": {
+      "base": 117,
+      "growth": 9.57
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 17,
+      "growth": 4.1429
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 2.5
+    },
+    "attackSpeed": {
+      "base": 1.07,
+      "growth": 0.0171
+    },
+    "attackSpeedRatio": 1,
+    "movementSpeed": {
+      "base": 260,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Ninjutsu: Trace of Shadow",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Hayabusa",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Ninjutsu: Phantom Shuriken",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Hayabusa",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Ninjutsu: Quad Shadow",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Hayabusa",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Ougi: Shadow Kill",
+      "maxLevel": 3,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Hayabusa",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Hayabusa",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

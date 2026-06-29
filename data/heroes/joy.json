@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "joy",
+  "name": "Joy",
+  "releaseYear": 2022,
+  "skillsVerified": false,
+  "resourceType": "none",
+  "damageType": "magic",
+  "roles": [
+    "Assassin"
+  ],
+  "specialties": [
+    "Chase",
+    "Damage"
+  ],
+  "lanes": [
+    "Jungle"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 2678,
+      "growth": 195
+    },
+    "hpRegen": {
+      "base": 7.8,
+      "growth": 0.4429
+    },
+    "mana": {
+      "base": 0,
+      "growth": 0
+    },
+    "manaRegen": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalAttack": {
+      "base": 119,
+      "growth": 9.71
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 20,
+      "growth": 4.1429
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 2.1429
+    },
+    "attackSpeed": {
+      "base": 1.13,
+      "growth": 0.0293
+    },
+    "attackSpeedRatio": 1,
+    "movementSpeed": {
+      "base": 260,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Humph, Joy's Angry!",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Joy",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Look, Leonin Crystal!",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Joy",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Meow, Rhythm of Joy!",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Joy",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Ha, Electrifying Beats!",
+      "maxLevel": 3,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Joy",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Joy",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

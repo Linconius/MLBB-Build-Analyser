@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "akai",
+  "name": "Akai",
+  "releaseYear": 2016,
+  "skillsVerified": false,
+  "resourceType": "mana",
+  "damageType": "physical",
+  "roles": [
+    "Tank"
+  ],
+  "specialties": [
+    "Guard",
+    "Crowd Control"
+  ],
+  "lanes": [
+    "Roam"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 2669,
+      "growth": 228
+    },
+    "hpRegen": {
+      "base": 8.4,
+      "growth": 0.6
+    },
+    "mana": {
+      "base": 500,
+      "growth": 100
+    },
+    "manaRegen": {
+      "base": 4,
+      "growth": 0.2
+    },
+    "physicalAttack": {
+      "base": 115,
+      "growth": 5.64
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 24,
+      "growth": 3.7143
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 4
+    },
+    "attackSpeed": {
+      "base": 1.06,
+      "growth": 0.02
+    },
+    "attackSpeedRatio": 1,
+    "movementSpeed": {
+      "base": 260,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Tai Chi",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Akai",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Headbutt",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Akai",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Body Slam",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Akai",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Heavy Spin",
+      "maxLevel": 3,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Akai",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Akai",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

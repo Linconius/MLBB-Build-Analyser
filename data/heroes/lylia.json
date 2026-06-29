@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lylia",
+  "name": "Lylia",
+  "releaseYear": 2019,
+  "skillsVerified": false,
+  "resourceType": "mana",
+  "damageType": "magic",
+  "roles": [
+    "Mage"
+  ],
+  "specialties": [
+    "Push",
+    "Damage"
+  ],
+  "lanes": [
+    "Mid"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 2501,
+      "growth": 134.5
+    },
+    "hpRegen": {
+      "base": 6.8,
+      "growth": 0.3
+    },
+    "mana": {
+      "base": 500,
+      "growth": 100
+    },
+    "manaRegen": {
+      "base": 4,
+      "growth": 0.2
+    },
+    "physicalAttack": {
+      "base": 113,
+      "growth": 6.71
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 17,
+      "growth": 3.1429
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 1.6429
+    },
+    "attackSpeed": {
+      "base": 1.01,
+      "growth": 0.0121
+    },
+    "attackSpeedRatio": 1,
+    "movementSpeed": {
+      "base": 245,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Angry Gloom",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lylia",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Magic Shockwave",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lylia",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Shadow Energy",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lylia",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Black Shoes",
+      "maxLevel": 3,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lylia",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Lylia",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

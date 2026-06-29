@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "martis",
+  "name": "Martis",
+  "releaseYear": 2018,
+  "skillsVerified": false,
+  "resourceType": "none",
+  "damageType": "physical",
+  "roles": [
+    "Fighter"
+  ],
+  "specialties": [
+    "Finisher",
+    "Charge"
+  ],
+  "lanes": [
+    "Jungle"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 2738,
+      "growth": 204
+    },
+    "hpRegen": {
+      "base": 7,
+      "growth": 0.4
+    },
+    "mana": {
+      "base": 0,
+      "growth": 0
+    },
+    "manaRegen": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalAttack": {
+      "base": 128,
+      "growth": 8.71
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 25,
+      "growth": 4.6429
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 2.5
+    },
+    "attackSpeed": {
+      "base": 1.08,
+      "growth": 0.025
+    },
+    "attackSpeedRatio": 1,
+    "movementSpeed": {
+      "base": 260,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Asura's Wrath",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Martis",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Asura Aura",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Martis",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Mortal Coil",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Martis",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Decimation",
+      "maxLevel": 3,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Martis",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Martis",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

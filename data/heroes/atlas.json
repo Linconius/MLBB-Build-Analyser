@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "atlas",
+  "name": "Atlas",
+  "releaseYear": 2020,
+  "skillsVerified": false,
+  "resourceType": "mana",
+  "damageType": "magic",
+  "roles": [
+    "Tank"
+  ],
+  "specialties": [
+    "Crowd Control",
+    "Initiator"
+  ],
+  "lanes": [
+    "Roam"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 2819,
+      "growth": 228
+    },
+    "hpRegen": {
+      "base": 3,
+      "growth": 0.9857
+    },
+    "mana": {
+      "base": 500,
+      "growth": 100
+    },
+    "manaRegen": {
+      "base": 4,
+      "growth": 0.2
+    },
+    "physicalAttack": {
+      "base": 135,
+      "growth": 8.86
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 21,
+      "growth": 3.5
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 1.6429
+    },
+    "attackSpeed": {
+      "base": 0.98,
+      "growth": 0.0079
+    },
+    "attackSpeedRatio": 0.9,
+    "movementSpeed": {
+      "base": 240,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Frigid Breath",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Atlas",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Annihilate",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Atlas",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Perfect Match",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Atlas",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Fatal Links",
+      "maxLevel": 3,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Atlas",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Atlas",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

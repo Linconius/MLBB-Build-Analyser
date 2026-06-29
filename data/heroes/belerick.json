@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "belerick",
+  "name": "Belerick",
+  "releaseYear": 2018,
+  "skillsVerified": false,
+  "resourceType": "mana",
+  "damageType": "magic",
+  "roles": [
+    "Tank"
+  ],
+  "specialties": [
+    "Crowd Control",
+    "Regen"
+  ],
+  "lanes": [
+    "Roam"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 2569,
+      "growth": 225
+    },
+    "hpRegen": {
+      "base": 8.4,
+      "growth": 0.6
+    },
+    "mana": {
+      "base": 500,
+      "growth": 100
+    },
+    "manaRegen": {
+      "base": 4,
+      "growth": 0.2
+    },
+    "physicalAttack": {
+      "base": 110,
+      "growth": 7
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 15,
+      "growth": 2.7857
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 1.6429
+    },
+    "attackSpeed": {
+      "base": 1.01,
+      "growth": 0.0121
+    },
+    "attackSpeedRatio": 1,
+    "movementSpeed": {
+      "base": 250,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Deadly Thorns",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Belerick",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Ancient Seed",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Belerick",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Nature's Strike",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Belerick",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Wrath of Dryad",
+      "maxLevel": 3,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Belerick",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Belerick",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

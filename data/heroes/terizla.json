@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "terizla",
+  "name": "Terizla",
+  "releaseYear": 2019,
+  "skillsVerified": false,
+  "resourceType": "none",
+  "damageType": "physical",
+  "roles": [
+    "Tank",
+    "Fighter"
+  ],
+  "specialties": [
+    "Burst",
+    "Crowd Control"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 2619,
+      "growth": 230
+    },
+    "hpRegen": {
+      "base": 10.8,
+      "growth": 0.4857
+    },
+    "mana": {
+      "base": 0,
+      "growth": 0
+    },
+    "manaRegen": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalAttack": {
+      "base": 129,
+      "growth": 12.71
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 19,
+      "growth": 7.3571
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 4
+    },
+    "attackSpeed": {
+      "base": 1,
+      "growth": 0
+    },
+    "attackSpeedRatio": 1,
+    "movementSpeed": {
+      "base": 255,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Body of Smith",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Terizla",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Revenge Strike",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Terizla",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Execution Strike",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Terizla",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Penalty Zone",
+      "maxLevel": 3,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Terizla",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Terizla",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

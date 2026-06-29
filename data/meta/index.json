@@ -1,8 +1,866 @@
 {
   "generated": true,
-  "heroCount": 1,
+  "heroCount": 135,
   "itemCount": 2,
   "heroes": [
+    {
+      "id": "aamon",
+      "name": "Aamon",
+      "title": null,
+      "roles": [
+        "Assassin"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "akai",
+      "name": "Akai",
+      "title": null,
+      "roles": [
+        "Tank"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "aldous",
+      "name": "Aldous",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "alice",
+      "name": "Alice",
+      "title": null,
+      "roles": [
+        "Tank",
+        "Mage"
+      ],
+      "resourceType": "none",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "alpha",
+      "name": "Alpha",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "alucard",
+      "name": "Alucard",
+      "title": null,
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "angela",
+      "name": "Angela",
+      "title": null,
+      "roles": [
+        "Support"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "argus",
+      "name": "Argus",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "arlott",
+      "name": "Arlott",
+      "title": null,
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "atlas",
+      "name": "Atlas",
+      "title": null,
+      "roles": [
+        "Tank"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "aulus",
+      "name": "Aulus",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "aurora",
+      "name": "Aurora",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "badang",
+      "name": "Badang",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "balmond",
+      "name": "Balmond",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "bane",
+      "name": "Bane",
+      "title": null,
+      "roles": [
+        "Fighter",
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "barats",
+      "name": "Barats",
+      "title": null,
+      "roles": [
+        "Tank",
+        "Fighter"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "baxia",
+      "name": "Baxia",
+      "title": null,
+      "roles": [
+        "Tank"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "beatrix",
+      "name": "Beatrix",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "belerick",
+      "name": "Belerick",
+      "title": null,
+      "roles": [
+        "Tank"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "benedetta",
+      "name": "Benedetta",
+      "title": null,
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "brody",
+      "name": "Brody",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "bruno",
+      "name": "Bruno",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "carmilla",
+      "name": "Carmilla",
+      "title": null,
+      "roles": [
+        "Tank",
+        "Support"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "cecilion",
+      "name": "Cecilion",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "chang-e",
+      "name": "Chang'e",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "chip",
+      "name": "Chip",
+      "title": null,
+      "roles": [
+        "Tank",
+        "Support"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "chou",
+      "name": "Chou",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "cici",
+      "name": "Cici",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "clint",
+      "name": "Clint",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "cyclops",
+      "name": "Cyclops",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "diggie",
+      "name": "Diggie",
+      "title": null,
+      "roles": [
+        "Support"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "dyrroth",
+      "name": "Dyrroth",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "edith",
+      "name": "Edith",
+      "title": null,
+      "roles": [
+        "Tank",
+        "Marksman"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "esmeralda",
+      "name": "Esmeralda",
+      "title": null,
+      "roles": [
+        "Tank",
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "estes",
+      "name": "Estes",
+      "title": null,
+      "roles": [
+        "Support"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "eudora",
+      "name": "Eudora",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "fanny",
+      "name": "Fanny",
+      "title": null,
+      "roles": [
+        "Assassin"
+      ],
+      "resourceType": "energy",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "faramis",
+      "name": "Faramis",
+      "title": null,
+      "roles": [
+        "Mage",
+        "Support"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "floryn",
+      "name": "Floryn",
+      "title": null,
+      "roles": [
+        "Support"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "franco",
+      "name": "Franco",
+      "title": null,
+      "roles": [
+        "Tank"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "fredrinn",
+      "name": "Fredrinn",
+      "title": null,
+      "roles": [
+        "Tank",
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "freya",
+      "name": "Freya",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "gatotkaca",
+      "name": "Gatotkaca",
+      "title": null,
+      "roles": [
+        "Tank",
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "gloo",
+      "name": "Gloo",
+      "title": null,
+      "roles": [
+        "Tank"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "gord",
+      "name": "Gord",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "granger",
+      "name": "Granger",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "energy",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "grock",
+      "name": "Grock",
+      "title": null,
+      "roles": [
+        "Tank",
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "guinevere",
+      "name": "Guinevere",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "gusion",
+      "name": "Gusion",
+      "title": null,
+      "roles": [
+        "Assassin"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "hanabi",
+      "name": "Hanabi",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "hanzo",
+      "name": "Hanzo",
+      "title": null,
+      "roles": [
+        "Assassin"
+      ],
+      "resourceType": "energy",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "harith",
+      "name": "Harith",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "harley",
+      "name": "Harley",
+      "title": null,
+      "roles": [
+        "Assassin",
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "hayabusa",
+      "name": "Hayabusa",
+      "title": null,
+      "roles": [
+        "Assassin"
+      ],
+      "resourceType": "energy",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "helcurt",
+      "name": "Helcurt",
+      "title": null,
+      "roles": [
+        "Assassin"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "hilda",
+      "name": "Hilda",
+      "title": null,
+      "roles": [
+        "Tank",
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "hirara",
+      "name": "Hirara",
+      "title": null,
+      "roles": [
+        "Assassin"
+      ],
+      "resourceType": "energy",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "hylos",
+      "name": "Hylos",
+      "title": null,
+      "roles": [
+        "Tank"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "irithel",
+      "name": "Irithel",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "ixia",
+      "name": "Ixia",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "jawhead",
+      "name": "Jawhead",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "johnson",
+      "name": "Johnson",
+      "title": null,
+      "roles": [
+        "Tank",
+        "Support"
+      ],
+      "resourceType": "none",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "joy",
+      "name": "Joy",
+      "title": null,
+      "roles": [
+        "Assassin"
+      ],
+      "resourceType": "none",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "julian",
+      "name": "Julian",
+      "title": null,
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "kadita",
+      "name": "Kadita",
+      "title": null,
+      "roles": [
+        "Assassin",
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "kagura",
+      "name": "Kagura",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "kaja",
+      "name": "Kaja",
+      "title": null,
+      "roles": [
+        "Fighter",
+        "Support"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "kalea",
+      "name": "Kalea",
+      "title": null,
+      "roles": [
+        "Fighter",
+        "Support"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "karina",
+      "name": "Karina",
+      "title": null,
+      "roles": [
+        "Assassin"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "karrie",
+      "name": "Karrie",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "khaleed",
+      "name": "Khaleed",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "khufra",
+      "name": "Khufra",
+      "title": null,
+      "roles": [
+        "Tank"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "kimmy",
+      "name": "Kimmy",
+      "title": null,
+      "roles": [
+        "Mage",
+        "Marksman"
+      ],
+      "resourceType": "none",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "lancelot",
+      "name": "Lancelot",
+      "title": null,
+      "roles": [
+        "Assassin"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "lapu-lapu",
+      "name": "Lapu-Lapu",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
     {
       "id": "layla",
       "name": "Layla",
@@ -13,6 +871,660 @@
       "resourceType": "mana",
       "damageType": "physical",
       "skillsVerified": true
+    },
+    {
+      "id": "leomord",
+      "name": "Leomord",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "lesley",
+      "name": "Lesley",
+      "title": null,
+      "roles": [
+        "Assassin",
+        "Marksman"
+      ],
+      "resourceType": "energy",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "ling",
+      "name": "Ling",
+      "title": null,
+      "roles": [
+        "Assassin"
+      ],
+      "resourceType": "energy",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "lolita",
+      "name": "Lolita",
+      "title": null,
+      "roles": [
+        "Tank",
+        "Support"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "lukas",
+      "name": "Lukas",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "lunox",
+      "name": "Lunox",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "luo-yi",
+      "name": "Luo Yi",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "lylia",
+      "name": "Lylia",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "marcel",
+      "name": "Marcel",
+      "title": null,
+      "roles": [
+        "Support"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "martis",
+      "name": "Martis",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "masha",
+      "name": "Masha",
+      "title": null,
+      "roles": [
+        "Tank",
+        "Fighter"
+      ],
+      "resourceType": "energy",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "mathilda",
+      "name": "Mathilda",
+      "title": null,
+      "roles": [
+        "Assassin",
+        "Support"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "melissa",
+      "name": "Melissa",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "minotaur",
+      "name": "Minotaur",
+      "title": null,
+      "roles": [
+        "Tank",
+        "Support"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "minsitthar",
+      "name": "Minsitthar",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "miya",
+      "name": "Miya",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "moskov",
+      "name": "Moskov",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "nana",
+      "name": "Nana",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "natalia",
+      "name": "Natalia",
+      "title": null,
+      "roles": [
+        "Assassin"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "natan",
+      "name": "Natan",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "nolan",
+      "name": "Nolan",
+      "title": null,
+      "roles": [
+        "Assassin"
+      ],
+      "resourceType": "energy",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "novaria",
+      "name": "Novaria",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "obsidia",
+      "name": "Obsidia",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "odette",
+      "name": "Odette",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "paquito",
+      "name": "Paquito",
+      "title": null,
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "pharsa",
+      "name": "Pharsa",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "phoveus",
+      "name": "Phoveus",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "popol-and-kupa",
+      "name": "Popol and Kupa",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "rafaela",
+      "name": "Rafaela",
+      "title": null,
+      "roles": [
+        "Support"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "roger",
+      "name": "Roger",
+      "title": null,
+      "roles": [
+        "Fighter",
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "ruby",
+      "name": "Ruby",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "saber",
+      "name": "Saber",
+      "title": null,
+      "roles": [
+        "Assassin"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "selena",
+      "name": "Selena",
+      "title": null,
+      "roles": [
+        "Assassin",
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "silvanna",
+      "name": "Silvanna",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "sora",
+      "name": "Sora",
+      "title": null,
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "sun",
+      "name": "Sun",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "suyou",
+      "name": "Suyou",
+      "title": null,
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "terizla",
+      "name": "Terizla",
+      "title": null,
+      "roles": [
+        "Tank",
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "thamuz",
+      "name": "Thamuz",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "tigreal",
+      "name": "Tigreal",
+      "title": null,
+      "roles": [
+        "Tank"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "uranus",
+      "name": "Uranus",
+      "title": null,
+      "roles": [
+        "Tank"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "user-blog-dubuhasbeensnatched-hero-page",
+      "name": "User blog:DubuHasBeenSnatched/Hero page",
+      "title": null,
+      "roles": [
+        "Tank",
+        "Mage"
+      ],
+      "resourceType": "none",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "user-blog-dubuhasbeensnatched-lesley",
+      "name": "User blog:DubuHasBeenSnatched/Lesley",
+      "title": null,
+      "roles": [
+        "Assassin",
+        "Marksman"
+      ],
+      "resourceType": "energy",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "vale",
+      "name": "Vale",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "valentina",
+      "name": "Valentina",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "valir",
+      "name": "Valir",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "vexana",
+      "name": "Vexana",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "wanwan",
+      "name": "Wanwan",
+      "title": null,
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "x-borg",
+      "name": "X.Borg",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "energy",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "xavier",
+      "name": "Xavier",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "yi-sun-shin",
+      "name": "Yi Sun-shin",
+      "title": null,
+      "roles": [
+        "Assassin",
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "yin",
+      "name": "Yin",
+      "title": null,
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "yu-zhong",
+      "name": "Yu Zhong",
+      "title": null,
+      "roles": [
+        "Fighter"
+      ],
+      "resourceType": "none",
+      "damageType": "physical",
+      "skillsVerified": false
+    },
+    {
+      "id": "yve",
+      "name": "Yve",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "zetian",
+      "name": "Zetian",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "zhask",
+      "name": "Zhask",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "zhuxin",
+      "name": "Zhuxin",
+      "title": null,
+      "roles": [
+        "Mage"
+      ],
+      "resourceType": "mana",
+      "damageType": "magic",
+      "skillsVerified": false
+    },
+    {
+      "id": "zilong",
+      "name": "Zilong",
+      "title": null,
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": false
     }
   ],
   "items": [

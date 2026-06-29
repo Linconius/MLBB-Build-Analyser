@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "kimmy",
+  "name": "Kimmy",
+  "releaseYear": 2018,
+  "skillsVerified": false,
+  "resourceType": "none",
+  "damageType": "magic",
+  "roles": [
+    "Mage",
+    "Marksman"
+  ],
+  "specialties": [
+    "Damage",
+    "Magic Damage"
+  ],
+  "lanes": [
+    "Gold",
+    "Mid"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 2450,
+      "growth": 117.5
+    },
+    "hpRegen": {
+      "base": 8,
+      "growth": 0.2286
+    },
+    "mana": {
+      "base": 0,
+      "growth": 0
+    },
+    "manaRegen": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalAttack": {
+      "base": 90,
+      "growth": 9
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 22,
+      "growth": 3.3571
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 2.1429
+    },
+    "attackSpeed": {
+      "base": 1,
+      "growth": 0
+    },
+    "attackSpeedRatio": 1,
+    "movementSpeed": {
+      "base": 245,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Aerial Dominance",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Kimmy",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Anti-Grav Thruster",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Kimmy",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Starlium Beam",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Kimmy",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Traction Pulse",
+      "maxLevel": 3,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Kimmy",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Kimmy",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

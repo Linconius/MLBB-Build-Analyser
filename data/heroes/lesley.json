@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lesley",
+  "name": "Lesley",
+  "releaseYear": 2018,
+  "skillsVerified": false,
+  "resourceType": "energy",
+  "damageType": "physical",
+  "roles": [
+    "Assassin",
+    "Marksman"
+  ],
+  "specialties": [
+    "Finisher",
+    "Burst"
+  ],
+  "lanes": [
+    "Gold"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 2280,
+      "growth": 140
+    },
+    "hpRegen": {
+      "base": 7.2,
+      "growth": 0.2286
+    },
+    "mana": {
+      "base": 0,
+      "growth": 0
+    },
+    "manaRegen": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalAttack": {
+      "base": 145,
+      "growth": 7
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 14,
+      "growth": 4.1429
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 2.5
+    },
+    "attackSpeed": {
+      "base": 1.04,
+      "growth": 0.015
+    },
+    "attackSpeedRatio": 1,
+    "movementSpeed": {
+      "base": 240,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Lethal Shot",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lesley",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Master of Camouflage",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lesley",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Tactical Grenade",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lesley",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Ultimate Snipe",
+      "maxLevel": 3,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Lesley",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Lesley",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}

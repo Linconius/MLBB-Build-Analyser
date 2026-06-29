@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "khufra",
+  "name": "Khufra",
+  "releaseYear": 2019,
+  "skillsVerified": false,
+  "resourceType": "mana",
+  "damageType": "physical",
+  "roles": [
+    "Tank"
+  ],
+  "specialties": [
+    "Initiator",
+    "Crowd Control"
+  ],
+  "lanes": [
+    "Roam"
+  ],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": {
+      "base": 2779,
+      "growth": 240
+    },
+    "hpRegen": {
+      "base": 9.4,
+      "growth": 0.6286
+    },
+    "mana": {
+      "base": 500,
+      "growth": 100
+    },
+    "manaRegen": {
+      "base": 4,
+      "growth": 0.2
+    },
+    "physicalAttack": {
+      "base": 117,
+      "growth": 6.21
+    },
+    "magicPower": {
+      "base": 0,
+      "growth": 0
+    },
+    "physicalDefense": {
+      "base": 19,
+      "growth": 7.1429
+    },
+    "magicDefense": {
+      "base": 15,
+      "growth": 4
+    },
+    "attackSpeed": {
+      "base": 0.98,
+      "growth": 0.0171
+    },
+    "attackSpeedRatio": 1,
+    "movementSpeed": {
+      "base": 255,
+      "growth": 0
+    },
+    "critChance": {
+      "base": 0,
+      "growth": 0
+    }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Spell Curse",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Khufra",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Tyrant's Revenge",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Khufra",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Bouncing Ball",
+      "maxLevel": 6,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Khufra",
+          "outputs": []
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Tyrant's Rage",
+      "maxLevel": 3,
+      "algorithms": [
+        {
+          "id": "todo",
+          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Khufra",
+          "outputs": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Khufra",
+      "retrieved": "2026-06-29"
+    }
+  ]
+}
