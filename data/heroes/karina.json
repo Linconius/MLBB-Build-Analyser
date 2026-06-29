@@ -3,7 +3,7 @@
   "id": "karina",
   "name": "Karina",
   "releaseYear": 2016,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -68,48 +68,143 @@
     {
       "slot": "passive",
       "name": "Shadow Combo",
+      "description": "Every third consecutive attack deals bonus true damage scaling with the target's lost HP and reduces non-ultimate cooldowns.",
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Karina",
-          "outputs": []
+          "id": "combo",
+          "trigger": "on_enhanced_basic",
+          "inputs": [
+            "target_missing_hp"
+          ],
+          "outputs": [
+            {
+              "type": "damage_true",
+              "formula": "50",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "damage_true",
+              "valuePercent": 5,
+              "magnitudeUnit": "percent_target_missing_hp"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_1",
       "name": "Dance of Blades",
+      "description": "Enhances the next attack to deal magic damage and slow; reflects bonus damage.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "manaCost": [
+        70,
+        80,
+        90,
+        100,
+        110,
+        120
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Karina",
-          "outputs": []
+          "id": "blades",
+          "trigger": "on_enhanced_basic",
+          "inputs": [
+            "skill_level",
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(150 + 21 * (skill_level - 1)) + 0.55 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 45,
+              "durationSeconds": 1
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_2",
       "name": "Dance of Death",
+      "description": "Blinks to a target and deals heavy magic damage.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        6,
+        5.7,
+        5.4,
+        5.1,
+        4.8,
+        4.5
+      ],
+      "manaCost": [
+        60,
+        68,
+        76,
+        84,
+        92,
+        100
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Karina",
-          "outputs": []
+          "id": "death",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(375 + 45 * (skill_level - 1)) + 1.25 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "ultimate",
       "name": "Shadow Assault",
+      "description": "Dashes through enemies dealing magic damage; the cooldown resets on a kill.",
       "maxLevel": 3,
+      "cooldownSeconds": [
+        34,
+        30,
+        26
+      ],
+      "manaCost": [
+        100,
+        120,
+        140
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Karina",
-          "outputs": []
+          "id": "assault",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(350 + 200 * (skill_level - 1)) + 1.6 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     }
@@ -117,6 +212,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Karina",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Karina",
       "retrieved": "2026-06-29"
     }

@@ -3,7 +3,7 @@
   "id": "tigreal",
   "name": "Tigreal",
   "releaseYear": 2016,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -67,11 +67,12 @@
     {
       "slot": "passive",
       "name": "Fearless",
+      "description": "Casting skills or attacking builds stacks; at full stacks his next basic attack is enhanced. No direct bonus damage modelled.",
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Tigreal",
+          "id": "fearless",
+          "trigger": "passive",
           "outputs": []
         }
       ]
@@ -79,36 +80,125 @@
     {
       "slot": "skill_1",
       "name": "Attack Wave",
+      "description": "Sends a shockwave dealing physical damage and slowing enemies.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        7,
+        6.4,
+        5.8,
+        5.2,
+        4.6,
+        4
+      ],
+      "manaCost": [
+        45,
+        45,
+        45,
+        45,
+        45,
+        45
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Tigreal",
-          "outputs": []
+          "id": "wave",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(270 + 30 * (skill_level - 1)) + 0.7 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 60,
+              "durationSeconds": 1.5
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_2",
       "name": "Sacred Hammer",
+      "description": "Charges forward; a second activation slams down, dealing damage and knocking enemies airborne.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        12.5,
+        12,
+        11.5,
+        11,
+        10.5,
+        10
+      ],
+      "manaCost": [
+        70,
+        70,
+        70,
+        70,
+        70,
+        70
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Tigreal",
-          "outputs": []
+          "id": "hammer",
+          "trigger": "on_cast",
+          "note": "Second-cast slam damage.",
+          "inputs": [
+            "skill_level",
+            "physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(280 + 20 * (skill_level - 1)) + 0.6 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "airborne",
+              "durationSeconds": 1
+            }
+          ]
         }
       ]
     },
     {
       "slot": "ultimate",
       "name": "Implosion",
+      "description": "Pulls surrounding enemies in, dealing physical damage and stunning them.",
       "maxLevel": 3,
+      "cooldownSeconds": [
+        45,
+        41,
+        37
+      ],
+      "manaCost": [
+        120,
+        140,
+        160
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Tigreal",
-          "outputs": []
+          "id": "implosion",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(270 + 30 * (skill_level - 1)) + 1.3 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 2
+            }
+          ]
         }
       ]
     }
@@ -116,6 +206,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Tigreal",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Tigreal",
       "retrieved": "2026-06-29"
     }

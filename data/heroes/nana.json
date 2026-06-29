@@ -3,7 +3,7 @@
   "id": "nana",
   "name": "Nana",
   "releaseYear": 2016,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -68,48 +68,148 @@
     {
       "slot": "passive",
       "name": "Molina's Gift",
+      "description": "On taking fatal damage, becomes untargetable/invincible for 2s, cleanses debuffs, gains 30% MS and recovers 10% Max HP. Cooldown 150s.",
       "maxLevel": 1,
+      "cooldownSeconds": [
+        150
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Nana",
-          "outputs": []
+          "id": "gift",
+          "trigger": "on_fatal_damage",
+          "outputs": [
+            {
+              "type": "heal",
+              "valuePercent": 10,
+              "magnitudeUnit": "percent_caster_max_hp"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_1",
       "name": "Magic Boomerang",
+      "description": "Throws a boomerang dealing magic damage twice along its path.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        5.5,
+        5.2,
+        4.9,
+        4.6,
+        4.3,
+        4
+      ],
+      "manaCost": [
+        50,
+        55,
+        60,
+        65,
+        70,
+        75
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Nana",
-          "outputs": []
+          "id": "boomerang",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(320 + 24 * (skill_level - 1)) + 1.0 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_2",
       "name": "Molina Smooch",
+      "description": "Summons Molina to deal magic damage, slow, and transform the target into a critter.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        14.5,
+        14,
+        13.5,
+        13,
+        12.5,
+        12
+      ],
+      "manaCost": [
+        80,
+        85,
+        90,
+        95,
+        100,
+        105
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Nana",
-          "outputs": []
+          "id": "smooch",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(250 + 25 * (skill_level - 1)) + 0.5 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 1.5
+            },
+            {
+              "type": "slow",
+              "valuePercent": 60,
+              "durationSeconds": 1
+            }
+          ]
         }
       ]
     },
     {
       "slot": "ultimate",
       "name": "Molina Blitz",
+      "description": "Unleashes three waves of magic damage that slow and stun.",
       "maxLevel": 3,
+      "cooldownSeconds": [
+        36,
+        32,
+        28
+      ],
+      "manaCost": [
+        135,
+        150,
+        165
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Nana",
-          "outputs": []
+          "id": "blitz",
+          "trigger": "on_cast",
+          "note": "Three strikes.",
+          "inputs": [
+            "skill_level",
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(440 + 110 * (skill_level - 1)) + 1.6 * magic_power",
+              "magnitudeUnit": "flat",
+              "hits": 3
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 1
+            }
+          ]
         }
       ]
     }
@@ -117,6 +217,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Nana",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Nana",
       "retrieved": "2026-06-29"
     }
