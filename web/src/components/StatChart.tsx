@@ -9,7 +9,8 @@ import { STAT_DEFS, STAT_BY_KEY } from "./statDefs";
 const AXIS = "#8b97b3";
 const GRID = "#2a3556";
 
-const OVERVIEW_DEFAULT = ["physicalAttack", "hp", "physicalDefense", "attackSpeed"];
+// Default kept to similar-magnitude stats so nothing dwarfs the rest. HP/EHP/DPS toggleable.
+const OVERVIEW_DEFAULT = ["physicalAttack", "physicalDefense", "movementSpeed", "attackSpeed"];
 const axisFmt = (v: number) => (v >= 1000 ? `${(v / 1000).toFixed(1)}k` : `${v}`);
 
 export function StatChart({ timeline }: { timeline: Timeline }) {
@@ -23,15 +24,6 @@ export function StatChart({ timeline }: { timeline: Timeline }) {
   const data = timeline.snapshots.map((s) => {
     const row: Record<string, number> = { minute: s.minute };
     for (const d of STAT_DEFS) row[d.key] = d.get(s);
-    return row;
-  });
-
-  // Normalize overview series to % of each stat's own max so different scales coexist.
-  const maxByKey = new Map<string, number>();
-  for (const d of STAT_DEFS) maxByKey.set(d.key, Math.max(1, ...data.map((r) => r[d.key])));
-  const normData = data.map((r) => {
-    const row: Record<string, number> = { minute: r.minute };
-    for (const k of overview) row[k] = (r[k] / maxByKey.get(k)!) * 100;
     return row;
   });
 
@@ -105,7 +97,10 @@ export function StatChart({ timeline }: { timeline: Timeline }) {
         </ResponsiveContainer>
       </div>
 
-      <h2 style={{ marginTop: 18 }}>All stats overview — normalized % of own max</h2>
+      <h2 style={{ marginTop: 18 }}>All stats overview — actual values</h2>
+      <p className="muted" style={{ fontSize: 11, margin: "-6px 0 8px" }}>
+        Left axis: absolute stats · right axis: ratios (attack speed, CDR, lifesteal, crit)
+      </p>
       <div className="stat-toggles">
         {STAT_DEFS.map((d) => (
           <span key={d.key}
@@ -118,20 +113,24 @@ export function StatChart({ timeline }: { timeline: Timeline }) {
       </div>
       <div className="chart-wrap short">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={normData} margin={{ top: 8, right: 12, left: 0, bottom: 4 }}>
+          <LineChart data={data} margin={{ top: 8, right: 12, left: 0, bottom: 4 }}>
             <CartesianGrid stroke={GRID} vertical={false} />
             <XAxis dataKey="minute" stroke={AXIS} tick={{ fontSize: 11 }} tickFormatter={(v) => `${v}m`} />
-            <YAxis stroke={AXIS} tick={{ fontSize: 11 }} width={36} domain={[0, 100]}
-              tickFormatter={(v) => `${v}%`} />
+            <YAxis yAxisId="left" stroke={AXIS} tick={{ fontSize: 11 }} width={52}
+              tickFormatter={(v) => (v >= 1000 ? `${(v / 1000).toFixed(1)}k` : `${v}`)} />
+            <YAxis yAxisId="right" orientation="right" stroke={AXIS} tick={{ fontSize: 11 }} width={40} />
             <Tooltip contentStyle={{ background: "#171f33", border: `1px solid ${GRID}`, borderRadius: 8 }}
-              labelFormatter={(l) => `Minute ${l}`}
-              formatter={(v: number, key) => [`${Math.round(v)}%`, STAT_BY_KEY.get(String(key))?.label ?? key]} />
+              labelStyle={{ color: "#e6ebf5" }} labelFormatter={(l) => `Minute ${l}`}
+              formatter={(v: number, key) => tipFormatter(v, String(key))} />
             <Legend formatter={(k) => STAT_BY_KEY.get(String(k))?.label ?? k} wrapperStyle={{ fontSize: 11 }} />
-            {unlockLines()}
-            {overview.map((k) => (
-              <Line key={k} type="monotone" dataKey={k} stroke={STAT_BY_KEY.get(k)!.color}
-                dot={false} strokeWidth={2} isAnimationActive={false} />
-            ))}
+            {unlockLines("left")}
+            {overview.map((k) => {
+              const dd = STAT_BY_KEY.get(k)!;
+              return (
+                <Line key={k} yAxisId={dd.axis} type="monotone" dataKey={k} stroke={dd.color}
+                  dot={false} strokeWidth={2} isAnimationActive={false} />
+              );
+            })}
           </LineChart>
         </ResponsiveContainer>
       </div>
