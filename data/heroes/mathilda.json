@@ -3,7 +3,7 @@
   "id": "mathilda",
   "name": "Mathilda",
   "releaseYear": 2020,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "magic",
   "roles": [
@@ -69,48 +69,137 @@
     {
       "slot": "passive",
       "name": "Ancestral Guidance",
+      "description": "After casting a skill, the next basic attack deals bonus magic damage and grants movement speed.",
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Mathilda",
-          "outputs": []
+          "id": "guidance",
+          "trigger": "on_enhanced_basic",
+          "inputs": [
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "200 + 1.0 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_1",
       "name": "Soul Bloom",
+      "description": "Sends out spirits that deal magic damage and reveal enemies.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        7.5,
+        7.5,
+        7.5,
+        7.5,
+        7.5,
+        7.5
+      ],
+      "manaCost": [
+        60,
+        70,
+        80,
+        90,
+        100,
+        110
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Mathilda",
-          "outputs": []
+          "id": "bloom",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(275 + 45 * (skill_level - 1)) + 0.8 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_2",
       "name": "Guiding Wind",
+      "description": "Shields herself (and a linked ally) and gains movement speed. No damage.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        12,
+        11.8,
+        11.6,
+        11.4,
+        11.2,
+        11
+      ],
+      "manaCost": [
+        75,
+        80,
+        85,
+        90,
+        95,
+        100
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Mathilda",
-          "outputs": []
+          "id": "wind",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "shield",
+              "formula": "(500 + 100 * (skill_level - 1)) + 1.8 * magic_power",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "ultimate",
       "name": "Circling Eagle",
+      "description": "Locks onto a target, becoming control-immune, then strikes for magic damage and knocks the target airborne.",
       "maxLevel": 3,
+      "cooldownSeconds": [
+        40,
+        40,
+        40
+      ],
+      "manaCost": [
+        150,
+        180,
+        210
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Mathilda",
-          "outputs": []
+          "id": "eagle",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "magic_power"
+          ],
+          "outputs": [
+            {
+              "type": "damage_magic",
+              "formula": "(320 + 40 * (skill_level - 1)) + 1.2 * magic_power",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "airborne",
+              "durationSeconds": 0.6
+            }
+          ]
         }
       ]
     }
@@ -118,6 +207,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Mathilda",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Mathilda",
       "retrieved": "2026-06-29"
     }

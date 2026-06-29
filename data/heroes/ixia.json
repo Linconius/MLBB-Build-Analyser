@@ -3,7 +3,7 @@
   "id": "ixia",
   "name": "Ixia",
   "releaseYear": 2023,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -68,47 +68,132 @@
     {
       "slot": "passive",
       "name": "Siphon Starlium",
+      "description": "Building Starlium Charge stacks lets attacks siphon, dealing bonus physical damage that also scales with lifesteal (lifesteal term not modelled).",
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Ixia",
-          "outputs": []
+          "id": "siphon",
+          "trigger": "on_hit",
+          "inputs": [
+            "physical_attack",
+            "hero_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "10 + 1.5 * physical_attack + 10 * hero_level",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_1",
       "name": "Dual Beam",
+      "description": "Fires twin beams dealing physical damage and slowing enemy heroes.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        8,
+        7.2,
+        6.4,
+        5.6,
+        4.8,
+        4
+      ],
+      "manaCost": [
+        40,
+        45,
+        50,
+        55,
+        60,
+        65
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Ixia",
-          "outputs": []
+          "id": "beam",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(175 + 25 * (skill_level - 1)) + 0.8 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 40
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_2",
       "name": "Star Helix",
+      "description": "Pulls enemies in with a brief stun and deals physical damage.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        11,
+        10.6,
+        10.2,
+        9.8,
+        9.4,
+        9
+      ],
+      "manaCost": [
+        75,
+        80,
+        85,
+        90,
+        95,
+        100
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Ixia",
-          "outputs": []
+          "id": "helix",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(200 + 20 * (skill_level - 1)) + 0.6 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 0.1
+            }
+          ]
         }
       ]
     },
     {
       "slot": "ultimate",
       "name": "Full Barrage",
+      "description": "Enters a barrage state that enhances basic attacks and skills. No standalone damage modelled.",
       "maxLevel": 3,
+      "cooldownSeconds": [
+        54,
+        48,
+        42
+      ],
+      "manaCost": [
+        75,
+        90,
+        105
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Ixia",
+          "id": "barrage",
+          "trigger": "on_cast",
+          "note": "Buff state; damage comes from enhanced attacks/skills.",
           "outputs": []
         }
       ]
@@ -117,6 +202,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Ixia",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Ixia",
       "retrieved": "2026-06-29"
     }

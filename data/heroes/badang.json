@@ -3,7 +3,7 @@
   "id": "badang",
   "name": "Badang",
   "releaseYear": 2019,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "none",
   "damageType": "physical",
   "roles": [
@@ -68,48 +68,120 @@
     {
       "slot": "passive",
       "name": "Chivalry Fist",
+      "description": "Every 4th basic attack unleashes a fist wind dealing physical damage and knocking back; stuns if the target hits an obstacle.",
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Badang",
-          "outputs": []
+          "id": "chivalry",
+          "trigger": "on_enhanced_basic",
+          "inputs": [
+            "bonus_physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "50 + 0.3 * bonus_physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_1",
       "name": "Fist Wind",
+      "description": "Fires a wind blade dealing physical damage and slowing.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        10.4,
+        9.8,
+        9.2,
+        8.6,
+        8,
+        7.2
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Badang",
-          "outputs": []
+          "id": "fistwind",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "bonus_physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(125 + 20 * (skill_level - 1)) + 0.9 * bonus_physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "slow",
+              "valuePercent": 30,
+              "durationSeconds": 1.5
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_2",
       "name": "Fist Break",
+      "description": "Punches the ground creating a barrier and dealing physical damage. Published scaling ratio unconfirmed; base damage only.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Badang",
-          "outputs": []
+          "id": "fistbreak",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "230 + 20 * (skill_level - 1)",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "knockback"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "ultimate",
       "name": "Fist Crack",
+      "description": "Unleashes a barrage of 9 punches, each dealing physical damage. Published scaling ratio unconfirmed; base damage only.",
       "maxLevel": 3,
+      "cooldownSeconds": [
+        30,
+        30,
+        30
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Badang",
-          "outputs": []
+          "id": "fistcrack",
+          "trigger": "on_cast",
+          "note": "9 punches; per-hit base damage.",
+          "inputs": [
+            "skill_level"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "60 + 30 * (skill_level - 1)",
+              "magnitudeUnit": "flat",
+              "hits": 9
+            }
+          ]
         }
       ]
     }
@@ -117,6 +189,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Badang",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Badang",
       "retrieved": "2026-06-29"
     }

@@ -3,7 +3,7 @@
   "id": "jawhead",
   "name": "Jawhead",
   "releaseYear": 2018,
-  "skillsVerified": false,
+  "skillsVerified": true,
   "resourceType": "mana",
   "damageType": "physical",
   "roles": [
@@ -68,11 +68,12 @@
     {
       "slot": "passive",
       "name": "Mecha Suppression",
+      "description": "Gains stacks granting up to +8% Physical Attack each (max 10). No direct damage.",
       "maxLevel": 1,
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Jawhead",
+          "id": "suppression",
+          "trigger": "passive",
           "outputs": []
         }
       ]
@@ -80,36 +81,119 @@
     {
       "slot": "skill_1",
       "name": "Smart Missiles",
+      "description": "Launches homing missiles that deal physical damage to nearby enemies.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "manaCost": [
+        60,
+        65,
+        70,
+        75,
+        80,
+        85
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Jawhead",
-          "outputs": []
+          "id": "missiles",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(135 + 25 * (skill_level - 1)) + 0.3 * physical_attack",
+              "magnitudeUnit": "flat"
+            }
+          ]
         }
       ]
     },
     {
       "slot": "skill_2",
       "name": "Ejector",
+      "description": "Grabs a unit and flings it, dealing physical damage and stunning on landing.",
       "maxLevel": 6,
+      "cooldownSeconds": [
+        15,
+        14.4,
+        13.8,
+        13.2,
+        12.6,
+        12
+      ],
+      "manaCost": [
+        80,
+        90,
+        100,
+        110,
+        120,
+        130
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Jawhead",
-          "outputs": []
+          "id": "ejector",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(300 + 40 * (skill_level - 1)) + 0.8 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 0.5
+            }
+          ]
         }
       ]
     },
     {
       "slot": "ultimate",
       "name": "Unstoppable Force",
+      "description": "Charges the target dealing physical damage, stunning it and knocking back nearby enemies.",
       "maxLevel": 3,
+      "cooldownSeconds": [
+        35,
+        30,
+        25
+      ],
+      "manaCost": [
+        120,
+        150,
+        180
+      ],
       "algorithms": [
         {
-          "id": "todo",
-          "todo": "Author from wiki: https://mobile-legends.fandom.com/wiki/Jawhead",
-          "outputs": []
+          "id": "force",
+          "trigger": "on_cast",
+          "inputs": [
+            "skill_level",
+            "physical_attack"
+          ],
+          "outputs": [
+            {
+              "type": "damage_physical",
+              "formula": "(350 + 125 * (skill_level - 1)) + 1.5 * physical_attack",
+              "magnitudeUnit": "flat"
+            },
+            {
+              "type": "stun",
+              "durationSeconds": 1
+            }
+          ]
         }
       ]
     }
@@ -117,6 +201,11 @@
   "sources": [
     {
       "field": "baseStats",
+      "url": "https://mobile-legends.fandom.com/wiki/Jawhead",
+      "retrieved": "2026-06-29"
+    },
+    {
+      "field": "skills",
       "url": "https://mobile-legends.fandom.com/wiki/Jawhead",
       "retrieved": "2026-06-29"
     }
