@@ -8,8 +8,10 @@ import divineGlaive from "../../../data/items/divine-glaive.json";
 import maleficRoar from "../../../data/items/malefic-roar.json";
 import maleficGun from "../../../data/items/malefic-gun.json";
 import type { Hero, Item } from "../types";
+import mathildaData from "../../../data/heroes/mathilda.json";
+import auroraData from "../../../data/heroes/aurora.json";
 import { aggregateStats, AS_CAP, statNum } from "./stats";
-import { skillDamage, DEFAULT_TARGET } from "./skills";
+import { skillDamage, DEFAULT_TARGET, enumerateSkillOutputs, evaluateSkillOutputs } from "./skills";
 import { computeUnlocks, ownedAtMinute } from "./buildOrder";
 import { levelAtMinute, simulate } from "./timeline";
 
@@ -175,6 +177,47 @@ describe("unique-attribute stat grants", () => {
     const mix = aggregateStats(hero, 1, [{ item: a, secondsOwned: 0 }, { item: c, secondsOwned: 0 }]).stats;
     const only9 = aggregateStats(hero, 1, [{ item: c, secondsOwned: 0 }]).stats;
     expect(mix.movementSpeed).toBeCloseTo(only9.movementSpeed, 5);
+  });
+});
+
+describe("skill output enumeration", () => {
+  const mathilda = mathildaData as unknown as Hero;
+  const aurora = auroraData as unknown as Hero;
+
+  it("Mathilda: a Shield line, damage lines, no CC lines", () => {
+    const defs = enumerateSkillOutputs(mathilda);
+    expect(defs.every((d) => ["Damage", "Heal", "Shield"].includes(d.kind))).toBe(true);
+    const shield = defs.find((d) => d.kind === "Shield");
+    expect(shield?.key).toBe("skill_2:0:0");
+    expect(shield?.label).toContain("Shield");
+    expect(defs.some((d) => d.outputType === "airborne")).toBe(false); // CC excluded
+  });
+
+  it("Aurora: a Heal line on the passive", () => {
+    const heal = enumerateSkillOutputs(aurora).find((d) => d.kind === "Heal");
+    expect(heal?.key).toBe("passive:0:0");
+    expect(heal?.outputType).toBe("heal");
+  });
+
+  it("multiple damage outputs in one skill become distinct, suffixed lines", () => {
+    const hero = { skills: [{ slot: "skill_1", name: "Twin Slash", algorithms: [
+      { outputs: [{ type: "damage_physical" }, { type: "damage_physical" }] },
+    ] }] } as unknown as Hero;
+    const defs = enumerateSkillOutputs(hero);
+    expect(defs.map((d) => d.key)).toEqual(["skill_1:0:0", "skill_1:0:1"]);
+    expect(defs.map((d) => d.label)).toEqual(["Twin Slash — Damage 1", "Twin Slash — Damage 2"]);
+  });
+});
+
+describe("skill output evaluation", () => {
+  const mathilda = mathildaData as unknown as Hero;
+  it("shield is raw (unaffected by target defense); damage is mitigated", () => {
+    const { stats } = aggregateStats(mathilda, 15, []);
+    const soft = evaluateSkillOutputs(mathilda, stats, 15, { ...DEFAULT_TARGET, magicDefense: 0 });
+    const hard = evaluateSkillOutputs(mathilda, stats, 15, { ...DEFAULT_TARGET, magicDefense: 200 });
+    expect(soft["skill_2:0:0"]).toBeGreaterThan(0); // shield value present
+    expect(soft["skill_2:0:0"]).toBe(hard["skill_2:0:0"]); // shield not mitigated
+    expect(hard["skill_1:0:0"]).toBeLessThan(soft["skill_1:0:0"]); // magic damage is mitigated
   });
 });
 
