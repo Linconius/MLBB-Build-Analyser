@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+web/node_modules/
+
+# Build output
+web/dist/
+dist/
+
+# Seed cache (raw upstream inputs — never committed)
+.seed-cache/
+
+# Logs / OS / editor
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.tsbuildinfo

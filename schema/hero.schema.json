@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mlbb-build-analyser/schema/hero.schema.json",
+  "title": "MLBB Hero",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "name", "resourceType", "damageType", "roles", "maxLevel", "baseStats", "skills"],
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "name": { "type": "string" },
+    "title": { "type": "string" },
+    "releaseYear": { "type": "integer" },
+    "lastPatch": { "type": "string", "description": "Patch version these stats reflect, e.g. 1.8.44." },
+    "skillsVerified": { "type": "boolean", "description": "False when any skill algorithm is still a TODO stub." },
+    "resourceType": { "$ref": "common.defs.schema.json#/$defs/resourceType" },
+    "damageType": { "$ref": "common.defs.schema.json#/$defs/damageType" },
+    "roles": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "common.defs.schema.json#/$defs/role" }
+    },
+    "specialties": { "type": "array", "items": { "type": "string" } },
+    "lanes": {
+      "type": "array",
+      "items": { "$ref": "common.defs.schema.json#/$defs/lane" }
+    },
+    "maxLevel": { "const": 15 },
+    "baseStats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hp", "hpRegen", "mana", "manaRegen",
+        "physicalAttack", "magicPower",
+        "physicalDefense", "magicDefense",
+        "attackSpeed", "attackSpeedRatio",
+        "movementSpeed", "critChance"
+      ],
+      "properties": {
+        "hp": { "$ref": "common.defs.schema.json#/$defs/statLinear" },
+        "hpRegen": { "$ref": "common.defs.schema.json#/$defs/statLinear" },
+        "mana": { "$ref": "common.defs.schema.json#/$defs/statLinear" },
+        "manaRegen": { "$ref": "common.defs.schema.json#/$defs/statLinear" },
+        "physicalAttack": { "$ref": "common.defs.schema.json#/$defs/statLinear" },
+        "magicPower": { "$ref": "common.defs.schema.json#/$defs/statLinear" },
+        "physicalDefense": { "$ref": "common.defs.schema.json#/$defs/statLinear" },
+        "magicDefense": { "$ref": "common.defs.schema.json#/$defs/statLinear" },
+        "attackSpeed": { "$ref": "common.defs.schema.json#/$defs/statLinear" },
+        "attackSpeedRatio": { "type": "number", "description": "Multiplier converting item % attack speed into effective AS." },
+        "movementSpeed": { "$ref": "common.defs.schema.json#/$defs/statLinear" },
+        "critChance": { "$ref": "common.defs.schema.json#/$defs/statLinear" }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/skill" }
+    },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "common.defs.schema.json#/$defs/source" }
+    }
+  },
+  "$defs": {
+    "skill": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slot", "name", "maxLevel", "algorithms"],
+      "properties": {
+        "slot": { "enum": ["passive", "skill_1", "skill_2", "skill_3", "ultimate"] },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "maxLevel": { "type": "integer", "minimum": 1, "maximum": 6 },
+        "cooldownSeconds": { "type": "array", "items": { "type": "number" } },
+        "manaCost": { "type": "array", "items": { "type": "number" } },
+        "iconAsset": { "type": "string" },
+        "algorithms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/algorithm" }
+        }
+      }
+    },
+    "algorithm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "outputs"],
+      "properties": {
+        "id": { "type": "string" },
+        "trigger": { "type": "string", "description": "e.g. on_cast, on_basic_attack, on_hit, passive." },
+        "note": { "type": "string" },
+        "todo": { "type": "string", "description": "Present when this algorithm is an unverified stub awaiting hand-authoring." },
+        "condition": { "type": "string", "description": "Optional DSL formula evaluating to 0/1 gating whether outputs apply." },
+        "inputs": { "type": "array", "items": { "type": "string" } },
+        "outputs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/output" }
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": { "$ref": "common.defs.schema.json#/$defs/outputType" },
+        "formula": { "type": "string", "description": "DSL arithmetic expression for the magnitude." },
+        "magnitudeUnit": { "$ref": "common.defs.schema.json#/$defs/magnitudeUnit" },
+        "stat": { "$ref": "common.defs.schema.json#/$defs/buffStat", "description": "Target stat for buff_stat/debuff_stat outputs." },
+        "valuePercent": { "type": "number", "description": "Fixed strength for CC like slow %, or a flat percent magnitude." },
+        "durationSeconds": { "type": ["number", "string"], "description": "Number or DSL formula." },
+        "hits": { "type": "integer", "minimum": 1, "description": "Number of instances this output applies (default 1)." }
+      }
+    }
+  }
+}

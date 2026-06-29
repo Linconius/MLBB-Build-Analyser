@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mlbb-build-analyser/schema/item.schema.json",
+  "title": "MLBB Item",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "name", "category", "tier", "cost", "stats"],
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "name": { "type": "string" },
+    "category": { "enum": ["Attack", "Magic", "Defense", "Movement", "Jungle", "Roaming"] },
+    "tier": { "type": "integer", "minimum": 1, "maximum": 3 },
+    "lastPatch": { "type": "string" },
+    "iconAsset": { "type": "string" },
+    "cost": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["total"],
+      "properties": {
+        "total": { "type": "integer", "minimum": 0 },
+        "combine": { "type": "integer" },
+        "components": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" }
+        }
+      }
+    },
+    "stats": {
+      "type": "object",
+      "description": "Flat stat grants. Keys restricted to the closed itemStatKey set.",
+      "propertyNames": { "$ref": "common.defs.schema.json#/$defs/itemStatKey" },
+      "additionalProperties": { "type": "number" }
+    },
+    "passives": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/effectBlock" }
+    },
+    "actives": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/effectBlock" }
+    },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "common.defs.schema.json#/$defs/source" }
+    }
+  },
+  "$defs": {
+    "effectBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "description"],
+      "properties": {
+        "name": { "type": "string" },
+        "unique": { "type": "boolean" },
+        "alwaysOn": { "type": "boolean", "description": "True if the effect is unconditionally active (folded into stats by default)." },
+        "condition": { "type": "string", "description": "DSL formula (→0/1) or named trigger gating activation." },
+        "description": { "type": "string" },
+        "cooldownSeconds": { "type": "number" },
+        "effects": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/effect" }
+        }
+      }
+    },
+    "effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "enum": ["buff_stat", "damage_amp_pct", "damage_physical", "damage_magic", "damage_true", "heal", "shield", "slow", "stun", "movement"]
+        },
+        "stat": { "$ref": "common.defs.schema.json#/$defs/buffStat" },
+        "magnitudeUnit": {
+          "enum": ["flat", "percent", "percent_of_max_hp", "percent_target_max_hp", "stat_value"]
+        },
+        "value": { "type": "number" },
+        "formula": { "type": "string" },
+        "maxStacks": { "type": "integer", "minimum": 1 },
+        "secondsPerStack": { "type": "number", "minimum": 0 },
+        "requiresFullStacks": { "type": "boolean" },
+        "appliesWhen": { "type": "string", "description": "Human-readable trigger note for conditional effects." }
+      }
+    }
+  }
+}

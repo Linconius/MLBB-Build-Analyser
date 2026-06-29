@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "layla",
+  "name": "Layla",
+  "title": "Malefic Gunner",
+  "releaseYear": 2016,
+  "lastPatch": "1.8.80",
+  "skillsVerified": true,
+  "resourceType": "mana",
+  "damageType": "physical",
+  "roles": ["Marksman"],
+  "specialties": ["Damage", "Burst"],
+  "lanes": ["Gold"],
+  "maxLevel": 15,
+  "baseStats": {
+    "hp": { "base": 2250, "growth": 152 },
+    "hpRegen": { "base": 5.4, "growth": 0.2 },
+    "mana": { "base": 500, "growth": 100 },
+    "manaRegen": { "base": 4, "growth": 0.2 },
+    "physicalAttack": { "base": 133, "growth": 8.5 },
+    "magicPower": { "base": 0, "growth": 0 },
+    "physicalDefense": { "base": 15, "growth": 4 },
+    "magicDefense": { "base": 15, "growth": 2.5 },
+    "attackSpeed": { "base": 1.06, "growth": 0.02 },
+    "attackSpeedRatio": 1.0,
+    "movementSpeed": { "base": 240, "growth": 0 },
+    "critChance": { "base": 0, "growth": 0 }
+  },
+  "skills": [
+    {
+      "slot": "passive",
+      "name": "Malefic Gun",
+      "description": "Layla deals more damage to enemies farther from her, scaling from 100% up to 130% of basic attack damage at 6 units away.",
+      "maxLevel": 1,
+      "algorithms": [
+        {
+          "id": "passive_long_range",
+          "trigger": "on_basic_attack",
+          "note": "Bonus basic-attack damage at maximum range (6 units): +30% physical attack. Falls off to 0 at point blank.",
+          "inputs": ["physical_attack"],
+          "outputs": [
+            { "type": "damage_physical", "formula": "0.3 * physical_attack", "magnitudeUnit": "flat" }
+          ]
+        }
+      ]
+    },
+    {
+      "slot": "skill_1",
+      "name": "Malefic Bomb",
+      "description": "Fires a Malefic Bomb forward, dealing physical damage to the first enemy hit.",
+      "maxLevel": 6,
+      "cooldownSeconds": [6.0, 5.6, 5.2, 4.8, 4.4, 4.0],
+      "manaCost": [40, 45, 50, 55, 60, 65],
+      "algorithms": [
+        {
+          "id": "bomb_damage",
+          "trigger": "on_cast",
+          "inputs": ["skill_level", "physical_attack"],
+          "outputs": [
+            { "type": "damage_physical", "formula": "(200 + 40 * (skill_level - 1)) + 0.8 * physical_attack", "magnitudeUnit": "flat" }
+          ]
+        }
+      ]
+    },
+    {
+      "slot": "skill_2",
+      "name": "Void Projectile",
+      "description": "Releases a void energy ball that deals physical damage to enemies in its path.",
+      "maxLevel": 6,
+      "cooldownSeconds": [7.5, 7.3, 7.1, 6.9, 6.7, 6.5],
+      "manaCost": [65, 70, 75, 80, 85, 90],
+      "algorithms": [
+        {
+          "id": "void_damage",
+          "trigger": "on_cast",
+          "inputs": ["skill_level", "physical_attack"],
+          "outputs": [
+            { "type": "damage_physical", "formula": "(170 + 30 * (skill_level - 1)) + 0.65 * physical_attack", "magnitudeUnit": "flat" }
+          ]
+        }
+      ]
+    },
+    {
+      "slot": "ultimate",
+      "name": "Destruction Rush",
+      "description": "Fires a destructive energy beam dealing massive physical damage to enemies in a line.",
+      "maxLevel": 3,
+      "cooldownSeconds": [37.0, 32.0, 27.0],
+      "manaCost": [130, 150, 170],
+      "algorithms": [
+        {
+          "id": "beam_damage",
+          "trigger": "on_cast",
+          "inputs": ["skill_level", "physical_attack"],
+          "outputs": [
+            { "type": "damage_physical", "formula": "(500 + 150 * (skill_level - 1)) + 1.5 * physical_attack", "magnitudeUnit": "flat" }
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    { "field": "baseStats", "url": "https://mobile-legends.fandom.com/wiki/Layla", "retrieved": "2026-06-29" },
+    { "field": "skills", "url": "https://mobile-legends.fandom.com/wiki/Layla", "retrieved": "2026-06-29" }
+  ]
+}

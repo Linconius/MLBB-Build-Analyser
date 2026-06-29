@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mlbb-build-analyser/schema/common.defs.schema.json",
+  "title": "MLBB shared definitions",
+  "$defs": {
+    "statLinear": {
+      "type": "object",
+      "description": "A stat that grows linearly per level: value(L) = base + growth*(L-1).",
+      "additionalProperties": false,
+      "required": ["base", "growth"],
+      "properties": {
+        "base": { "type": "number" },
+        "growth": { "type": "number" }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url"],
+      "properties": {
+        "field": { "type": "string", "description": "Which part of the file this source backs (e.g. baseStats, skills, stats)." },
+        "url": { "type": "string", "format": "uri" },
+        "retrieved": { "type": "string", "description": "ISO date the data was retrieved/verified." }
+      }
+    },
+    "resourceType": {
+      "enum": ["mana", "energy", "none"]
+    },
+    "damageType": {
+      "enum": ["physical", "magic", "true", "hybrid"]
+    },
+    "role": {
+      "enum": ["Tank", "Fighter", "Assassin", "Mage", "Marksman", "Support"]
+    },
+    "lane": {
+      "enum": ["Gold", "Mid", "Exp", "Jungle", "Roam"]
+    },
+    "outputType": {
+      "description": "The kind of effect an algorithm output produces.",
+      "enum": [
+        "damage_physical",
+        "damage_magic",
+        "damage_true",
+        "damage_adaptive",
+        "dot_physical",
+        "dot_magic",
+        "dot_true",
+        "heal",
+        "shield",
+        "slow",
+        "stun",
+        "knockup",
+        "knockback",
+        "airborne",
+        "suppression",
+        "silence",
+        "root",
+        "blind",
+        "taunt",
+        "fear",
+        "buff_stat",
+        "debuff_stat"
+      ]
+    },
+    "magnitudeUnit": {
+      "description": "How an output's `formula`/`value` magnitude is interpreted.",
+      "enum": [
+        "flat",
+        "stat_value",
+        "percent_target_max_hp",
+        "percent_target_current_hp",
+        "percent_target_missing_hp",
+        "percent_caster_max_hp",
+        "percent_caster_current_hp",
+        "percent_caster_missing_hp"
+      ]
+    },
+    "itemStatKey": {
+      "description": "Closed set of stat keys an item may grant. Percent stats use the `Pct` suffix.",
+      "enum": [
+        "physicalAttack",
+        "magicPower",
+        "hp",
+        "mana",
+        "physicalDefense",
+        "magicDefense",
+        "hpRegen",
+        "manaRegen",
+        "attackSpeedPct",
+        "critChancePct",
+        "critDamagePct",
+        "cooldownReductionPct",
+        "movementSpeed",
+        "movementSpeedPct",
+        "physicalPenetrationFlat",
+        "physicalPenetrationPct",
+        "magicPenetrationFlat",
+        "magicPenetrationPct",
+        "lifestealPct",
+        "physicalLifestealPct",
+        "spellVampPct",
+        "hybridLifestealPct",
+        "adaptiveAttack",
+        "adaptivePenetration"
+      ]
+    },
+    "buffStat": {
+      "description": "Stat name a buff_stat/debuff_stat output or item passive effect targets.",
+      "enum": [
+        "physical_attack",
+        "magic_power",
+        "physical_defense",
+        "magic_defense",
+        "max_hp",
+        "max_mana",
+        "attack_speed",
+        "movement_speed",
+        "crit_chance",
+        "crit_damage",
+        "cooldown_reduction",
+        "physical_penetration_flat",
+        "physical_penetration_pct",
+        "magic_penetration_flat",
+        "magic_penetration_pct",
+        "lifesteal",
+        "spell_vamp",
+        "adaptive_attack"
+      ]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "mlbb-build-analyser",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A versioned data-source and interactive build analyser for Mobile Legends: Bang Bang.",
+  "type": "module",
+  "workspaces": ["web"],
+  "scripts": {
+    "validate": "tsx scripts/validate.ts",
+    "seed": "tsx scripts/seed.ts",
+    "build-index": "tsx scripts/build-index.ts",
+    "dev": "npm run dev --workspace web",
+    "build:web": "npm run build --workspace web",
+    "test": "npm run test --workspace web"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "expr-eval": "^2.0.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

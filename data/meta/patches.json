@@ -1,0 +1,5 @@
+{
+  "$comment": "Patch registry. Each key is an MLBB patch version; values describe the release and the git tag that captures it. Update in the same commit set that applies a patch's data changes.",
+  "current": null,
+  "patches": {}
+}

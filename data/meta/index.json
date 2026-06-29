@@ -1,0 +1,34 @@
+{
+  "generated": true,
+  "heroCount": 1,
+  "itemCount": 2,
+  "heroes": [
+    {
+      "id": "layla",
+      "name": "Layla",
+      "title": "Malefic Gunner",
+      "roles": [
+        "Marksman"
+      ],
+      "resourceType": "mana",
+      "damageType": "physical",
+      "skillsVerified": true
+    }
+  ],
+  "items": [
+    {
+      "id": "blade-of-despair",
+      "name": "Blade of Despair",
+      "category": "Attack",
+      "tier": 3,
+      "cost": 3010
+    },
+    {
+      "id": "clock-of-destiny",
+      "name": "Clock of Destiny",
+      "category": "Magic",
+      "tier": 3,
+      "cost": 2050
+    }
+  ]
+}

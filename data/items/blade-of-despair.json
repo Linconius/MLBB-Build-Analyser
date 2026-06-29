@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "blade-of-despair",
+  "name": "Blade of Despair",
+  "category": "Attack",
+  "tier": 3,
+  "lastPatch": "1.8.80",
+  "cost": { "total": 3010 },
+  "stats": {
+    "physicalAttack": 170,
+    "movementSpeedPct": 5
+  },
+  "passives": [
+    {
+      "name": "Despair",
+      "unique": true,
+      "alwaysOn": false,
+      "condition": "target_current_hp / target_max_hp < 0.5",
+      "description": "Dealing damage to enemies whose HP is below 50% grants 25% extra Physical Attack for 2 seconds.",
+      "effects": [
+        { "type": "buff_stat", "stat": "physical_attack", "magnitudeUnit": "percent", "value": 25, "appliesWhen": "target below 50% HP" }
+      ]
+    }
+  ],
+  "actives": [],
+  "sources": [
+    { "field": "stats", "url": "https://mobile-legends.fandom.com/wiki/Blade_of_Despair", "retrieved": "2026-06-29" }
+  ]
+}

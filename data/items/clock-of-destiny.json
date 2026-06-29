@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "clock-of-destiny",
+  "name": "Clock of Destiny",
+  "category": "Magic",
+  "tier": 3,
+  "lastPatch": "1.8.80",
+  "cost": { "total": 2050 },
+  "stats": {
+    "magicPower": 45,
+    "hp": 400,
+    "mana": 400,
+    "cooldownReductionPct": 10
+  },
+  "passives": [
+    {
+      "name": "Time",
+      "unique": true,
+      "alwaysOn": true,
+      "description": "Every few seconds gain bonus Magic Power and Max HP, stacking up to a maximum. Exact per-stack values pending wiki verification.",
+      "effects": []
+    },
+    {
+      "name": "Gift",
+      "unique": true,
+      "alwaysOn": false,
+      "description": "When HP drops below 50%, recovers a portion of HP over 3 seconds; when Mana drops below 50%, restores a portion of Mana over 3 seconds. Cooldown: 60 seconds.",
+      "cooldownSeconds": 60,
+      "effects": []
+    }
+  ],
+  "actives": [],
+  "sources": [
+    { "field": "stats", "url": "https://mobile-legends.fandom.com/wiki/Clock_of_Destiny", "retrieved": "2026-06-29" }
+  ]
+}
